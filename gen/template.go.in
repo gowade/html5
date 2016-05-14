@@ -1,0 +1,80 @@
+package h
+
+<% if (tagType != "Element") { %>
+type <%= privType %> struct {
+<% if (parentIface) { %>
+  <%= parentIface.privType %>
+<% } -%>
+}
+
+func <%= tagType %>() *<%= privType %> {
+	e := &<%= privType %>{}
+	e.a = make(map[string]interface{})
+	e.tagName = "<%= tagType.toLowerCase() %>"
+	return e
+}
+
+func (e *<%= privType %>) S(style StyleMap) *<%= privType %> {
+	e.htmlElement.S(style)
+	return e
+}
+
+func (e *<%= privType %>) Key(key interface{}) *<%= privType %> {
+	e.key = F(key)
+	return e
+}
+<% } %>
+
+<% _.forEach(members, function(member) {
+	if (member.readonly || member.idlType.generic) {
+		return;
+	}
+
+	var mGoType = goTypeMap[member.idlType.idlType];
+	if (!mGoType) {
+		return;
+	}
+
+	var mMethodName = toGoMethodName(member.name);
+	var mAttr = member.name.toLowerCase();
+%>
+func (e *<%= privType %>) <%= mMethodName %>(v <%= mGoType %>) *<%= privType %> {
+	<% switch (mGoType) {
+	case "bool": -%>
+		if v { e.a["<%= mAttr %>"] = "" } else { delete(e.a, "<%= mAttr %>") }
+	<% break;
+	default: -%>
+		e.a["<%= mAttr %>"] = v
+	<% } -%>
+	return e
+}
+<% }) %>
+
+<% if (parentIface) { %>
+<% parentRecursive(parentIface, function(p, pp) { -%>
+<% _.forEach(p.members, function(member) {
+	if (member.readonly || member.idlType.generic) {
+		return;
+	}
+
+	var mGoType = goTypeMap[member.idlType.idlType];
+	if (!mGoType) {
+		return;
+	}
+
+	var mMethodName = toGoMethodName(member.name);
+	var mAttr = member.name.toLowerCase();
+%>
+func (e *<%= privType %>) <%= mMethodName %>(v <%= mGoType %>) *<%= privType %> {
+	<% switch (mGoType) {
+	case "bool": -%>
+		if v { e.a["<%= mAttr %>"] = "" } else { delete(e.a, "<%= mAttr %>") }
+	<% break;
+	default: -%>
+		e.a["<%= mAttr %>"] = v
+	<% } -%>
+	return e
+}
+<% }) %>
+<% }) -%>
+<% } %>

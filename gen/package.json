@@ -1,0 +1,15 @@
+{
+  "name": "go-html5-safe-gen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gen.js",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "lodash": "^4.12.0",
+    "webidl2": "^2.0.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
