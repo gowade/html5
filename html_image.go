@@ -1,57 +1,69 @@
 package h
 
-type htmlImage struct {
-	htmlElement
+// HTMLImage represents HTML <image> tag
+type HTMLImage struct {
+	HTMLElement
 }
 
-func Image() *htmlImage {
-	e := &htmlImage{}
+// Image creates a HTML <image> tag
+func Image() *HTMLImage {
+	e := &HTMLImage{}
 	e.a = make(map[string]interface{})
 	e.tagName = "image"
 	return e
 }
 
-func (e *htmlImage) S(style StyleMap) *htmlImage {
+// S sets the element's CSS properties
+func (e *HTMLImage) S(style StyleMap) *HTMLImage {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlImage) Key(key interface{}) *htmlImage {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLImage) Key(key interface{}) *HTMLImage {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlImage) Alt(v string) *htmlImage {
+// Alt sets the element's "alt" attribute
+func (e *HTMLImage) Alt(v string) *HTMLImage {
 	e.a["alt"] = v
 	return e
 }
 
-func (e *htmlImage) Src(v string) *htmlImage {
+// Src sets the element's "src" attribute
+func (e *HTMLImage) Src(v string) *HTMLImage {
 	e.a["src"] = v
 	return e
 }
 
-func (e *htmlImage) Srcset(v string) *htmlImage {
+// Srcset sets the element's "srcset" attribute
+func (e *HTMLImage) Srcset(v string) *HTMLImage {
 	e.a["srcset"] = v
 	return e
 }
 
-func (e *htmlImage) Sizes(v string) *htmlImage {
+// Sizes sets the element's "sizes" attribute
+func (e *HTMLImage) Sizes(v string) *HTMLImage {
 	e.a["sizes"] = v
 	return e
 }
 
-func (e *htmlImage) CrossOrigin(v string) *htmlImage {
+// CrossOrigin sets the element's "crossorigin" attribute
+func (e *HTMLImage) CrossOrigin(v string) *HTMLImage {
 	e.a["crossorigin"] = v
 	return e
 }
 
-func (e *htmlImage) UseMap(v string) *htmlImage {
+// UseMap sets the element's "usemap" attribute
+func (e *HTMLImage) UseMap(v string) *HTMLImage {
 	e.a["usemap"] = v
 	return e
 }
 
-func (e *htmlImage) IsMap(v bool) *htmlImage {
+// IsMap sets the element's "ismap" attribute
+func (e *HTMLImage) IsMap(v bool) *HTMLImage {
 	if v {
 		e.a["ismap"] = ""
 	} else {
@@ -60,42 +72,50 @@ func (e *htmlImage) IsMap(v bool) *htmlImage {
 	return e
 }
 
-func (e *htmlImage) Width(v int) *htmlImage {
+// Width sets the element's "width" attribute
+func (e *HTMLImage) Width(v int) *HTMLImage {
 	e.a["width"] = v
 	return e
 }
 
-func (e *htmlImage) Height(v int) *htmlImage {
+// Height sets the element's "height" attribute
+func (e *HTMLImage) Height(v int) *HTMLImage {
 	e.a["height"] = v
 	return e
 }
 
-func (e *htmlImage) ReferrerPolicy(v string) *htmlImage {
+// ReferrerPolicy sets the element's "referrerpolicy" attribute
+func (e *HTMLImage) ReferrerPolicy(v string) *HTMLImage {
 	e.a["referrerpolicy"] = v
 	return e
 }
 
-func (e *htmlImage) ID(v string) *htmlImage {
+// ID sets the element's "id" attribute
+func (e *HTMLImage) ID(v string) *HTMLImage {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlImage) Class(v string) *htmlImage {
+// Class sets the element's "class" attribute
+func (e *HTMLImage) Class(v string) *HTMLImage {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlImage) Title(v string) *htmlImage {
+// Title sets the element's "title" attribute
+func (e *HTMLImage) Title(v string) *HTMLImage {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlImage) Lang(v string) *htmlImage {
+// Lang sets the element's "lang" attribute
+func (e *HTMLImage) Lang(v string) *HTMLImage {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlImage) Translate(v bool) *htmlImage {
+// Translate sets the element's "translate" attribute
+func (e *HTMLImage) Translate(v bool) *HTMLImage {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -104,12 +124,14 @@ func (e *htmlImage) Translate(v bool) *htmlImage {
 	return e
 }
 
-func (e *htmlImage) Dir(v string) *htmlImage {
+// Dir sets the element's "dir" attribute
+func (e *HTMLImage) Dir(v string) *HTMLImage {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlImage) Hidden(v bool) *htmlImage {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLImage) Hidden(v bool) *HTMLImage {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -118,17 +140,20 @@ func (e *htmlImage) Hidden(v bool) *htmlImage {
 	return e
 }
 
-func (e *htmlImage) TabIndex(v int) *htmlImage {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLImage) TabIndex(v int) *HTMLImage {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlImage) AccessKey(v string) *htmlImage {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLImage) AccessKey(v string) *HTMLImage {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlImage) Draggable(v bool) *htmlImage {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLImage) Draggable(v bool) *HTMLImage {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -137,7 +162,8 @@ func (e *htmlImage) Draggable(v bool) *htmlImage {
 	return e
 }
 
-func (e *htmlImage) Spellcheck(v bool) *htmlImage {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLImage) Spellcheck(v bool) *HTMLImage {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

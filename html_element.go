@@ -1,26 +1,31 @@
 package h
 
-func (e *htmlElement) ID(v string) *htmlElement {
+// ID sets the element's "id" attribute
+func (e *HTMLElement) ID(v string) *HTMLElement {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlElement) Class(v string) *htmlElement {
+// Class sets the element's "class" attribute
+func (e *HTMLElement) Class(v string) *HTMLElement {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlElement) Title(v string) *htmlElement {
+// Title sets the element's "title" attribute
+func (e *HTMLElement) Title(v string) *HTMLElement {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlElement) Lang(v string) *htmlElement {
+// Lang sets the element's "lang" attribute
+func (e *HTMLElement) Lang(v string) *HTMLElement {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlElement) Translate(v bool) *htmlElement {
+// Translate sets the element's "translate" attribute
+func (e *HTMLElement) Translate(v bool) *HTMLElement {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -29,12 +34,14 @@ func (e *htmlElement) Translate(v bool) *htmlElement {
 	return e
 }
 
-func (e *htmlElement) Dir(v string) *htmlElement {
+// Dir sets the element's "dir" attribute
+func (e *HTMLElement) Dir(v string) *HTMLElement {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlElement) Hidden(v bool) *htmlElement {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLElement) Hidden(v bool) *HTMLElement {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -43,17 +50,20 @@ func (e *htmlElement) Hidden(v bool) *htmlElement {
 	return e
 }
 
-func (e *htmlElement) TabIndex(v int) *htmlElement {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLElement) TabIndex(v int) *HTMLElement {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlElement) AccessKey(v string) *htmlElement {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLElement) AccessKey(v string) *HTMLElement {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlElement) Draggable(v bool) *htmlElement {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLElement) Draggable(v bool) *HTMLElement {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -62,7 +72,8 @@ func (e *htmlElement) Draggable(v bool) *htmlElement {
 	return e
 }
 
-func (e *htmlElement) Spellcheck(v bool) *htmlElement {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLElement) Spellcheck(v bool) *HTMLElement {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

@@ -1,67 +1,81 @@
 package h
 
-type htmlTableCell struct {
-	htmlElement
+// HTMLTableCell represents HTML <tablecell> tag
+type HTMLTableCell struct {
+	HTMLElement
 }
 
-func TableCell() *htmlTableCell {
-	e := &htmlTableCell{}
+// TableCell creates a HTML <tablecell> tag
+func TableCell() *HTMLTableCell {
+	e := &HTMLTableCell{}
 	e.a = make(map[string]interface{})
 	e.tagName = "tablecell"
 	return e
 }
 
-func (e *htmlTableCell) S(style StyleMap) *htmlTableCell {
+// S sets the element's CSS properties
+func (e *HTMLTableCell) S(style StyleMap) *HTMLTableCell {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlTableCell) Key(key interface{}) *htmlTableCell {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLTableCell) Key(key interface{}) *HTMLTableCell {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlTableCell) ColSpan(v int) *htmlTableCell {
+// ColSpan sets the element's "colspan" attribute
+func (e *HTMLTableCell) ColSpan(v int) *HTMLTableCell {
 	e.a["colspan"] = v
 	return e
 }
 
-func (e *htmlTableCell) RowSpan(v int) *htmlTableCell {
+// RowSpan sets the element's "rowspan" attribute
+func (e *HTMLTableCell) RowSpan(v int) *HTMLTableCell {
 	e.a["rowspan"] = v
 	return e
 }
 
-func (e *htmlTableCell) Scope(v string) *htmlTableCell {
+// Scope sets the element's "scope" attribute
+func (e *HTMLTableCell) Scope(v string) *HTMLTableCell {
 	e.a["scope"] = v
 	return e
 }
 
-func (e *htmlTableCell) Abbr(v string) *htmlTableCell {
+// Abbr sets the element's "abbr" attribute
+func (e *HTMLTableCell) Abbr(v string) *HTMLTableCell {
 	e.a["abbr"] = v
 	return e
 }
 
-func (e *htmlTableCell) ID(v string) *htmlTableCell {
+// ID sets the element's "id" attribute
+func (e *HTMLTableCell) ID(v string) *HTMLTableCell {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlTableCell) Class(v string) *htmlTableCell {
+// Class sets the element's "class" attribute
+func (e *HTMLTableCell) Class(v string) *HTMLTableCell {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlTableCell) Title(v string) *htmlTableCell {
+// Title sets the element's "title" attribute
+func (e *HTMLTableCell) Title(v string) *HTMLTableCell {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlTableCell) Lang(v string) *htmlTableCell {
+// Lang sets the element's "lang" attribute
+func (e *HTMLTableCell) Lang(v string) *HTMLTableCell {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlTableCell) Translate(v bool) *htmlTableCell {
+// Translate sets the element's "translate" attribute
+func (e *HTMLTableCell) Translate(v bool) *HTMLTableCell {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -70,12 +84,14 @@ func (e *htmlTableCell) Translate(v bool) *htmlTableCell {
 	return e
 }
 
-func (e *htmlTableCell) Dir(v string) *htmlTableCell {
+// Dir sets the element's "dir" attribute
+func (e *HTMLTableCell) Dir(v string) *HTMLTableCell {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlTableCell) Hidden(v bool) *htmlTableCell {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLTableCell) Hidden(v bool) *HTMLTableCell {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -84,17 +100,20 @@ func (e *htmlTableCell) Hidden(v bool) *htmlTableCell {
 	return e
 }
 
-func (e *htmlTableCell) TabIndex(v int) *htmlTableCell {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLTableCell) TabIndex(v int) *HTMLTableCell {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlTableCell) AccessKey(v string) *htmlTableCell {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLTableCell) AccessKey(v string) *HTMLTableCell {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlTableCell) Draggable(v bool) *htmlTableCell {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLTableCell) Draggable(v bool) *HTMLTableCell {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -103,7 +122,8 @@ func (e *htmlTableCell) Draggable(v bool) *htmlTableCell {
 	return e
 }
 
-func (e *htmlTableCell) Spellcheck(v bool) *htmlTableCell {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLTableCell) Spellcheck(v bool) *HTMLTableCell {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

@@ -1,52 +1,63 @@
 package h
 
-type htmlLI struct {
-	htmlElement
+// HTMLLI represents HTML <li> tag
+type HTMLLI struct {
+	HTMLElement
 }
 
-func LI() *htmlLI {
-	e := &htmlLI{}
+// LI creates a HTML <li> tag
+func LI() *HTMLLI {
+	e := &HTMLLI{}
 	e.a = make(map[string]interface{})
 	e.tagName = "li"
 	return e
 }
 
-func (e *htmlLI) S(style StyleMap) *htmlLI {
+// S sets the element's CSS properties
+func (e *HTMLLI) S(style StyleMap) *HTMLLI {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlLI) Key(key interface{}) *htmlLI {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLLI) Key(key interface{}) *HTMLLI {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlLI) Value(v int) *htmlLI {
+// Value sets the element's "value" attribute
+func (e *HTMLLI) Value(v int) *HTMLLI {
 	e.a["value"] = v
 	return e
 }
 
-func (e *htmlLI) ID(v string) *htmlLI {
+// ID sets the element's "id" attribute
+func (e *HTMLLI) ID(v string) *HTMLLI {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlLI) Class(v string) *htmlLI {
+// Class sets the element's "class" attribute
+func (e *HTMLLI) Class(v string) *HTMLLI {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlLI) Title(v string) *htmlLI {
+// Title sets the element's "title" attribute
+func (e *HTMLLI) Title(v string) *HTMLLI {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlLI) Lang(v string) *htmlLI {
+// Lang sets the element's "lang" attribute
+func (e *HTMLLI) Lang(v string) *HTMLLI {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlLI) Translate(v bool) *htmlLI {
+// Translate sets the element's "translate" attribute
+func (e *HTMLLI) Translate(v bool) *HTMLLI {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -55,12 +66,14 @@ func (e *htmlLI) Translate(v bool) *htmlLI {
 	return e
 }
 
-func (e *htmlLI) Dir(v string) *htmlLI {
+// Dir sets the element's "dir" attribute
+func (e *HTMLLI) Dir(v string) *HTMLLI {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlLI) Hidden(v bool) *htmlLI {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLLI) Hidden(v bool) *HTMLLI {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -69,17 +82,20 @@ func (e *htmlLI) Hidden(v bool) *htmlLI {
 	return e
 }
 
-func (e *htmlLI) TabIndex(v int) *htmlLI {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLLI) TabIndex(v int) *HTMLLI {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlLI) AccessKey(v string) *htmlLI {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLLI) AccessKey(v string) *HTMLLI {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlLI) Draggable(v bool) *htmlLI {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLLI) Draggable(v bool) *HTMLLI {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -88,7 +104,8 @@ func (e *htmlLI) Draggable(v bool) *htmlLI {
 	return e
 }
 
-func (e *htmlLI) Spellcheck(v bool) *htmlLI {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLLI) Spellcheck(v bool) *HTMLLI {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

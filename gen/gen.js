@@ -50,11 +50,12 @@ _.map(tree, function(iface) {
     }
 
     iface.tagType = mapTag(iface.name);
-    iface.privType = "html" + iface.tagType;
     if (!iface.tagType) {
         return;
     }
 
+    iface.htmlTag = iface.tagType.toLowerCase();
+    iface.privType = "HTML" + iface.tagType;
     ifaces[iface.name] = iface
 })
 
@@ -87,7 +88,7 @@ _.forOwn(ifaces, function(iface) {
         return _.upperFirst(name);
     }
 
-    var output = ejs.render(template, iface, {debug: true});
+    var output = ejs.render(template, iface);
     var fileName = "html_" + iface.tagType.toLowerCase() + ".go";
     fs.writeFile(fileName, output, function(err) {
         if(err) {

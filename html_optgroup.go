@@ -1,27 +1,33 @@
 package h
 
-type htmlOptGroup struct {
-	htmlElement
+// HTMLOptGroup represents HTML <optgroup> tag
+type HTMLOptGroup struct {
+	HTMLElement
 }
 
-func OptGroup() *htmlOptGroup {
-	e := &htmlOptGroup{}
+// OptGroup creates a HTML <optgroup> tag
+func OptGroup() *HTMLOptGroup {
+	e := &HTMLOptGroup{}
 	e.a = make(map[string]interface{})
 	e.tagName = "optgroup"
 	return e
 }
 
-func (e *htmlOptGroup) S(style StyleMap) *htmlOptGroup {
+// S sets the element's CSS properties
+func (e *HTMLOptGroup) S(style StyleMap) *HTMLOptGroup {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlOptGroup) Key(key interface{}) *htmlOptGroup {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLOptGroup) Key(key interface{}) *HTMLOptGroup {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlOptGroup) Disabled(v bool) *htmlOptGroup {
+// Disabled sets the element's "disabled" attribute
+func (e *HTMLOptGroup) Disabled(v bool) *HTMLOptGroup {
 	if v {
 		e.a["disabled"] = ""
 	} else {
@@ -30,32 +36,38 @@ func (e *htmlOptGroup) Disabled(v bool) *htmlOptGroup {
 	return e
 }
 
-func (e *htmlOptGroup) Label(v string) *htmlOptGroup {
+// Label sets the element's "label" attribute
+func (e *HTMLOptGroup) Label(v string) *HTMLOptGroup {
 	e.a["label"] = v
 	return e
 }
 
-func (e *htmlOptGroup) ID(v string) *htmlOptGroup {
+// ID sets the element's "id" attribute
+func (e *HTMLOptGroup) ID(v string) *HTMLOptGroup {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlOptGroup) Class(v string) *htmlOptGroup {
+// Class sets the element's "class" attribute
+func (e *HTMLOptGroup) Class(v string) *HTMLOptGroup {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlOptGroup) Title(v string) *htmlOptGroup {
+// Title sets the element's "title" attribute
+func (e *HTMLOptGroup) Title(v string) *HTMLOptGroup {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlOptGroup) Lang(v string) *htmlOptGroup {
+// Lang sets the element's "lang" attribute
+func (e *HTMLOptGroup) Lang(v string) *HTMLOptGroup {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlOptGroup) Translate(v bool) *htmlOptGroup {
+// Translate sets the element's "translate" attribute
+func (e *HTMLOptGroup) Translate(v bool) *HTMLOptGroup {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -64,12 +76,14 @@ func (e *htmlOptGroup) Translate(v bool) *htmlOptGroup {
 	return e
 }
 
-func (e *htmlOptGroup) Dir(v string) *htmlOptGroup {
+// Dir sets the element's "dir" attribute
+func (e *HTMLOptGroup) Dir(v string) *HTMLOptGroup {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlOptGroup) Hidden(v bool) *htmlOptGroup {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLOptGroup) Hidden(v bool) *HTMLOptGroup {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -78,17 +92,20 @@ func (e *htmlOptGroup) Hidden(v bool) *htmlOptGroup {
 	return e
 }
 
-func (e *htmlOptGroup) TabIndex(v int) *htmlOptGroup {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLOptGroup) TabIndex(v int) *HTMLOptGroup {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlOptGroup) AccessKey(v string) *htmlOptGroup {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLOptGroup) AccessKey(v string) *HTMLOptGroup {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlOptGroup) Draggable(v bool) *htmlOptGroup {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLOptGroup) Draggable(v bool) *HTMLOptGroup {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -97,7 +114,8 @@ func (e *htmlOptGroup) Draggable(v bool) *htmlOptGroup {
 	return e
 }
 
-func (e *htmlOptGroup) Spellcheck(v bool) *htmlOptGroup {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLOptGroup) Spellcheck(v bool) *HTMLOptGroup {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

@@ -1,27 +1,33 @@
 package h
 
-type htmlDetails struct {
-	htmlElement
+// HTMLDetails represents HTML <details> tag
+type HTMLDetails struct {
+	HTMLElement
 }
 
-func Details() *htmlDetails {
-	e := &htmlDetails{}
+// Details creates a HTML <details> tag
+func Details() *HTMLDetails {
+	e := &HTMLDetails{}
 	e.a = make(map[string]interface{})
 	e.tagName = "details"
 	return e
 }
 
-func (e *htmlDetails) S(style StyleMap) *htmlDetails {
+// S sets the element's CSS properties
+func (e *HTMLDetails) S(style StyleMap) *HTMLDetails {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlDetails) Key(key interface{}) *htmlDetails {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLDetails) Key(key interface{}) *HTMLDetails {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlDetails) Open(v bool) *htmlDetails {
+// Open sets the element's "open" attribute
+func (e *HTMLDetails) Open(v bool) *HTMLDetails {
 	if v {
 		e.a["open"] = ""
 	} else {
@@ -30,27 +36,32 @@ func (e *htmlDetails) Open(v bool) *htmlDetails {
 	return e
 }
 
-func (e *htmlDetails) ID(v string) *htmlDetails {
+// ID sets the element's "id" attribute
+func (e *HTMLDetails) ID(v string) *HTMLDetails {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlDetails) Class(v string) *htmlDetails {
+// Class sets the element's "class" attribute
+func (e *HTMLDetails) Class(v string) *HTMLDetails {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlDetails) Title(v string) *htmlDetails {
+// Title sets the element's "title" attribute
+func (e *HTMLDetails) Title(v string) *HTMLDetails {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlDetails) Lang(v string) *htmlDetails {
+// Lang sets the element's "lang" attribute
+func (e *HTMLDetails) Lang(v string) *HTMLDetails {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlDetails) Translate(v bool) *htmlDetails {
+// Translate sets the element's "translate" attribute
+func (e *HTMLDetails) Translate(v bool) *HTMLDetails {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -59,12 +70,14 @@ func (e *htmlDetails) Translate(v bool) *htmlDetails {
 	return e
 }
 
-func (e *htmlDetails) Dir(v string) *htmlDetails {
+// Dir sets the element's "dir" attribute
+func (e *HTMLDetails) Dir(v string) *HTMLDetails {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlDetails) Hidden(v bool) *htmlDetails {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLDetails) Hidden(v bool) *HTMLDetails {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -73,17 +86,20 @@ func (e *htmlDetails) Hidden(v bool) *htmlDetails {
 	return e
 }
 
-func (e *htmlDetails) TabIndex(v int) *htmlDetails {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLDetails) TabIndex(v int) *HTMLDetails {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlDetails) AccessKey(v string) *htmlDetails {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLDetails) AccessKey(v string) *HTMLDetails {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlDetails) Draggable(v bool) *htmlDetails {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLDetails) Draggable(v bool) *HTMLDetails {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -92,7 +108,8 @@ func (e *htmlDetails) Draggable(v bool) *htmlDetails {
 	return e
 }
 
-func (e *htmlDetails) Spellcheck(v bool) *htmlDetails {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLDetails) Spellcheck(v bool) *HTMLDetails {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

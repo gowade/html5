@@ -1,27 +1,33 @@
 package h
 
-type htmlKeygen struct {
-	htmlElement
+// HTMLKeygen represents HTML <keygen> tag
+type HTMLKeygen struct {
+	HTMLElement
 }
 
-func Keygen() *htmlKeygen {
-	e := &htmlKeygen{}
+// Keygen creates a HTML <keygen> tag
+func Keygen() *HTMLKeygen {
+	e := &HTMLKeygen{}
 	e.a = make(map[string]interface{})
 	e.tagName = "keygen"
 	return e
 }
 
-func (e *htmlKeygen) S(style StyleMap) *htmlKeygen {
+// S sets the element's CSS properties
+func (e *HTMLKeygen) S(style StyleMap) *HTMLKeygen {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlKeygen) Key(key interface{}) *htmlKeygen {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLKeygen) Key(key interface{}) *HTMLKeygen {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlKeygen) Autofocus(v bool) *htmlKeygen {
+// Autofocus sets the element's "autofocus" attribute
+func (e *HTMLKeygen) Autofocus(v bool) *HTMLKeygen {
 	if v {
 		e.a["autofocus"] = ""
 	} else {
@@ -30,12 +36,14 @@ func (e *htmlKeygen) Autofocus(v bool) *htmlKeygen {
 	return e
 }
 
-func (e *htmlKeygen) Challenge(v string) *htmlKeygen {
+// Challenge sets the element's "challenge" attribute
+func (e *HTMLKeygen) Challenge(v string) *HTMLKeygen {
 	e.a["challenge"] = v
 	return e
 }
 
-func (e *htmlKeygen) Disabled(v bool) *htmlKeygen {
+// Disabled sets the element's "disabled" attribute
+func (e *HTMLKeygen) Disabled(v bool) *HTMLKeygen {
 	if v {
 		e.a["disabled"] = ""
 	} else {
@@ -44,17 +52,20 @@ func (e *htmlKeygen) Disabled(v bool) *htmlKeygen {
 	return e
 }
 
-func (e *htmlKeygen) Keytype(v string) *htmlKeygen {
+// Keytype sets the element's "keytype" attribute
+func (e *HTMLKeygen) Keytype(v string) *HTMLKeygen {
 	e.a["keytype"] = v
 	return e
 }
 
-func (e *htmlKeygen) Name(v string) *htmlKeygen {
+// Name sets the element's "name" attribute
+func (e *HTMLKeygen) Name(v string) *HTMLKeygen {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlKeygen) CheckValidity(v bool) *htmlKeygen {
+// CheckValidity sets the element's "checkvalidity" attribute
+func (e *HTMLKeygen) CheckValidity(v bool) *HTMLKeygen {
 	if v {
 		e.a["checkvalidity"] = ""
 	} else {
@@ -63,7 +74,8 @@ func (e *htmlKeygen) CheckValidity(v bool) *htmlKeygen {
 	return e
 }
 
-func (e *htmlKeygen) ReportValidity(v bool) *htmlKeygen {
+// ReportValidity sets the element's "reportvalidity" attribute
+func (e *HTMLKeygen) ReportValidity(v bool) *HTMLKeygen {
 	if v {
 		e.a["reportvalidity"] = ""
 	} else {
@@ -72,27 +84,32 @@ func (e *htmlKeygen) ReportValidity(v bool) *htmlKeygen {
 	return e
 }
 
-func (e *htmlKeygen) ID(v string) *htmlKeygen {
+// ID sets the element's "id" attribute
+func (e *HTMLKeygen) ID(v string) *HTMLKeygen {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlKeygen) Class(v string) *htmlKeygen {
+// Class sets the element's "class" attribute
+func (e *HTMLKeygen) Class(v string) *HTMLKeygen {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlKeygen) Title(v string) *htmlKeygen {
+// Title sets the element's "title" attribute
+func (e *HTMLKeygen) Title(v string) *HTMLKeygen {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlKeygen) Lang(v string) *htmlKeygen {
+// Lang sets the element's "lang" attribute
+func (e *HTMLKeygen) Lang(v string) *HTMLKeygen {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlKeygen) Translate(v bool) *htmlKeygen {
+// Translate sets the element's "translate" attribute
+func (e *HTMLKeygen) Translate(v bool) *HTMLKeygen {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -101,12 +118,14 @@ func (e *htmlKeygen) Translate(v bool) *htmlKeygen {
 	return e
 }
 
-func (e *htmlKeygen) Dir(v string) *htmlKeygen {
+// Dir sets the element's "dir" attribute
+func (e *HTMLKeygen) Dir(v string) *HTMLKeygen {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlKeygen) Hidden(v bool) *htmlKeygen {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLKeygen) Hidden(v bool) *HTMLKeygen {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -115,17 +134,20 @@ func (e *htmlKeygen) Hidden(v bool) *htmlKeygen {
 	return e
 }
 
-func (e *htmlKeygen) TabIndex(v int) *htmlKeygen {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLKeygen) TabIndex(v int) *HTMLKeygen {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlKeygen) AccessKey(v string) *htmlKeygen {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLKeygen) AccessKey(v string) *HTMLKeygen {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlKeygen) Draggable(v bool) *htmlKeygen {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLKeygen) Draggable(v bool) *HTMLKeygen {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -134,7 +156,8 @@ func (e *htmlKeygen) Draggable(v bool) *htmlKeygen {
 	return e
 }
 
-func (e *htmlKeygen) Spellcheck(v bool) *htmlKeygen {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLKeygen) Spellcheck(v bool) *HTMLKeygen {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

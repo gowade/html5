@@ -1,27 +1,33 @@
 package h
 
-type htmlOL struct {
-	htmlElement
+// HTMLOL represents HTML <ol> tag
+type HTMLOL struct {
+	HTMLElement
 }
 
-func OL() *htmlOL {
-	e := &htmlOL{}
+// OL creates a HTML <ol> tag
+func OL() *HTMLOL {
+	e := &HTMLOL{}
 	e.a = make(map[string]interface{})
 	e.tagName = "ol"
 	return e
 }
 
-func (e *htmlOL) S(style StyleMap) *htmlOL {
+// S sets the element's CSS properties
+func (e *HTMLOL) S(style StyleMap) *HTMLOL {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlOL) Key(key interface{}) *htmlOL {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLOL) Key(key interface{}) *HTMLOL {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlOL) Reversed(v bool) *htmlOL {
+// Reversed sets the element's "reversed" attribute
+func (e *HTMLOL) Reversed(v bool) *HTMLOL {
 	if v {
 		e.a["reversed"] = ""
 	} else {
@@ -30,37 +36,44 @@ func (e *htmlOL) Reversed(v bool) *htmlOL {
 	return e
 }
 
-func (e *htmlOL) Start(v int) *htmlOL {
+// Start sets the element's "start" attribute
+func (e *HTMLOL) Start(v int) *HTMLOL {
 	e.a["start"] = v
 	return e
 }
 
-func (e *htmlOL) Type(v string) *htmlOL {
+// Type sets the element's "type" attribute
+func (e *HTMLOL) Type(v string) *HTMLOL {
 	e.a["type"] = v
 	return e
 }
 
-func (e *htmlOL) ID(v string) *htmlOL {
+// ID sets the element's "id" attribute
+func (e *HTMLOL) ID(v string) *HTMLOL {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlOL) Class(v string) *htmlOL {
+// Class sets the element's "class" attribute
+func (e *HTMLOL) Class(v string) *HTMLOL {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlOL) Title(v string) *htmlOL {
+// Title sets the element's "title" attribute
+func (e *HTMLOL) Title(v string) *HTMLOL {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlOL) Lang(v string) *htmlOL {
+// Lang sets the element's "lang" attribute
+func (e *HTMLOL) Lang(v string) *HTMLOL {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlOL) Translate(v bool) *htmlOL {
+// Translate sets the element's "translate" attribute
+func (e *HTMLOL) Translate(v bool) *HTMLOL {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -69,12 +82,14 @@ func (e *htmlOL) Translate(v bool) *htmlOL {
 	return e
 }
 
-func (e *htmlOL) Dir(v string) *htmlOL {
+// Dir sets the element's "dir" attribute
+func (e *HTMLOL) Dir(v string) *HTMLOL {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlOL) Hidden(v bool) *htmlOL {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLOL) Hidden(v bool) *HTMLOL {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -83,17 +98,20 @@ func (e *htmlOL) Hidden(v bool) *htmlOL {
 	return e
 }
 
-func (e *htmlOL) TabIndex(v int) *htmlOL {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLOL) TabIndex(v int) *HTMLOL {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlOL) AccessKey(v string) *htmlOL {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLOL) AccessKey(v string) *HTMLOL {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlOL) Draggable(v bool) *htmlOL {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLOL) Draggable(v bool) *HTMLOL {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -102,7 +120,8 @@ func (e *htmlOL) Draggable(v bool) *htmlOL {
 	return e
 }
 
-func (e *htmlOL) Spellcheck(v bool) *htmlOL {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLOL) Spellcheck(v bool) *HTMLOL {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

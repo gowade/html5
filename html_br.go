@@ -1,47 +1,57 @@
 package h
 
-type htmlBR struct {
-	htmlElement
+// HTMLBR represents HTML <br> tag
+type HTMLBR struct {
+	HTMLElement
 }
 
-func BR() *htmlBR {
-	e := &htmlBR{}
+// BR creates a HTML <br> tag
+func BR() *HTMLBR {
+	e := &HTMLBR{}
 	e.a = make(map[string]interface{})
 	e.tagName = "br"
 	return e
 }
 
-func (e *htmlBR) S(style StyleMap) *htmlBR {
+// S sets the element's CSS properties
+func (e *HTMLBR) S(style StyleMap) *HTMLBR {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlBR) Key(key interface{}) *htmlBR {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLBR) Key(key interface{}) *HTMLBR {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlBR) ID(v string) *htmlBR {
+// ID sets the element's "id" attribute
+func (e *HTMLBR) ID(v string) *HTMLBR {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlBR) Class(v string) *htmlBR {
+// Class sets the element's "class" attribute
+func (e *HTMLBR) Class(v string) *HTMLBR {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlBR) Title(v string) *htmlBR {
+// Title sets the element's "title" attribute
+func (e *HTMLBR) Title(v string) *HTMLBR {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlBR) Lang(v string) *htmlBR {
+// Lang sets the element's "lang" attribute
+func (e *HTMLBR) Lang(v string) *HTMLBR {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlBR) Translate(v bool) *htmlBR {
+// Translate sets the element's "translate" attribute
+func (e *HTMLBR) Translate(v bool) *HTMLBR {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlBR) Translate(v bool) *htmlBR {
 	return e
 }
 
-func (e *htmlBR) Dir(v string) *htmlBR {
+// Dir sets the element's "dir" attribute
+func (e *HTMLBR) Dir(v string) *HTMLBR {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlBR) Hidden(v bool) *htmlBR {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLBR) Hidden(v bool) *HTMLBR {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlBR) Hidden(v bool) *htmlBR {
 	return e
 }
 
-func (e *htmlBR) TabIndex(v int) *htmlBR {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLBR) TabIndex(v int) *HTMLBR {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlBR) AccessKey(v string) *htmlBR {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLBR) AccessKey(v string) *HTMLBR {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlBR) Draggable(v bool) *htmlBR {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLBR) Draggable(v bool) *HTMLBR {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlBR) Draggable(v bool) *htmlBR {
 	return e
 }
 
-func (e *htmlBR) Spellcheck(v bool) *htmlBR {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLBR) Spellcheck(v bool) *HTMLBR {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

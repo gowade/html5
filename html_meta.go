@@ -1,62 +1,75 @@
 package h
 
-type htmlMeta struct {
-	htmlElement
+// HTMLMeta represents HTML <meta> tag
+type HTMLMeta struct {
+	HTMLElement
 }
 
-func Meta() *htmlMeta {
-	e := &htmlMeta{}
+// Meta creates a HTML <meta> tag
+func Meta() *HTMLMeta {
+	e := &HTMLMeta{}
 	e.a = make(map[string]interface{})
 	e.tagName = "meta"
 	return e
 }
 
-func (e *htmlMeta) S(style StyleMap) *htmlMeta {
+// S sets the element's CSS properties
+func (e *HTMLMeta) S(style StyleMap) *HTMLMeta {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlMeta) Key(key interface{}) *htmlMeta {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLMeta) Key(key interface{}) *HTMLMeta {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlMeta) Name(v string) *htmlMeta {
+// Name sets the element's "name" attribute
+func (e *HTMLMeta) Name(v string) *HTMLMeta {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlMeta) HttpEquiv(v string) *htmlMeta {
+// HttpEquiv sets the element's "httpequiv" attribute
+func (e *HTMLMeta) HttpEquiv(v string) *HTMLMeta {
 	e.a["httpequiv"] = v
 	return e
 }
 
-func (e *htmlMeta) Content(v string) *htmlMeta {
+// Content sets the element's "content" attribute
+func (e *HTMLMeta) Content(v string) *HTMLMeta {
 	e.a["content"] = v
 	return e
 }
 
-func (e *htmlMeta) ID(v string) *htmlMeta {
+// ID sets the element's "id" attribute
+func (e *HTMLMeta) ID(v string) *HTMLMeta {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlMeta) Class(v string) *htmlMeta {
+// Class sets the element's "class" attribute
+func (e *HTMLMeta) Class(v string) *HTMLMeta {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlMeta) Title(v string) *htmlMeta {
+// Title sets the element's "title" attribute
+func (e *HTMLMeta) Title(v string) *HTMLMeta {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlMeta) Lang(v string) *htmlMeta {
+// Lang sets the element's "lang" attribute
+func (e *HTMLMeta) Lang(v string) *HTMLMeta {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlMeta) Translate(v bool) *htmlMeta {
+// Translate sets the element's "translate" attribute
+func (e *HTMLMeta) Translate(v bool) *HTMLMeta {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -65,12 +78,14 @@ func (e *htmlMeta) Translate(v bool) *htmlMeta {
 	return e
 }
 
-func (e *htmlMeta) Dir(v string) *htmlMeta {
+// Dir sets the element's "dir" attribute
+func (e *HTMLMeta) Dir(v string) *HTMLMeta {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlMeta) Hidden(v bool) *htmlMeta {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLMeta) Hidden(v bool) *HTMLMeta {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -79,17 +94,20 @@ func (e *htmlMeta) Hidden(v bool) *htmlMeta {
 	return e
 }
 
-func (e *htmlMeta) TabIndex(v int) *htmlMeta {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLMeta) TabIndex(v int) *HTMLMeta {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlMeta) AccessKey(v string) *htmlMeta {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLMeta) AccessKey(v string) *HTMLMeta {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlMeta) Draggable(v bool) *htmlMeta {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLMeta) Draggable(v bool) *HTMLMeta {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -98,7 +116,8 @@ func (e *htmlMeta) Draggable(v bool) *htmlMeta {
 	return e
 }
 
-func (e *htmlMeta) Spellcheck(v bool) *htmlMeta {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLMeta) Spellcheck(v bool) *HTMLMeta {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

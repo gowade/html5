@@ -1,52 +1,63 @@
 package h
 
-type htmlMap struct {
-	htmlElement
+// HTMLMap represents HTML <map> tag
+type HTMLMap struct {
+	HTMLElement
 }
 
-func Map() *htmlMap {
-	e := &htmlMap{}
+// Map creates a HTML <map> tag
+func Map() *HTMLMap {
+	e := &HTMLMap{}
 	e.a = make(map[string]interface{})
 	e.tagName = "map"
 	return e
 }
 
-func (e *htmlMap) S(style StyleMap) *htmlMap {
+// S sets the element's CSS properties
+func (e *HTMLMap) S(style StyleMap) *HTMLMap {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlMap) Key(key interface{}) *htmlMap {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLMap) Key(key interface{}) *HTMLMap {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlMap) Name(v string) *htmlMap {
+// Name sets the element's "name" attribute
+func (e *HTMLMap) Name(v string) *HTMLMap {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlMap) ID(v string) *htmlMap {
+// ID sets the element's "id" attribute
+func (e *HTMLMap) ID(v string) *HTMLMap {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlMap) Class(v string) *htmlMap {
+// Class sets the element's "class" attribute
+func (e *HTMLMap) Class(v string) *HTMLMap {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlMap) Title(v string) *htmlMap {
+// Title sets the element's "title" attribute
+func (e *HTMLMap) Title(v string) *HTMLMap {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlMap) Lang(v string) *htmlMap {
+// Lang sets the element's "lang" attribute
+func (e *HTMLMap) Lang(v string) *HTMLMap {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlMap) Translate(v bool) *htmlMap {
+// Translate sets the element's "translate" attribute
+func (e *HTMLMap) Translate(v bool) *HTMLMap {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -55,12 +66,14 @@ func (e *htmlMap) Translate(v bool) *htmlMap {
 	return e
 }
 
-func (e *htmlMap) Dir(v string) *htmlMap {
+// Dir sets the element's "dir" attribute
+func (e *HTMLMap) Dir(v string) *HTMLMap {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlMap) Hidden(v bool) *htmlMap {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLMap) Hidden(v bool) *HTMLMap {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -69,17 +82,20 @@ func (e *htmlMap) Hidden(v bool) *htmlMap {
 	return e
 }
 
-func (e *htmlMap) TabIndex(v int) *htmlMap {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLMap) TabIndex(v int) *HTMLMap {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlMap) AccessKey(v string) *htmlMap {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLMap) AccessKey(v string) *HTMLMap {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlMap) Draggable(v bool) *htmlMap {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLMap) Draggable(v bool) *HTMLMap {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -88,7 +104,8 @@ func (e *htmlMap) Draggable(v bool) *htmlMap {
 	return e
 }
 
-func (e *htmlMap) Spellcheck(v bool) *htmlMap {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLMap) Spellcheck(v bool) *HTMLMap {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

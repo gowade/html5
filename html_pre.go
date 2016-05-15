@@ -1,47 +1,57 @@
 package h
 
-type htmlPre struct {
-	htmlElement
+// HTMLPre represents HTML <pre> tag
+type HTMLPre struct {
+	HTMLElement
 }
 
-func Pre() *htmlPre {
-	e := &htmlPre{}
+// Pre creates a HTML <pre> tag
+func Pre() *HTMLPre {
+	e := &HTMLPre{}
 	e.a = make(map[string]interface{})
 	e.tagName = "pre"
 	return e
 }
 
-func (e *htmlPre) S(style StyleMap) *htmlPre {
+// S sets the element's CSS properties
+func (e *HTMLPre) S(style StyleMap) *HTMLPre {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlPre) Key(key interface{}) *htmlPre {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLPre) Key(key interface{}) *HTMLPre {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlPre) ID(v string) *htmlPre {
+// ID sets the element's "id" attribute
+func (e *HTMLPre) ID(v string) *HTMLPre {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlPre) Class(v string) *htmlPre {
+// Class sets the element's "class" attribute
+func (e *HTMLPre) Class(v string) *HTMLPre {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlPre) Title(v string) *htmlPre {
+// Title sets the element's "title" attribute
+func (e *HTMLPre) Title(v string) *HTMLPre {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlPre) Lang(v string) *htmlPre {
+// Lang sets the element's "lang" attribute
+func (e *HTMLPre) Lang(v string) *HTMLPre {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlPre) Translate(v bool) *htmlPre {
+// Translate sets the element's "translate" attribute
+func (e *HTMLPre) Translate(v bool) *HTMLPre {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlPre) Translate(v bool) *htmlPre {
 	return e
 }
 
-func (e *htmlPre) Dir(v string) *htmlPre {
+// Dir sets the element's "dir" attribute
+func (e *HTMLPre) Dir(v string) *HTMLPre {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlPre) Hidden(v bool) *htmlPre {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLPre) Hidden(v bool) *HTMLPre {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlPre) Hidden(v bool) *htmlPre {
 	return e
 }
 
-func (e *htmlPre) TabIndex(v int) *htmlPre {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLPre) TabIndex(v int) *HTMLPre {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlPre) AccessKey(v string) *htmlPre {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLPre) AccessKey(v string) *HTMLPre {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlPre) Draggable(v bool) *htmlPre {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLPre) Draggable(v bool) *HTMLPre {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlPre) Draggable(v bool) *htmlPre {
 	return e
 }
 
-func (e *htmlPre) Spellcheck(v bool) *htmlPre {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLPre) Spellcheck(v bool) *HTMLPre {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

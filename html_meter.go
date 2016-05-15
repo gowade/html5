@@ -1,47 +1,57 @@
 package h
 
-type htmlMeter struct {
-	htmlElement
+// HTMLMeter represents HTML <meter> tag
+type HTMLMeter struct {
+	HTMLElement
 }
 
-func Meter() *htmlMeter {
-	e := &htmlMeter{}
+// Meter creates a HTML <meter> tag
+func Meter() *HTMLMeter {
+	e := &HTMLMeter{}
 	e.a = make(map[string]interface{})
 	e.tagName = "meter"
 	return e
 }
 
-func (e *htmlMeter) S(style StyleMap) *htmlMeter {
+// S sets the element's CSS properties
+func (e *HTMLMeter) S(style StyleMap) *HTMLMeter {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlMeter) Key(key interface{}) *htmlMeter {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLMeter) Key(key interface{}) *HTMLMeter {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlMeter) ID(v string) *htmlMeter {
+// ID sets the element's "id" attribute
+func (e *HTMLMeter) ID(v string) *HTMLMeter {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlMeter) Class(v string) *htmlMeter {
+// Class sets the element's "class" attribute
+func (e *HTMLMeter) Class(v string) *HTMLMeter {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlMeter) Title(v string) *htmlMeter {
+// Title sets the element's "title" attribute
+func (e *HTMLMeter) Title(v string) *HTMLMeter {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlMeter) Lang(v string) *htmlMeter {
+// Lang sets the element's "lang" attribute
+func (e *HTMLMeter) Lang(v string) *HTMLMeter {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlMeter) Translate(v bool) *htmlMeter {
+// Translate sets the element's "translate" attribute
+func (e *HTMLMeter) Translate(v bool) *HTMLMeter {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlMeter) Translate(v bool) *htmlMeter {
 	return e
 }
 
-func (e *htmlMeter) Dir(v string) *htmlMeter {
+// Dir sets the element's "dir" attribute
+func (e *HTMLMeter) Dir(v string) *HTMLMeter {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlMeter) Hidden(v bool) *htmlMeter {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLMeter) Hidden(v bool) *HTMLMeter {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlMeter) Hidden(v bool) *htmlMeter {
 	return e
 }
 
-func (e *htmlMeter) TabIndex(v int) *htmlMeter {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLMeter) TabIndex(v int) *HTMLMeter {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlMeter) AccessKey(v string) *htmlMeter {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLMeter) AccessKey(v string) *HTMLMeter {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlMeter) Draggable(v bool) *htmlMeter {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLMeter) Draggable(v bool) *HTMLMeter {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlMeter) Draggable(v bool) *htmlMeter {
 	return e
 }
 
-func (e *htmlMeter) Spellcheck(v bool) *htmlMeter {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLMeter) Spellcheck(v bool) *HTMLMeter {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

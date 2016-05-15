@@ -1,27 +1,33 @@
 package h
 
-type htmlButton struct {
-	htmlElement
+// HTMLButton represents HTML <button> tag
+type HTMLButton struct {
+	HTMLElement
 }
 
-func Button() *htmlButton {
-	e := &htmlButton{}
+// Button creates a HTML <button> tag
+func Button() *HTMLButton {
+	e := &HTMLButton{}
 	e.a = make(map[string]interface{})
 	e.tagName = "button"
 	return e
 }
 
-func (e *htmlButton) S(style StyleMap) *htmlButton {
+// S sets the element's CSS properties
+func (e *HTMLButton) S(style StyleMap) *HTMLButton {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlButton) Key(key interface{}) *htmlButton {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLButton) Key(key interface{}) *HTMLButton {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlButton) Autofocus(v bool) *htmlButton {
+// Autofocus sets the element's "autofocus" attribute
+func (e *HTMLButton) Autofocus(v bool) *HTMLButton {
 	if v {
 		e.a["autofocus"] = ""
 	} else {
@@ -30,7 +36,8 @@ func (e *htmlButton) Autofocus(v bool) *htmlButton {
 	return e
 }
 
-func (e *htmlButton) Disabled(v bool) *htmlButton {
+// Disabled sets the element's "disabled" attribute
+func (e *HTMLButton) Disabled(v bool) *HTMLButton {
 	if v {
 		e.a["disabled"] = ""
 	} else {
@@ -39,22 +46,26 @@ func (e *htmlButton) Disabled(v bool) *htmlButton {
 	return e
 }
 
-func (e *htmlButton) FormAction(v string) *htmlButton {
+// FormAction sets the element's "formaction" attribute
+func (e *HTMLButton) FormAction(v string) *HTMLButton {
 	e.a["formaction"] = v
 	return e
 }
 
-func (e *htmlButton) FormEnctype(v string) *htmlButton {
+// FormEnctype sets the element's "formenctype" attribute
+func (e *HTMLButton) FormEnctype(v string) *HTMLButton {
 	e.a["formenctype"] = v
 	return e
 }
 
-func (e *htmlButton) FormMethod(v string) *htmlButton {
+// FormMethod sets the element's "formmethod" attribute
+func (e *HTMLButton) FormMethod(v string) *HTMLButton {
 	e.a["formmethod"] = v
 	return e
 }
 
-func (e *htmlButton) FormNoValidate(v bool) *htmlButton {
+// FormNoValidate sets the element's "formnovalidate" attribute
+func (e *HTMLButton) FormNoValidate(v bool) *HTMLButton {
 	if v {
 		e.a["formnovalidate"] = ""
 	} else {
@@ -63,27 +74,32 @@ func (e *htmlButton) FormNoValidate(v bool) *htmlButton {
 	return e
 }
 
-func (e *htmlButton) FormTarget(v string) *htmlButton {
+// FormTarget sets the element's "formtarget" attribute
+func (e *HTMLButton) FormTarget(v string) *HTMLButton {
 	e.a["formtarget"] = v
 	return e
 }
 
-func (e *htmlButton) Name(v string) *htmlButton {
+// Name sets the element's "name" attribute
+func (e *HTMLButton) Name(v string) *HTMLButton {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlButton) Type(v string) *htmlButton {
+// Type sets the element's "type" attribute
+func (e *HTMLButton) Type(v string) *HTMLButton {
 	e.a["type"] = v
 	return e
 }
 
-func (e *htmlButton) Value(v string) *htmlButton {
+// Value sets the element's "value" attribute
+func (e *HTMLButton) Value(v string) *HTMLButton {
 	e.a["value"] = v
 	return e
 }
 
-func (e *htmlButton) CheckValidity(v bool) *htmlButton {
+// CheckValidity sets the element's "checkvalidity" attribute
+func (e *HTMLButton) CheckValidity(v bool) *HTMLButton {
 	if v {
 		e.a["checkvalidity"] = ""
 	} else {
@@ -92,7 +108,8 @@ func (e *htmlButton) CheckValidity(v bool) *htmlButton {
 	return e
 }
 
-func (e *htmlButton) ReportValidity(v bool) *htmlButton {
+// ReportValidity sets the element's "reportvalidity" attribute
+func (e *HTMLButton) ReportValidity(v bool) *HTMLButton {
 	if v {
 		e.a["reportvalidity"] = ""
 	} else {
@@ -101,27 +118,32 @@ func (e *htmlButton) ReportValidity(v bool) *htmlButton {
 	return e
 }
 
-func (e *htmlButton) ID(v string) *htmlButton {
+// ID sets the element's "id" attribute
+func (e *HTMLButton) ID(v string) *HTMLButton {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlButton) Class(v string) *htmlButton {
+// Class sets the element's "class" attribute
+func (e *HTMLButton) Class(v string) *HTMLButton {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlButton) Title(v string) *htmlButton {
+// Title sets the element's "title" attribute
+func (e *HTMLButton) Title(v string) *HTMLButton {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlButton) Lang(v string) *htmlButton {
+// Lang sets the element's "lang" attribute
+func (e *HTMLButton) Lang(v string) *HTMLButton {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlButton) Translate(v bool) *htmlButton {
+// Translate sets the element's "translate" attribute
+func (e *HTMLButton) Translate(v bool) *HTMLButton {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -130,12 +152,14 @@ func (e *htmlButton) Translate(v bool) *htmlButton {
 	return e
 }
 
-func (e *htmlButton) Dir(v string) *htmlButton {
+// Dir sets the element's "dir" attribute
+func (e *HTMLButton) Dir(v string) *HTMLButton {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlButton) Hidden(v bool) *htmlButton {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLButton) Hidden(v bool) *HTMLButton {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -144,17 +168,20 @@ func (e *htmlButton) Hidden(v bool) *htmlButton {
 	return e
 }
 
-func (e *htmlButton) TabIndex(v int) *htmlButton {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLButton) TabIndex(v int) *HTMLButton {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlButton) AccessKey(v string) *htmlButton {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLButton) AccessKey(v string) *HTMLButton {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlButton) Draggable(v bool) *htmlButton {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLButton) Draggable(v bool) *HTMLButton {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -163,7 +190,8 @@ func (e *htmlButton) Draggable(v bool) *htmlButton {
 	return e
 }
 
-func (e *htmlButton) Spellcheck(v bool) *htmlButton {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLButton) Spellcheck(v bool) *HTMLButton {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

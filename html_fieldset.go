@@ -1,27 +1,33 @@
 package h
 
-type htmlFieldSet struct {
-	htmlElement
+// HTMLFieldSet represents HTML <fieldset> tag
+type HTMLFieldSet struct {
+	HTMLElement
 }
 
-func FieldSet() *htmlFieldSet {
-	e := &htmlFieldSet{}
+// FieldSet creates a HTML <fieldset> tag
+func FieldSet() *HTMLFieldSet {
+	e := &HTMLFieldSet{}
 	e.a = make(map[string]interface{})
 	e.tagName = "fieldset"
 	return e
 }
 
-func (e *htmlFieldSet) S(style StyleMap) *htmlFieldSet {
+// S sets the element's CSS properties
+func (e *HTMLFieldSet) S(style StyleMap) *HTMLFieldSet {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlFieldSet) Key(key interface{}) *htmlFieldSet {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLFieldSet) Key(key interface{}) *HTMLFieldSet {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlFieldSet) Disabled(v bool) *htmlFieldSet {
+// Disabled sets the element's "disabled" attribute
+func (e *HTMLFieldSet) Disabled(v bool) *HTMLFieldSet {
 	if v {
 		e.a["disabled"] = ""
 	} else {
@@ -30,12 +36,14 @@ func (e *htmlFieldSet) Disabled(v bool) *htmlFieldSet {
 	return e
 }
 
-func (e *htmlFieldSet) Name(v string) *htmlFieldSet {
+// Name sets the element's "name" attribute
+func (e *HTMLFieldSet) Name(v string) *HTMLFieldSet {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlFieldSet) CheckValidity(v bool) *htmlFieldSet {
+// CheckValidity sets the element's "checkvalidity" attribute
+func (e *HTMLFieldSet) CheckValidity(v bool) *HTMLFieldSet {
 	if v {
 		e.a["checkvalidity"] = ""
 	} else {
@@ -44,7 +52,8 @@ func (e *htmlFieldSet) CheckValidity(v bool) *htmlFieldSet {
 	return e
 }
 
-func (e *htmlFieldSet) ReportValidity(v bool) *htmlFieldSet {
+// ReportValidity sets the element's "reportvalidity" attribute
+func (e *HTMLFieldSet) ReportValidity(v bool) *HTMLFieldSet {
 	if v {
 		e.a["reportvalidity"] = ""
 	} else {
@@ -53,27 +62,32 @@ func (e *htmlFieldSet) ReportValidity(v bool) *htmlFieldSet {
 	return e
 }
 
-func (e *htmlFieldSet) ID(v string) *htmlFieldSet {
+// ID sets the element's "id" attribute
+func (e *HTMLFieldSet) ID(v string) *HTMLFieldSet {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlFieldSet) Class(v string) *htmlFieldSet {
+// Class sets the element's "class" attribute
+func (e *HTMLFieldSet) Class(v string) *HTMLFieldSet {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlFieldSet) Title(v string) *htmlFieldSet {
+// Title sets the element's "title" attribute
+func (e *HTMLFieldSet) Title(v string) *HTMLFieldSet {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlFieldSet) Lang(v string) *htmlFieldSet {
+// Lang sets the element's "lang" attribute
+func (e *HTMLFieldSet) Lang(v string) *HTMLFieldSet {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlFieldSet) Translate(v bool) *htmlFieldSet {
+// Translate sets the element's "translate" attribute
+func (e *HTMLFieldSet) Translate(v bool) *HTMLFieldSet {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -82,12 +96,14 @@ func (e *htmlFieldSet) Translate(v bool) *htmlFieldSet {
 	return e
 }
 
-func (e *htmlFieldSet) Dir(v string) *htmlFieldSet {
+// Dir sets the element's "dir" attribute
+func (e *HTMLFieldSet) Dir(v string) *HTMLFieldSet {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlFieldSet) Hidden(v bool) *htmlFieldSet {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLFieldSet) Hidden(v bool) *HTMLFieldSet {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -96,17 +112,20 @@ func (e *htmlFieldSet) Hidden(v bool) *htmlFieldSet {
 	return e
 }
 
-func (e *htmlFieldSet) TabIndex(v int) *htmlFieldSet {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLFieldSet) TabIndex(v int) *HTMLFieldSet {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlFieldSet) AccessKey(v string) *htmlFieldSet {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLFieldSet) AccessKey(v string) *HTMLFieldSet {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlFieldSet) Draggable(v bool) *htmlFieldSet {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLFieldSet) Draggable(v bool) *HTMLFieldSet {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -115,7 +134,8 @@ func (e *htmlFieldSet) Draggable(v bool) *htmlFieldSet {
 	return e
 }
 
-func (e *htmlFieldSet) Spellcheck(v bool) *htmlFieldSet {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLFieldSet) Spellcheck(v bool) *HTMLFieldSet {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

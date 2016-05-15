@@ -1,47 +1,57 @@
 package h
 
-type htmlHR struct {
-	htmlElement
+// HTMLHR represents HTML <hr> tag
+type HTMLHR struct {
+	HTMLElement
 }
 
-func HR() *htmlHR {
-	e := &htmlHR{}
+// HR creates a HTML <hr> tag
+func HR() *HTMLHR {
+	e := &HTMLHR{}
 	e.a = make(map[string]interface{})
 	e.tagName = "hr"
 	return e
 }
 
-func (e *htmlHR) S(style StyleMap) *htmlHR {
+// S sets the element's CSS properties
+func (e *HTMLHR) S(style StyleMap) *HTMLHR {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlHR) Key(key interface{}) *htmlHR {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLHR) Key(key interface{}) *HTMLHR {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlHR) ID(v string) *htmlHR {
+// ID sets the element's "id" attribute
+func (e *HTMLHR) ID(v string) *HTMLHR {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlHR) Class(v string) *htmlHR {
+// Class sets the element's "class" attribute
+func (e *HTMLHR) Class(v string) *HTMLHR {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlHR) Title(v string) *htmlHR {
+// Title sets the element's "title" attribute
+func (e *HTMLHR) Title(v string) *HTMLHR {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlHR) Lang(v string) *htmlHR {
+// Lang sets the element's "lang" attribute
+func (e *HTMLHR) Lang(v string) *HTMLHR {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlHR) Translate(v bool) *htmlHR {
+// Translate sets the element's "translate" attribute
+func (e *HTMLHR) Translate(v bool) *HTMLHR {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlHR) Translate(v bool) *htmlHR {
 	return e
 }
 
-func (e *htmlHR) Dir(v string) *htmlHR {
+// Dir sets the element's "dir" attribute
+func (e *HTMLHR) Dir(v string) *HTMLHR {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlHR) Hidden(v bool) *htmlHR {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLHR) Hidden(v bool) *HTMLHR {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlHR) Hidden(v bool) *htmlHR {
 	return e
 }
 
-func (e *htmlHR) TabIndex(v int) *htmlHR {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLHR) TabIndex(v int) *HTMLHR {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlHR) AccessKey(v string) *htmlHR {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLHR) AccessKey(v string) *HTMLHR {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlHR) Draggable(v bool) *htmlHR {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLHR) Draggable(v bool) *HTMLHR {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlHR) Draggable(v bool) *htmlHR {
 	return e
 }
 
-func (e *htmlHR) Spellcheck(v bool) *htmlHR {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLHR) Spellcheck(v bool) *HTMLHR {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

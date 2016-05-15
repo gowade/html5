@@ -1,47 +1,57 @@
 package h
 
-type htmlHeading struct {
-	htmlElement
+// HTMLHeading represents HTML <heading> tag
+type HTMLHeading struct {
+	HTMLElement
 }
 
-func Heading() *htmlHeading {
-	e := &htmlHeading{}
+// Heading creates a HTML <heading> tag
+func Heading() *HTMLHeading {
+	e := &HTMLHeading{}
 	e.a = make(map[string]interface{})
 	e.tagName = "heading"
 	return e
 }
 
-func (e *htmlHeading) S(style StyleMap) *htmlHeading {
+// S sets the element's CSS properties
+func (e *HTMLHeading) S(style StyleMap) *HTMLHeading {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlHeading) Key(key interface{}) *htmlHeading {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLHeading) Key(key interface{}) *HTMLHeading {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlHeading) ID(v string) *htmlHeading {
+// ID sets the element's "id" attribute
+func (e *HTMLHeading) ID(v string) *HTMLHeading {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlHeading) Class(v string) *htmlHeading {
+// Class sets the element's "class" attribute
+func (e *HTMLHeading) Class(v string) *HTMLHeading {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlHeading) Title(v string) *htmlHeading {
+// Title sets the element's "title" attribute
+func (e *HTMLHeading) Title(v string) *HTMLHeading {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlHeading) Lang(v string) *htmlHeading {
+// Lang sets the element's "lang" attribute
+func (e *HTMLHeading) Lang(v string) *HTMLHeading {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlHeading) Translate(v bool) *htmlHeading {
+// Translate sets the element's "translate" attribute
+func (e *HTMLHeading) Translate(v bool) *HTMLHeading {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlHeading) Translate(v bool) *htmlHeading {
 	return e
 }
 
-func (e *htmlHeading) Dir(v string) *htmlHeading {
+// Dir sets the element's "dir" attribute
+func (e *HTMLHeading) Dir(v string) *HTMLHeading {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlHeading) Hidden(v bool) *htmlHeading {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLHeading) Hidden(v bool) *HTMLHeading {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlHeading) Hidden(v bool) *htmlHeading {
 	return e
 }
 
-func (e *htmlHeading) TabIndex(v int) *htmlHeading {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLHeading) TabIndex(v int) *HTMLHeading {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlHeading) AccessKey(v string) *htmlHeading {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLHeading) AccessKey(v string) *HTMLHeading {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlHeading) Draggable(v bool) *htmlHeading {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLHeading) Draggable(v bool) *HTMLHeading {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlHeading) Draggable(v bool) *htmlHeading {
 	return e
 }
 
-func (e *htmlHeading) Spellcheck(v bool) *htmlHeading {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLHeading) Spellcheck(v bool) *HTMLHeading {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

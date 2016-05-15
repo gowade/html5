@@ -1,47 +1,57 @@
 package h
 
-type htmlTemplate struct {
-	htmlElement
+// HTMLTemplate represents HTML <template> tag
+type HTMLTemplate struct {
+	HTMLElement
 }
 
-func Template() *htmlTemplate {
-	e := &htmlTemplate{}
+// Template creates a HTML <template> tag
+func Template() *HTMLTemplate {
+	e := &HTMLTemplate{}
 	e.a = make(map[string]interface{})
 	e.tagName = "template"
 	return e
 }
 
-func (e *htmlTemplate) S(style StyleMap) *htmlTemplate {
+// S sets the element's CSS properties
+func (e *HTMLTemplate) S(style StyleMap) *HTMLTemplate {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlTemplate) Key(key interface{}) *htmlTemplate {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLTemplate) Key(key interface{}) *HTMLTemplate {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlTemplate) ID(v string) *htmlTemplate {
+// ID sets the element's "id" attribute
+func (e *HTMLTemplate) ID(v string) *HTMLTemplate {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlTemplate) Class(v string) *htmlTemplate {
+// Class sets the element's "class" attribute
+func (e *HTMLTemplate) Class(v string) *HTMLTemplate {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlTemplate) Title(v string) *htmlTemplate {
+// Title sets the element's "title" attribute
+func (e *HTMLTemplate) Title(v string) *HTMLTemplate {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlTemplate) Lang(v string) *htmlTemplate {
+// Lang sets the element's "lang" attribute
+func (e *HTMLTemplate) Lang(v string) *HTMLTemplate {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlTemplate) Translate(v bool) *htmlTemplate {
+// Translate sets the element's "translate" attribute
+func (e *HTMLTemplate) Translate(v bool) *HTMLTemplate {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlTemplate) Translate(v bool) *htmlTemplate {
 	return e
 }
 
-func (e *htmlTemplate) Dir(v string) *htmlTemplate {
+// Dir sets the element's "dir" attribute
+func (e *HTMLTemplate) Dir(v string) *HTMLTemplate {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlTemplate) Hidden(v bool) *htmlTemplate {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLTemplate) Hidden(v bool) *HTMLTemplate {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlTemplate) Hidden(v bool) *htmlTemplate {
 	return e
 }
 
-func (e *htmlTemplate) TabIndex(v int) *htmlTemplate {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLTemplate) TabIndex(v int) *HTMLTemplate {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlTemplate) AccessKey(v string) *htmlTemplate {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLTemplate) AccessKey(v string) *HTMLTemplate {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlTemplate) Draggable(v bool) *htmlTemplate {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLTemplate) Draggable(v bool) *HTMLTemplate {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlTemplate) Draggable(v bool) *htmlTemplate {
 	return e
 }
 
-func (e *htmlTemplate) Spellcheck(v bool) *htmlTemplate {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLTemplate) Spellcheck(v bool) *HTMLTemplate {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

@@ -1,47 +1,57 @@
 package h
 
-type htmlSpan struct {
-	htmlElement
+// HTMLSpan represents HTML <span> tag
+type HTMLSpan struct {
+	HTMLElement
 }
 
-func Span() *htmlSpan {
-	e := &htmlSpan{}
+// Span creates a HTML <span> tag
+func Span() *HTMLSpan {
+	e := &HTMLSpan{}
 	e.a = make(map[string]interface{})
 	e.tagName = "span"
 	return e
 }
 
-func (e *htmlSpan) S(style StyleMap) *htmlSpan {
+// S sets the element's CSS properties
+func (e *HTMLSpan) S(style StyleMap) *HTMLSpan {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlSpan) Key(key interface{}) *htmlSpan {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLSpan) Key(key interface{}) *HTMLSpan {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlSpan) ID(v string) *htmlSpan {
+// ID sets the element's "id" attribute
+func (e *HTMLSpan) ID(v string) *HTMLSpan {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlSpan) Class(v string) *htmlSpan {
+// Class sets the element's "class" attribute
+func (e *HTMLSpan) Class(v string) *HTMLSpan {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlSpan) Title(v string) *htmlSpan {
+// Title sets the element's "title" attribute
+func (e *HTMLSpan) Title(v string) *HTMLSpan {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlSpan) Lang(v string) *htmlSpan {
+// Lang sets the element's "lang" attribute
+func (e *HTMLSpan) Lang(v string) *HTMLSpan {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlSpan) Translate(v bool) *htmlSpan {
+// Translate sets the element's "translate" attribute
+func (e *HTMLSpan) Translate(v bool) *HTMLSpan {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlSpan) Translate(v bool) *htmlSpan {
 	return e
 }
 
-func (e *htmlSpan) Dir(v string) *htmlSpan {
+// Dir sets the element's "dir" attribute
+func (e *HTMLSpan) Dir(v string) *HTMLSpan {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlSpan) Hidden(v bool) *htmlSpan {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLSpan) Hidden(v bool) *HTMLSpan {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlSpan) Hidden(v bool) *htmlSpan {
 	return e
 }
 
-func (e *htmlSpan) TabIndex(v int) *htmlSpan {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLSpan) TabIndex(v int) *HTMLSpan {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlSpan) AccessKey(v string) *htmlSpan {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLSpan) AccessKey(v string) *HTMLSpan {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlSpan) Draggable(v bool) *htmlSpan {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLSpan) Draggable(v bool) *HTMLSpan {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlSpan) Draggable(v bool) *htmlSpan {
 	return e
 }
 
-func (e *htmlSpan) Spellcheck(v bool) *htmlSpan {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLSpan) Spellcheck(v bool) *HTMLSpan {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

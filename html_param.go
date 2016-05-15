@@ -1,57 +1,69 @@
 package h
 
-type htmlParam struct {
-	htmlElement
+// HTMLParam represents HTML <param> tag
+type HTMLParam struct {
+	HTMLElement
 }
 
-func Param() *htmlParam {
-	e := &htmlParam{}
+// Param creates a HTML <param> tag
+func Param() *HTMLParam {
+	e := &HTMLParam{}
 	e.a = make(map[string]interface{})
 	e.tagName = "param"
 	return e
 }
 
-func (e *htmlParam) S(style StyleMap) *htmlParam {
+// S sets the element's CSS properties
+func (e *HTMLParam) S(style StyleMap) *HTMLParam {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlParam) Key(key interface{}) *htmlParam {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLParam) Key(key interface{}) *HTMLParam {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlParam) Name(v string) *htmlParam {
+// Name sets the element's "name" attribute
+func (e *HTMLParam) Name(v string) *HTMLParam {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlParam) Value(v string) *htmlParam {
+// Value sets the element's "value" attribute
+func (e *HTMLParam) Value(v string) *HTMLParam {
 	e.a["value"] = v
 	return e
 }
 
-func (e *htmlParam) ID(v string) *htmlParam {
+// ID sets the element's "id" attribute
+func (e *HTMLParam) ID(v string) *HTMLParam {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlParam) Class(v string) *htmlParam {
+// Class sets the element's "class" attribute
+func (e *HTMLParam) Class(v string) *HTMLParam {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlParam) Title(v string) *htmlParam {
+// Title sets the element's "title" attribute
+func (e *HTMLParam) Title(v string) *HTMLParam {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlParam) Lang(v string) *htmlParam {
+// Lang sets the element's "lang" attribute
+func (e *HTMLParam) Lang(v string) *HTMLParam {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlParam) Translate(v bool) *htmlParam {
+// Translate sets the element's "translate" attribute
+func (e *HTMLParam) Translate(v bool) *HTMLParam {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -60,12 +72,14 @@ func (e *htmlParam) Translate(v bool) *htmlParam {
 	return e
 }
 
-func (e *htmlParam) Dir(v string) *htmlParam {
+// Dir sets the element's "dir" attribute
+func (e *HTMLParam) Dir(v string) *HTMLParam {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlParam) Hidden(v bool) *htmlParam {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLParam) Hidden(v bool) *HTMLParam {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -74,17 +88,20 @@ func (e *htmlParam) Hidden(v bool) *htmlParam {
 	return e
 }
 
-func (e *htmlParam) TabIndex(v int) *htmlParam {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLParam) TabIndex(v int) *HTMLParam {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlParam) AccessKey(v string) *htmlParam {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLParam) AccessKey(v string) *HTMLParam {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlParam) Draggable(v bool) *htmlParam {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLParam) Draggable(v bool) *HTMLParam {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -93,7 +110,8 @@ func (e *htmlParam) Draggable(v bool) *htmlParam {
 	return e
 }
 
-func (e *htmlParam) Spellcheck(v bool) *htmlParam {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLParam) Spellcheck(v bool) *HTMLParam {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

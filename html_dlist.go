@@ -1,47 +1,57 @@
 package h
 
-type htmlDList struct {
-	htmlElement
+// HTMLDList represents HTML <dlist> tag
+type HTMLDList struct {
+	HTMLElement
 }
 
-func DList() *htmlDList {
-	e := &htmlDList{}
+// DList creates a HTML <dlist> tag
+func DList() *HTMLDList {
+	e := &HTMLDList{}
 	e.a = make(map[string]interface{})
 	e.tagName = "dlist"
 	return e
 }
 
-func (e *htmlDList) S(style StyleMap) *htmlDList {
+// S sets the element's CSS properties
+func (e *HTMLDList) S(style StyleMap) *HTMLDList {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlDList) Key(key interface{}) *htmlDList {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLDList) Key(key interface{}) *HTMLDList {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlDList) ID(v string) *htmlDList {
+// ID sets the element's "id" attribute
+func (e *HTMLDList) ID(v string) *HTMLDList {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlDList) Class(v string) *htmlDList {
+// Class sets the element's "class" attribute
+func (e *HTMLDList) Class(v string) *HTMLDList {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlDList) Title(v string) *htmlDList {
+// Title sets the element's "title" attribute
+func (e *HTMLDList) Title(v string) *HTMLDList {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlDList) Lang(v string) *htmlDList {
+// Lang sets the element's "lang" attribute
+func (e *HTMLDList) Lang(v string) *HTMLDList {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlDList) Translate(v bool) *htmlDList {
+// Translate sets the element's "translate" attribute
+func (e *HTMLDList) Translate(v bool) *HTMLDList {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlDList) Translate(v bool) *htmlDList {
 	return e
 }
 
-func (e *htmlDList) Dir(v string) *htmlDList {
+// Dir sets the element's "dir" attribute
+func (e *HTMLDList) Dir(v string) *HTMLDList {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlDList) Hidden(v bool) *htmlDList {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLDList) Hidden(v bool) *HTMLDList {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlDList) Hidden(v bool) *htmlDList {
 	return e
 }
 
-func (e *htmlDList) TabIndex(v int) *htmlDList {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLDList) TabIndex(v int) *HTMLDList {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlDList) AccessKey(v string) *htmlDList {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLDList) AccessKey(v string) *HTMLDList {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlDList) Draggable(v bool) *htmlDList {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLDList) Draggable(v bool) *HTMLDList {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlDList) Draggable(v bool) *htmlDList {
 	return e
 }
 
-func (e *htmlDList) Spellcheck(v bool) *htmlDList {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLDList) Spellcheck(v bool) *HTMLDList {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

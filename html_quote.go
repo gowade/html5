@@ -1,52 +1,63 @@
 package h
 
-type htmlQuote struct {
-	htmlElement
+// HTMLQuote represents HTML <quote> tag
+type HTMLQuote struct {
+	HTMLElement
 }
 
-func Quote() *htmlQuote {
-	e := &htmlQuote{}
+// Quote creates a HTML <quote> tag
+func Quote() *HTMLQuote {
+	e := &HTMLQuote{}
 	e.a = make(map[string]interface{})
 	e.tagName = "quote"
 	return e
 }
 
-func (e *htmlQuote) S(style StyleMap) *htmlQuote {
+// S sets the element's CSS properties
+func (e *HTMLQuote) S(style StyleMap) *HTMLQuote {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlQuote) Key(key interface{}) *htmlQuote {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLQuote) Key(key interface{}) *HTMLQuote {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlQuote) Cite(v string) *htmlQuote {
+// Cite sets the element's "cite" attribute
+func (e *HTMLQuote) Cite(v string) *HTMLQuote {
 	e.a["cite"] = v
 	return e
 }
 
-func (e *htmlQuote) ID(v string) *htmlQuote {
+// ID sets the element's "id" attribute
+func (e *HTMLQuote) ID(v string) *HTMLQuote {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlQuote) Class(v string) *htmlQuote {
+// Class sets the element's "class" attribute
+func (e *HTMLQuote) Class(v string) *HTMLQuote {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlQuote) Title(v string) *htmlQuote {
+// Title sets the element's "title" attribute
+func (e *HTMLQuote) Title(v string) *HTMLQuote {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlQuote) Lang(v string) *htmlQuote {
+// Lang sets the element's "lang" attribute
+func (e *HTMLQuote) Lang(v string) *HTMLQuote {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlQuote) Translate(v bool) *htmlQuote {
+// Translate sets the element's "translate" attribute
+func (e *HTMLQuote) Translate(v bool) *HTMLQuote {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -55,12 +66,14 @@ func (e *htmlQuote) Translate(v bool) *htmlQuote {
 	return e
 }
 
-func (e *htmlQuote) Dir(v string) *htmlQuote {
+// Dir sets the element's "dir" attribute
+func (e *HTMLQuote) Dir(v string) *HTMLQuote {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlQuote) Hidden(v bool) *htmlQuote {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLQuote) Hidden(v bool) *HTMLQuote {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -69,17 +82,20 @@ func (e *htmlQuote) Hidden(v bool) *htmlQuote {
 	return e
 }
 
-func (e *htmlQuote) TabIndex(v int) *htmlQuote {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLQuote) TabIndex(v int) *HTMLQuote {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlQuote) AccessKey(v string) *htmlQuote {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLQuote) AccessKey(v string) *HTMLQuote {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlQuote) Draggable(v bool) *htmlQuote {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLQuote) Draggable(v bool) *HTMLQuote {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -88,7 +104,8 @@ func (e *htmlQuote) Draggable(v bool) *htmlQuote {
 	return e
 }
 
-func (e *htmlQuote) Spellcheck(v bool) *htmlQuote {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLQuote) Spellcheck(v bool) *HTMLQuote {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

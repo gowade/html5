@@ -1,47 +1,57 @@
 package h
 
-type htmlProgress struct {
-	htmlElement
+// HTMLProgress represents HTML <progress> tag
+type HTMLProgress struct {
+	HTMLElement
 }
 
-func Progress() *htmlProgress {
-	e := &htmlProgress{}
+// Progress creates a HTML <progress> tag
+func Progress() *HTMLProgress {
+	e := &HTMLProgress{}
 	e.a = make(map[string]interface{})
 	e.tagName = "progress"
 	return e
 }
 
-func (e *htmlProgress) S(style StyleMap) *htmlProgress {
+// S sets the element's CSS properties
+func (e *HTMLProgress) S(style StyleMap) *HTMLProgress {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlProgress) Key(key interface{}) *htmlProgress {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLProgress) Key(key interface{}) *HTMLProgress {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlProgress) ID(v string) *htmlProgress {
+// ID sets the element's "id" attribute
+func (e *HTMLProgress) ID(v string) *HTMLProgress {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlProgress) Class(v string) *htmlProgress {
+// Class sets the element's "class" attribute
+func (e *HTMLProgress) Class(v string) *HTMLProgress {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlProgress) Title(v string) *htmlProgress {
+// Title sets the element's "title" attribute
+func (e *HTMLProgress) Title(v string) *HTMLProgress {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlProgress) Lang(v string) *htmlProgress {
+// Lang sets the element's "lang" attribute
+func (e *HTMLProgress) Lang(v string) *HTMLProgress {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlProgress) Translate(v bool) *htmlProgress {
+// Translate sets the element's "translate" attribute
+func (e *HTMLProgress) Translate(v bool) *HTMLProgress {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlProgress) Translate(v bool) *htmlProgress {
 	return e
 }
 
-func (e *htmlProgress) Dir(v string) *htmlProgress {
+// Dir sets the element's "dir" attribute
+func (e *HTMLProgress) Dir(v string) *HTMLProgress {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlProgress) Hidden(v bool) *htmlProgress {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLProgress) Hidden(v bool) *HTMLProgress {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlProgress) Hidden(v bool) *htmlProgress {
 	return e
 }
 
-func (e *htmlProgress) TabIndex(v int) *htmlProgress {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLProgress) TabIndex(v int) *HTMLProgress {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlProgress) AccessKey(v string) *htmlProgress {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLProgress) AccessKey(v string) *HTMLProgress {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlProgress) Draggable(v bool) *htmlProgress {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLProgress) Draggable(v bool) *HTMLProgress {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlProgress) Draggable(v bool) *htmlProgress {
 	return e
 }
 
-func (e *htmlProgress) Spellcheck(v bool) *htmlProgress {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLProgress) Spellcheck(v bool) *HTMLProgress {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

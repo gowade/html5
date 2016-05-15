@@ -1,82 +1,99 @@
 package h
 
-type htmlArea struct {
-	htmlElement
+// HTMLArea represents HTML <area> tag
+type HTMLArea struct {
+	HTMLElement
 }
 
-func Area() *htmlArea {
-	e := &htmlArea{}
+// Area creates a HTML <area> tag
+func Area() *HTMLArea {
+	e := &HTMLArea{}
 	e.a = make(map[string]interface{})
 	e.tagName = "area"
 	return e
 }
 
-func (e *htmlArea) S(style StyleMap) *htmlArea {
+// S sets the element's CSS properties
+func (e *HTMLArea) S(style StyleMap) *HTMLArea {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlArea) Key(key interface{}) *htmlArea {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLArea) Key(key interface{}) *HTMLArea {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlArea) Alt(v string) *htmlArea {
+// Alt sets the element's "alt" attribute
+func (e *HTMLArea) Alt(v string) *HTMLArea {
 	e.a["alt"] = v
 	return e
 }
 
-func (e *htmlArea) Coords(v string) *htmlArea {
+// Coords sets the element's "coords" attribute
+func (e *HTMLArea) Coords(v string) *HTMLArea {
 	e.a["coords"] = v
 	return e
 }
 
-func (e *htmlArea) Shape(v string) *htmlArea {
+// Shape sets the element's "shape" attribute
+func (e *HTMLArea) Shape(v string) *HTMLArea {
 	e.a["shape"] = v
 	return e
 }
 
-func (e *htmlArea) Target(v string) *htmlArea {
+// Target sets the element's "target" attribute
+func (e *HTMLArea) Target(v string) *HTMLArea {
 	e.a["target"] = v
 	return e
 }
 
-func (e *htmlArea) Download(v string) *htmlArea {
+// Download sets the element's "download" attribute
+func (e *HTMLArea) Download(v string) *HTMLArea {
 	e.a["download"] = v
 	return e
 }
 
-func (e *htmlArea) Rel(v string) *htmlArea {
+// Rel sets the element's "rel" attribute
+func (e *HTMLArea) Rel(v string) *HTMLArea {
 	e.a["rel"] = v
 	return e
 }
 
-func (e *htmlArea) ReferrerPolicy(v string) *htmlArea {
+// ReferrerPolicy sets the element's "referrerpolicy" attribute
+func (e *HTMLArea) ReferrerPolicy(v string) *HTMLArea {
 	e.a["referrerpolicy"] = v
 	return e
 }
 
-func (e *htmlArea) ID(v string) *htmlArea {
+// ID sets the element's "id" attribute
+func (e *HTMLArea) ID(v string) *HTMLArea {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlArea) Class(v string) *htmlArea {
+// Class sets the element's "class" attribute
+func (e *HTMLArea) Class(v string) *HTMLArea {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlArea) Title(v string) *htmlArea {
+// Title sets the element's "title" attribute
+func (e *HTMLArea) Title(v string) *HTMLArea {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlArea) Lang(v string) *htmlArea {
+// Lang sets the element's "lang" attribute
+func (e *HTMLArea) Lang(v string) *HTMLArea {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlArea) Translate(v bool) *htmlArea {
+// Translate sets the element's "translate" attribute
+func (e *HTMLArea) Translate(v bool) *HTMLArea {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -85,12 +102,14 @@ func (e *htmlArea) Translate(v bool) *htmlArea {
 	return e
 }
 
-func (e *htmlArea) Dir(v string) *htmlArea {
+// Dir sets the element's "dir" attribute
+func (e *HTMLArea) Dir(v string) *HTMLArea {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlArea) Hidden(v bool) *htmlArea {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLArea) Hidden(v bool) *HTMLArea {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -99,17 +118,20 @@ func (e *htmlArea) Hidden(v bool) *htmlArea {
 	return e
 }
 
-func (e *htmlArea) TabIndex(v int) *htmlArea {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLArea) TabIndex(v int) *HTMLArea {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlArea) AccessKey(v string) *htmlArea {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLArea) AccessKey(v string) *HTMLArea {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlArea) Draggable(v bool) *htmlArea {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLArea) Draggable(v bool) *HTMLArea {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -118,7 +140,8 @@ func (e *htmlArea) Draggable(v bool) *htmlArea {
 	return e
 }
 
-func (e *htmlArea) Spellcheck(v bool) *htmlArea {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLArea) Spellcheck(v bool) *HTMLArea {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

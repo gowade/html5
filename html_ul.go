@@ -1,47 +1,57 @@
 package h
 
-type htmlUL struct {
-	htmlElement
+// HTMLUL represents HTML <ul> tag
+type HTMLUL struct {
+	HTMLElement
 }
 
-func UL() *htmlUL {
-	e := &htmlUL{}
+// UL creates a HTML <ul> tag
+func UL() *HTMLUL {
+	e := &HTMLUL{}
 	e.a = make(map[string]interface{})
 	e.tagName = "ul"
 	return e
 }
 
-func (e *htmlUL) S(style StyleMap) *htmlUL {
+// S sets the element's CSS properties
+func (e *HTMLUL) S(style StyleMap) *HTMLUL {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlUL) Key(key interface{}) *htmlUL {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLUL) Key(key interface{}) *HTMLUL {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlUL) ID(v string) *htmlUL {
+// ID sets the element's "id" attribute
+func (e *HTMLUL) ID(v string) *HTMLUL {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlUL) Class(v string) *htmlUL {
+// Class sets the element's "class" attribute
+func (e *HTMLUL) Class(v string) *HTMLUL {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlUL) Title(v string) *htmlUL {
+// Title sets the element's "title" attribute
+func (e *HTMLUL) Title(v string) *HTMLUL {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlUL) Lang(v string) *htmlUL {
+// Lang sets the element's "lang" attribute
+func (e *HTMLUL) Lang(v string) *HTMLUL {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlUL) Translate(v bool) *htmlUL {
+// Translate sets the element's "translate" attribute
+func (e *HTMLUL) Translate(v bool) *HTMLUL {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlUL) Translate(v bool) *htmlUL {
 	return e
 }
 
-func (e *htmlUL) Dir(v string) *htmlUL {
+// Dir sets the element's "dir" attribute
+func (e *HTMLUL) Dir(v string) *HTMLUL {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlUL) Hidden(v bool) *htmlUL {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLUL) Hidden(v bool) *HTMLUL {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlUL) Hidden(v bool) *htmlUL {
 	return e
 }
 
-func (e *htmlUL) TabIndex(v int) *htmlUL {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLUL) TabIndex(v int) *HTMLUL {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlUL) AccessKey(v string) *htmlUL {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLUL) AccessKey(v string) *HTMLUL {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlUL) Draggable(v bool) *htmlUL {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLUL) Draggable(v bool) *HTMLUL {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlUL) Draggable(v bool) *htmlUL {
 	return e
 }
 
-func (e *htmlUL) Spellcheck(v bool) *htmlUL {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLUL) Spellcheck(v bool) *HTMLUL {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

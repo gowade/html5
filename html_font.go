@@ -1,62 +1,75 @@
 package h
 
-type htmlFont struct {
-	htmlElement
+// HTMLFont represents HTML <font> tag
+type HTMLFont struct {
+	HTMLElement
 }
 
-func Font() *htmlFont {
-	e := &htmlFont{}
+// Font creates a HTML <font> tag
+func Font() *HTMLFont {
+	e := &HTMLFont{}
 	e.a = make(map[string]interface{})
 	e.tagName = "font"
 	return e
 }
 
-func (e *htmlFont) S(style StyleMap) *htmlFont {
+// S sets the element's CSS properties
+func (e *HTMLFont) S(style StyleMap) *HTMLFont {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlFont) Key(key interface{}) *htmlFont {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLFont) Key(key interface{}) *HTMLFont {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlFont) Color(v string) *htmlFont {
+// Color sets the element's "color" attribute
+func (e *HTMLFont) Color(v string) *HTMLFont {
 	e.a["color"] = v
 	return e
 }
 
-func (e *htmlFont) Face(v string) *htmlFont {
+// Face sets the element's "face" attribute
+func (e *HTMLFont) Face(v string) *HTMLFont {
 	e.a["face"] = v
 	return e
 }
 
-func (e *htmlFont) Size(v string) *htmlFont {
+// Size sets the element's "size" attribute
+func (e *HTMLFont) Size(v string) *HTMLFont {
 	e.a["size"] = v
 	return e
 }
 
-func (e *htmlFont) ID(v string) *htmlFont {
+// ID sets the element's "id" attribute
+func (e *HTMLFont) ID(v string) *HTMLFont {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlFont) Class(v string) *htmlFont {
+// Class sets the element's "class" attribute
+func (e *HTMLFont) Class(v string) *HTMLFont {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlFont) Title(v string) *htmlFont {
+// Title sets the element's "title" attribute
+func (e *HTMLFont) Title(v string) *HTMLFont {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlFont) Lang(v string) *htmlFont {
+// Lang sets the element's "lang" attribute
+func (e *HTMLFont) Lang(v string) *HTMLFont {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlFont) Translate(v bool) *htmlFont {
+// Translate sets the element's "translate" attribute
+func (e *HTMLFont) Translate(v bool) *HTMLFont {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -65,12 +78,14 @@ func (e *htmlFont) Translate(v bool) *htmlFont {
 	return e
 }
 
-func (e *htmlFont) Dir(v string) *htmlFont {
+// Dir sets the element's "dir" attribute
+func (e *HTMLFont) Dir(v string) *HTMLFont {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlFont) Hidden(v bool) *htmlFont {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLFont) Hidden(v bool) *HTMLFont {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -79,17 +94,20 @@ func (e *htmlFont) Hidden(v bool) *htmlFont {
 	return e
 }
 
-func (e *htmlFont) TabIndex(v int) *htmlFont {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLFont) TabIndex(v int) *HTMLFont {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlFont) AccessKey(v string) *htmlFont {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLFont) AccessKey(v string) *HTMLFont {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlFont) Draggable(v bool) *htmlFont {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLFont) Draggable(v bool) *HTMLFont {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -98,7 +116,8 @@ func (e *htmlFont) Draggable(v bool) *htmlFont {
 	return e
 }
 
-func (e *htmlFont) Spellcheck(v bool) *htmlFont {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLFont) Spellcheck(v bool) *HTMLFont {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

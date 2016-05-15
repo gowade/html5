@@ -1,82 +1,99 @@
 package h
 
-type htmlLink struct {
-	htmlElement
+// HTMLLink represents HTML <link> tag
+type HTMLLink struct {
+	HTMLElement
 }
 
-func Link() *htmlLink {
-	e := &htmlLink{}
+// Link creates a HTML <link> tag
+func Link() *HTMLLink {
+	e := &HTMLLink{}
 	e.a = make(map[string]interface{})
 	e.tagName = "link"
 	return e
 }
 
-func (e *htmlLink) S(style StyleMap) *htmlLink {
+// S sets the element's CSS properties
+func (e *HTMLLink) S(style StyleMap) *HTMLLink {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlLink) Key(key interface{}) *htmlLink {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLLink) Key(key interface{}) *HTMLLink {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlLink) Href(v string) *htmlLink {
+// Href sets the element's "href" attribute
+func (e *HTMLLink) Href(v string) *HTMLLink {
 	e.a["href"] = v
 	return e
 }
 
-func (e *htmlLink) CrossOrigin(v string) *htmlLink {
+// CrossOrigin sets the element's "crossorigin" attribute
+func (e *HTMLLink) CrossOrigin(v string) *HTMLLink {
 	e.a["crossorigin"] = v
 	return e
 }
 
-func (e *htmlLink) Rel(v string) *htmlLink {
+// Rel sets the element's "rel" attribute
+func (e *HTMLLink) Rel(v string) *HTMLLink {
 	e.a["rel"] = v
 	return e
 }
 
-func (e *htmlLink) Media(v string) *htmlLink {
+// Media sets the element's "media" attribute
+func (e *HTMLLink) Media(v string) *HTMLLink {
 	e.a["media"] = v
 	return e
 }
 
-func (e *htmlLink) Hreflang(v string) *htmlLink {
+// Hreflang sets the element's "hreflang" attribute
+func (e *HTMLLink) Hreflang(v string) *HTMLLink {
 	e.a["hreflang"] = v
 	return e
 }
 
-func (e *htmlLink) Type(v string) *htmlLink {
+// Type sets the element's "type" attribute
+func (e *HTMLLink) Type(v string) *HTMLLink {
 	e.a["type"] = v
 	return e
 }
 
-func (e *htmlLink) ReferrerPolicy(v string) *htmlLink {
+// ReferrerPolicy sets the element's "referrerpolicy" attribute
+func (e *HTMLLink) ReferrerPolicy(v string) *HTMLLink {
 	e.a["referrerpolicy"] = v
 	return e
 }
 
-func (e *htmlLink) ID(v string) *htmlLink {
+// ID sets the element's "id" attribute
+func (e *HTMLLink) ID(v string) *HTMLLink {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlLink) Class(v string) *htmlLink {
+// Class sets the element's "class" attribute
+func (e *HTMLLink) Class(v string) *HTMLLink {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlLink) Title(v string) *htmlLink {
+// Title sets the element's "title" attribute
+func (e *HTMLLink) Title(v string) *HTMLLink {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlLink) Lang(v string) *htmlLink {
+// Lang sets the element's "lang" attribute
+func (e *HTMLLink) Lang(v string) *HTMLLink {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlLink) Translate(v bool) *htmlLink {
+// Translate sets the element's "translate" attribute
+func (e *HTMLLink) Translate(v bool) *HTMLLink {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -85,12 +102,14 @@ func (e *htmlLink) Translate(v bool) *htmlLink {
 	return e
 }
 
-func (e *htmlLink) Dir(v string) *htmlLink {
+// Dir sets the element's "dir" attribute
+func (e *HTMLLink) Dir(v string) *HTMLLink {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlLink) Hidden(v bool) *htmlLink {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLLink) Hidden(v bool) *HTMLLink {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -99,17 +118,20 @@ func (e *htmlLink) Hidden(v bool) *htmlLink {
 	return e
 }
 
-func (e *htmlLink) TabIndex(v int) *htmlLink {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLLink) TabIndex(v int) *HTMLLink {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlLink) AccessKey(v string) *htmlLink {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLLink) AccessKey(v string) *HTMLLink {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlLink) Draggable(v bool) *htmlLink {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLLink) Draggable(v bool) *HTMLLink {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -118,7 +140,8 @@ func (e *htmlLink) Draggable(v bool) *htmlLink {
 	return e
 }
 
-func (e *htmlLink) Spellcheck(v bool) *htmlLink {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLLink) Spellcheck(v bool) *HTMLLink {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

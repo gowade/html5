@@ -1,42 +1,51 @@
 package h
 
-type htmlMenuItem struct {
-	htmlElement
+// HTMLMenuItem represents HTML <menuitem> tag
+type HTMLMenuItem struct {
+	HTMLElement
 }
 
-func MenuItem() *htmlMenuItem {
-	e := &htmlMenuItem{}
+// MenuItem creates a HTML <menuitem> tag
+func MenuItem() *HTMLMenuItem {
+	e := &HTMLMenuItem{}
 	e.a = make(map[string]interface{})
 	e.tagName = "menuitem"
 	return e
 }
 
-func (e *htmlMenuItem) S(style StyleMap) *htmlMenuItem {
+// S sets the element's CSS properties
+func (e *HTMLMenuItem) S(style StyleMap) *HTMLMenuItem {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlMenuItem) Key(key interface{}) *htmlMenuItem {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLMenuItem) Key(key interface{}) *HTMLMenuItem {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlMenuItem) Type(v string) *htmlMenuItem {
+// Type sets the element's "type" attribute
+func (e *HTMLMenuItem) Type(v string) *HTMLMenuItem {
 	e.a["type"] = v
 	return e
 }
 
-func (e *htmlMenuItem) Label(v string) *htmlMenuItem {
+// Label sets the element's "label" attribute
+func (e *HTMLMenuItem) Label(v string) *HTMLMenuItem {
 	e.a["label"] = v
 	return e
 }
 
-func (e *htmlMenuItem) Icon(v string) *htmlMenuItem {
+// Icon sets the element's "icon" attribute
+func (e *HTMLMenuItem) Icon(v string) *HTMLMenuItem {
 	e.a["icon"] = v
 	return e
 }
 
-func (e *htmlMenuItem) Disabled(v bool) *htmlMenuItem {
+// Disabled sets the element's "disabled" attribute
+func (e *HTMLMenuItem) Disabled(v bool) *HTMLMenuItem {
 	if v {
 		e.a["disabled"] = ""
 	} else {
@@ -45,7 +54,8 @@ func (e *htmlMenuItem) Disabled(v bool) *htmlMenuItem {
 	return e
 }
 
-func (e *htmlMenuItem) Checked(v bool) *htmlMenuItem {
+// Checked sets the element's "checked" attribute
+func (e *HTMLMenuItem) Checked(v bool) *HTMLMenuItem {
 	if v {
 		e.a["checked"] = ""
 	} else {
@@ -54,12 +64,14 @@ func (e *htmlMenuItem) Checked(v bool) *htmlMenuItem {
 	return e
 }
 
-func (e *htmlMenuItem) Radiogroup(v string) *htmlMenuItem {
+// Radiogroup sets the element's "radiogroup" attribute
+func (e *HTMLMenuItem) Radiogroup(v string) *HTMLMenuItem {
 	e.a["radiogroup"] = v
 	return e
 }
 
-func (e *htmlMenuItem) Default(v bool) *htmlMenuItem {
+// Default sets the element's "default" attribute
+func (e *HTMLMenuItem) Default(v bool) *HTMLMenuItem {
 	if v {
 		e.a["default"] = ""
 	} else {
@@ -68,27 +80,32 @@ func (e *htmlMenuItem) Default(v bool) *htmlMenuItem {
 	return e
 }
 
-func (e *htmlMenuItem) ID(v string) *htmlMenuItem {
+// ID sets the element's "id" attribute
+func (e *HTMLMenuItem) ID(v string) *HTMLMenuItem {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlMenuItem) Class(v string) *htmlMenuItem {
+// Class sets the element's "class" attribute
+func (e *HTMLMenuItem) Class(v string) *HTMLMenuItem {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlMenuItem) Title(v string) *htmlMenuItem {
+// Title sets the element's "title" attribute
+func (e *HTMLMenuItem) Title(v string) *HTMLMenuItem {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlMenuItem) Lang(v string) *htmlMenuItem {
+// Lang sets the element's "lang" attribute
+func (e *HTMLMenuItem) Lang(v string) *HTMLMenuItem {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlMenuItem) Translate(v bool) *htmlMenuItem {
+// Translate sets the element's "translate" attribute
+func (e *HTMLMenuItem) Translate(v bool) *HTMLMenuItem {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -97,12 +114,14 @@ func (e *htmlMenuItem) Translate(v bool) *htmlMenuItem {
 	return e
 }
 
-func (e *htmlMenuItem) Dir(v string) *htmlMenuItem {
+// Dir sets the element's "dir" attribute
+func (e *HTMLMenuItem) Dir(v string) *HTMLMenuItem {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlMenuItem) Hidden(v bool) *htmlMenuItem {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLMenuItem) Hidden(v bool) *HTMLMenuItem {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -111,17 +130,20 @@ func (e *htmlMenuItem) Hidden(v bool) *htmlMenuItem {
 	return e
 }
 
-func (e *htmlMenuItem) TabIndex(v int) *htmlMenuItem {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLMenuItem) TabIndex(v int) *HTMLMenuItem {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlMenuItem) AccessKey(v string) *htmlMenuItem {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLMenuItem) AccessKey(v string) *HTMLMenuItem {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlMenuItem) Draggable(v bool) *htmlMenuItem {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLMenuItem) Draggable(v bool) *HTMLMenuItem {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -130,7 +152,8 @@ func (e *htmlMenuItem) Draggable(v bool) *htmlMenuItem {
 	return e
 }
 
-func (e *htmlMenuItem) Spellcheck(v bool) *htmlMenuItem {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLMenuItem) Spellcheck(v bool) *HTMLMenuItem {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

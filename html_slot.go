@@ -1,52 +1,63 @@
 package h
 
-type htmlSlot struct {
-	htmlElement
+// HTMLSlot represents HTML <slot> tag
+type HTMLSlot struct {
+	HTMLElement
 }
 
-func Slot() *htmlSlot {
-	e := &htmlSlot{}
+// Slot creates a HTML <slot> tag
+func Slot() *HTMLSlot {
+	e := &HTMLSlot{}
 	e.a = make(map[string]interface{})
 	e.tagName = "slot"
 	return e
 }
 
-func (e *htmlSlot) S(style StyleMap) *htmlSlot {
+// S sets the element's CSS properties
+func (e *HTMLSlot) S(style StyleMap) *HTMLSlot {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlSlot) Key(key interface{}) *htmlSlot {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLSlot) Key(key interface{}) *HTMLSlot {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlSlot) Name(v string) *htmlSlot {
+// Name sets the element's "name" attribute
+func (e *HTMLSlot) Name(v string) *HTMLSlot {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlSlot) ID(v string) *htmlSlot {
+// ID sets the element's "id" attribute
+func (e *HTMLSlot) ID(v string) *HTMLSlot {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlSlot) Class(v string) *htmlSlot {
+// Class sets the element's "class" attribute
+func (e *HTMLSlot) Class(v string) *HTMLSlot {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlSlot) Title(v string) *htmlSlot {
+// Title sets the element's "title" attribute
+func (e *HTMLSlot) Title(v string) *HTMLSlot {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlSlot) Lang(v string) *htmlSlot {
+// Lang sets the element's "lang" attribute
+func (e *HTMLSlot) Lang(v string) *HTMLSlot {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlSlot) Translate(v bool) *htmlSlot {
+// Translate sets the element's "translate" attribute
+func (e *HTMLSlot) Translate(v bool) *HTMLSlot {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -55,12 +66,14 @@ func (e *htmlSlot) Translate(v bool) *htmlSlot {
 	return e
 }
 
-func (e *htmlSlot) Dir(v string) *htmlSlot {
+// Dir sets the element's "dir" attribute
+func (e *HTMLSlot) Dir(v string) *HTMLSlot {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlSlot) Hidden(v bool) *htmlSlot {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLSlot) Hidden(v bool) *HTMLSlot {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -69,17 +82,20 @@ func (e *htmlSlot) Hidden(v bool) *htmlSlot {
 	return e
 }
 
-func (e *htmlSlot) TabIndex(v int) *htmlSlot {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLSlot) TabIndex(v int) *HTMLSlot {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlSlot) AccessKey(v string) *htmlSlot {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLSlot) AccessKey(v string) *HTMLSlot {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlSlot) Draggable(v bool) *htmlSlot {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLSlot) Draggable(v bool) *HTMLSlot {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -88,7 +104,8 @@ func (e *htmlSlot) Draggable(v bool) *htmlSlot {
 	return e
 }
 
-func (e *htmlSlot) Spellcheck(v bool) *htmlSlot {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLSlot) Spellcheck(v bool) *HTMLSlot {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

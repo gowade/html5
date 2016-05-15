@@ -1,47 +1,57 @@
 package h
 
-type htmlPicture struct {
-	htmlElement
+// HTMLPicture represents HTML <picture> tag
+type HTMLPicture struct {
+	HTMLElement
 }
 
-func Picture() *htmlPicture {
-	e := &htmlPicture{}
+// Picture creates a HTML <picture> tag
+func Picture() *HTMLPicture {
+	e := &HTMLPicture{}
 	e.a = make(map[string]interface{})
 	e.tagName = "picture"
 	return e
 }
 
-func (e *htmlPicture) S(style StyleMap) *htmlPicture {
+// S sets the element's CSS properties
+func (e *HTMLPicture) S(style StyleMap) *HTMLPicture {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlPicture) Key(key interface{}) *htmlPicture {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLPicture) Key(key interface{}) *HTMLPicture {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlPicture) ID(v string) *htmlPicture {
+// ID sets the element's "id" attribute
+func (e *HTMLPicture) ID(v string) *HTMLPicture {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlPicture) Class(v string) *htmlPicture {
+// Class sets the element's "class" attribute
+func (e *HTMLPicture) Class(v string) *HTMLPicture {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlPicture) Title(v string) *htmlPicture {
+// Title sets the element's "title" attribute
+func (e *HTMLPicture) Title(v string) *HTMLPicture {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlPicture) Lang(v string) *htmlPicture {
+// Lang sets the element's "lang" attribute
+func (e *HTMLPicture) Lang(v string) *HTMLPicture {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlPicture) Translate(v bool) *htmlPicture {
+// Translate sets the element's "translate" attribute
+func (e *HTMLPicture) Translate(v bool) *HTMLPicture {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlPicture) Translate(v bool) *htmlPicture {
 	return e
 }
 
-func (e *htmlPicture) Dir(v string) *htmlPicture {
+// Dir sets the element's "dir" attribute
+func (e *HTMLPicture) Dir(v string) *HTMLPicture {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlPicture) Hidden(v bool) *htmlPicture {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLPicture) Hidden(v bool) *HTMLPicture {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlPicture) Hidden(v bool) *htmlPicture {
 	return e
 }
 
-func (e *htmlPicture) TabIndex(v int) *htmlPicture {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLPicture) TabIndex(v int) *HTMLPicture {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlPicture) AccessKey(v string) *htmlPicture {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLPicture) AccessKey(v string) *HTMLPicture {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlPicture) Draggable(v bool) *htmlPicture {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLPicture) Draggable(v bool) *HTMLPicture {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlPicture) Draggable(v bool) *htmlPicture {
 	return e
 }
 
-func (e *htmlPicture) Spellcheck(v bool) *htmlPicture {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLPicture) Spellcheck(v bool) *HTMLPicture {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

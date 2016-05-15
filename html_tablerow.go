@@ -1,47 +1,57 @@
 package h
 
-type htmlTableRow struct {
-	htmlElement
+// HTMLTableRow represents HTML <tablerow> tag
+type HTMLTableRow struct {
+	HTMLElement
 }
 
-func TableRow() *htmlTableRow {
-	e := &htmlTableRow{}
+// TableRow creates a HTML <tablerow> tag
+func TableRow() *HTMLTableRow {
+	e := &HTMLTableRow{}
 	e.a = make(map[string]interface{})
 	e.tagName = "tablerow"
 	return e
 }
 
-func (e *htmlTableRow) S(style StyleMap) *htmlTableRow {
+// S sets the element's CSS properties
+func (e *HTMLTableRow) S(style StyleMap) *HTMLTableRow {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlTableRow) Key(key interface{}) *htmlTableRow {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLTableRow) Key(key interface{}) *HTMLTableRow {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlTableRow) ID(v string) *htmlTableRow {
+// ID sets the element's "id" attribute
+func (e *HTMLTableRow) ID(v string) *HTMLTableRow {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlTableRow) Class(v string) *htmlTableRow {
+// Class sets the element's "class" attribute
+func (e *HTMLTableRow) Class(v string) *HTMLTableRow {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlTableRow) Title(v string) *htmlTableRow {
+// Title sets the element's "title" attribute
+func (e *HTMLTableRow) Title(v string) *HTMLTableRow {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlTableRow) Lang(v string) *htmlTableRow {
+// Lang sets the element's "lang" attribute
+func (e *HTMLTableRow) Lang(v string) *HTMLTableRow {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlTableRow) Translate(v bool) *htmlTableRow {
+// Translate sets the element's "translate" attribute
+func (e *HTMLTableRow) Translate(v bool) *HTMLTableRow {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlTableRow) Translate(v bool) *htmlTableRow {
 	return e
 }
 
-func (e *htmlTableRow) Dir(v string) *htmlTableRow {
+// Dir sets the element's "dir" attribute
+func (e *HTMLTableRow) Dir(v string) *HTMLTableRow {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlTableRow) Hidden(v bool) *htmlTableRow {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLTableRow) Hidden(v bool) *HTMLTableRow {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlTableRow) Hidden(v bool) *htmlTableRow {
 	return e
 }
 
-func (e *htmlTableRow) TabIndex(v int) *htmlTableRow {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLTableRow) TabIndex(v int) *HTMLTableRow {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlTableRow) AccessKey(v string) *htmlTableRow {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLTableRow) AccessKey(v string) *HTMLTableRow {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlTableRow) Draggable(v bool) *htmlTableRow {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLTableRow) Draggable(v bool) *HTMLTableRow {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlTableRow) Draggable(v bool) *htmlTableRow {
 	return e
 }
 
-func (e *htmlTableRow) Spellcheck(v bool) *htmlTableRow {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLTableRow) Spellcheck(v bool) *HTMLTableRow {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

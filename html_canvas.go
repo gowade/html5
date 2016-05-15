@@ -1,37 +1,45 @@
 package h
 
-type htmlCanvas struct {
-	htmlElement
+// HTMLCanvas represents HTML <canvas> tag
+type HTMLCanvas struct {
+	HTMLElement
 }
 
-func Canvas() *htmlCanvas {
-	e := &htmlCanvas{}
+// Canvas creates a HTML <canvas> tag
+func Canvas() *HTMLCanvas {
+	e := &HTMLCanvas{}
 	e.a = make(map[string]interface{})
 	e.tagName = "canvas"
 	return e
 }
 
-func (e *htmlCanvas) S(style StyleMap) *htmlCanvas {
+// S sets the element's CSS properties
+func (e *HTMLCanvas) S(style StyleMap) *HTMLCanvas {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlCanvas) Key(key interface{}) *htmlCanvas {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLCanvas) Key(key interface{}) *HTMLCanvas {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlCanvas) Width(v int) *htmlCanvas {
+// Width sets the element's "width" attribute
+func (e *HTMLCanvas) Width(v int) *HTMLCanvas {
 	e.a["width"] = v
 	return e
 }
 
-func (e *htmlCanvas) Height(v int) *htmlCanvas {
+// Height sets the element's "height" attribute
+func (e *HTMLCanvas) Height(v int) *HTMLCanvas {
 	e.a["height"] = v
 	return e
 }
 
-func (e *htmlCanvas) ProbablySupportsContext(v bool) *htmlCanvas {
+// ProbablySupportsContext sets the element's "probablysupportscontext" attribute
+func (e *HTMLCanvas) ProbablySupportsContext(v bool) *HTMLCanvas {
 	if v {
 		e.a["probablysupportscontext"] = ""
 	} else {
@@ -40,32 +48,38 @@ func (e *htmlCanvas) ProbablySupportsContext(v bool) *htmlCanvas {
 	return e
 }
 
-func (e *htmlCanvas) ToDataURL(v string) *htmlCanvas {
+// ToDataURL sets the element's "todataurl" attribute
+func (e *HTMLCanvas) ToDataURL(v string) *HTMLCanvas {
 	e.a["todataurl"] = v
 	return e
 }
 
-func (e *htmlCanvas) ID(v string) *htmlCanvas {
+// ID sets the element's "id" attribute
+func (e *HTMLCanvas) ID(v string) *HTMLCanvas {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlCanvas) Class(v string) *htmlCanvas {
+// Class sets the element's "class" attribute
+func (e *HTMLCanvas) Class(v string) *HTMLCanvas {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlCanvas) Title(v string) *htmlCanvas {
+// Title sets the element's "title" attribute
+func (e *HTMLCanvas) Title(v string) *HTMLCanvas {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlCanvas) Lang(v string) *htmlCanvas {
+// Lang sets the element's "lang" attribute
+func (e *HTMLCanvas) Lang(v string) *HTMLCanvas {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlCanvas) Translate(v bool) *htmlCanvas {
+// Translate sets the element's "translate" attribute
+func (e *HTMLCanvas) Translate(v bool) *HTMLCanvas {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -74,12 +88,14 @@ func (e *htmlCanvas) Translate(v bool) *htmlCanvas {
 	return e
 }
 
-func (e *htmlCanvas) Dir(v string) *htmlCanvas {
+// Dir sets the element's "dir" attribute
+func (e *HTMLCanvas) Dir(v string) *HTMLCanvas {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlCanvas) Hidden(v bool) *htmlCanvas {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLCanvas) Hidden(v bool) *HTMLCanvas {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -88,17 +104,20 @@ func (e *htmlCanvas) Hidden(v bool) *htmlCanvas {
 	return e
 }
 
-func (e *htmlCanvas) TabIndex(v int) *htmlCanvas {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLCanvas) TabIndex(v int) *HTMLCanvas {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlCanvas) AccessKey(v string) *htmlCanvas {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLCanvas) AccessKey(v string) *HTMLCanvas {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlCanvas) Draggable(v bool) *htmlCanvas {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLCanvas) Draggable(v bool) *HTMLCanvas {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -107,7 +126,8 @@ func (e *htmlCanvas) Draggable(v bool) *htmlCanvas {
 	return e
 }
 
-func (e *htmlCanvas) Spellcheck(v bool) *htmlCanvas {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLCanvas) Spellcheck(v bool) *HTMLCanvas {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

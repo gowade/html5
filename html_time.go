@@ -1,52 +1,63 @@
 package h
 
-type htmlTime struct {
-	htmlElement
+// HTMLTime represents HTML <time> tag
+type HTMLTime struct {
+	HTMLElement
 }
 
-func Time() *htmlTime {
-	e := &htmlTime{}
+// Time creates a HTML <time> tag
+func Time() *HTMLTime {
+	e := &HTMLTime{}
 	e.a = make(map[string]interface{})
 	e.tagName = "time"
 	return e
 }
 
-func (e *htmlTime) S(style StyleMap) *htmlTime {
+// S sets the element's CSS properties
+func (e *HTMLTime) S(style StyleMap) *HTMLTime {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlTime) Key(key interface{}) *htmlTime {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLTime) Key(key interface{}) *HTMLTime {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlTime) DateTime(v string) *htmlTime {
+// DateTime sets the element's "datetime" attribute
+func (e *HTMLTime) DateTime(v string) *HTMLTime {
 	e.a["datetime"] = v
 	return e
 }
 
-func (e *htmlTime) ID(v string) *htmlTime {
+// ID sets the element's "id" attribute
+func (e *HTMLTime) ID(v string) *HTMLTime {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlTime) Class(v string) *htmlTime {
+// Class sets the element's "class" attribute
+func (e *HTMLTime) Class(v string) *HTMLTime {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlTime) Title(v string) *htmlTime {
+// Title sets the element's "title" attribute
+func (e *HTMLTime) Title(v string) *HTMLTime {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlTime) Lang(v string) *htmlTime {
+// Lang sets the element's "lang" attribute
+func (e *HTMLTime) Lang(v string) *HTMLTime {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlTime) Translate(v bool) *htmlTime {
+// Translate sets the element's "translate" attribute
+func (e *HTMLTime) Translate(v bool) *HTMLTime {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -55,12 +66,14 @@ func (e *htmlTime) Translate(v bool) *htmlTime {
 	return e
 }
 
-func (e *htmlTime) Dir(v string) *htmlTime {
+// Dir sets the element's "dir" attribute
+func (e *HTMLTime) Dir(v string) *HTMLTime {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlTime) Hidden(v bool) *htmlTime {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLTime) Hidden(v bool) *HTMLTime {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -69,17 +82,20 @@ func (e *htmlTime) Hidden(v bool) *htmlTime {
 	return e
 }
 
-func (e *htmlTime) TabIndex(v int) *htmlTime {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLTime) TabIndex(v int) *HTMLTime {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlTime) AccessKey(v string) *htmlTime {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLTime) AccessKey(v string) *HTMLTime {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlTime) Draggable(v bool) *htmlTime {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLTime) Draggable(v bool) *HTMLTime {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -88,7 +104,8 @@ func (e *htmlTime) Draggable(v bool) *htmlTime {
 	return e
 }
 
-func (e *htmlTime) Spellcheck(v bool) *htmlTime {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLTime) Spellcheck(v bool) *HTMLTime {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

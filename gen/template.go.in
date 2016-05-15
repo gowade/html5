@@ -1,24 +1,29 @@
 package h
 
 <% if (tagType != "Element") { %>
+// <%= privType %> represents HTML <<%= htmlTag %>> tag
 type <%= privType %> struct {
 <% if (parentIface) { %>
   <%= parentIface.privType %>
 <% } -%>
 }
 
+// <%= tagType %> creates a HTML <<%= htmlTag %>> tag
 func <%= tagType %>() *<%= privType %> {
 	e := &<%= privType %>{}
 	e.a = make(map[string]interface{})
-	e.tagName = "<%= tagType.toLowerCase() %>"
+	e.tagName = "<%= htmlTag %>"
 	return e
 }
 
+// S sets the element's CSS properties
 func (e *<%= privType %>) S(style StyleMap) *<%= privType %> {
 	e.htmlElement.S(style)
-	return e
+	return 
 }
 
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
 func (e *<%= privType %>) Key(key interface{}) *<%= privType %> {
 	e.key = F(key)
 	return e
@@ -38,6 +43,7 @@ func (e *<%= privType %>) Key(key interface{}) *<%= privType %> {
 	var mMethodName = toGoMethodName(member.name);
 	var mAttr = member.name.toLowerCase();
 %>
+// <%= mMethodName %> sets the element's "<%= mAttr %>" attribute
 func (e *<%= privType %>) <%= mMethodName %>(v <%= mGoType %>) *<%= privType %> {
 	<% switch (mGoType) {
 	case "bool": -%>
@@ -65,6 +71,7 @@ func (e *<%= privType %>) <%= mMethodName %>(v <%= mGoType %>) *<%= privType %> 
 	var mMethodName = toGoMethodName(member.name);
 	var mAttr = member.name.toLowerCase();
 %>
+// <%= mMethodName %> sets the element's "<%= mAttr %>" attribute
 func (e *<%= privType %>) <%= mMethodName %>(v <%= mGoType %>) *<%= privType %> {
 	<% switch (mGoType) {
 	case "bool": -%>

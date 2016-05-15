@@ -1,42 +1,51 @@
 package h
 
-type htmlInput struct {
-	htmlElement
+// HTMLInput represents HTML <input> tag
+type HTMLInput struct {
+	HTMLElement
 }
 
-func Input() *htmlInput {
-	e := &htmlInput{}
+// Input creates a HTML <input> tag
+func Input() *HTMLInput {
+	e := &HTMLInput{}
 	e.a = make(map[string]interface{})
 	e.tagName = "input"
 	return e
 }
 
-func (e *htmlInput) S(style StyleMap) *htmlInput {
+// S sets the element's CSS properties
+func (e *HTMLInput) S(style StyleMap) *HTMLInput {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlInput) Key(key interface{}) *htmlInput {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLInput) Key(key interface{}) *HTMLInput {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlInput) Accept(v string) *htmlInput {
+// Accept sets the element's "accept" attribute
+func (e *HTMLInput) Accept(v string) *HTMLInput {
 	e.a["accept"] = v
 	return e
 }
 
-func (e *htmlInput) Alt(v string) *htmlInput {
+// Alt sets the element's "alt" attribute
+func (e *HTMLInput) Alt(v string) *HTMLInput {
 	e.a["alt"] = v
 	return e
 }
 
-func (e *htmlInput) Autocomplete(v string) *htmlInput {
+// Autocomplete sets the element's "autocomplete" attribute
+func (e *HTMLInput) Autocomplete(v string) *HTMLInput {
 	e.a["autocomplete"] = v
 	return e
 }
 
-func (e *htmlInput) Autofocus(v bool) *htmlInput {
+// Autofocus sets the element's "autofocus" attribute
+func (e *HTMLInput) Autofocus(v bool) *HTMLInput {
 	if v {
 		e.a["autofocus"] = ""
 	} else {
@@ -45,7 +54,8 @@ func (e *htmlInput) Autofocus(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) DefaultChecked(v bool) *htmlInput {
+// DefaultChecked sets the element's "defaultchecked" attribute
+func (e *HTMLInput) DefaultChecked(v bool) *HTMLInput {
 	if v {
 		e.a["defaultchecked"] = ""
 	} else {
@@ -54,7 +64,8 @@ func (e *htmlInput) DefaultChecked(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) Checked(v bool) *htmlInput {
+// Checked sets the element's "checked" attribute
+func (e *HTMLInput) Checked(v bool) *HTMLInput {
 	if v {
 		e.a["checked"] = ""
 	} else {
@@ -63,12 +74,14 @@ func (e *htmlInput) Checked(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) DirName(v string) *htmlInput {
+// DirName sets the element's "dirname" attribute
+func (e *HTMLInput) DirName(v string) *HTMLInput {
 	e.a["dirname"] = v
 	return e
 }
 
-func (e *htmlInput) Disabled(v bool) *htmlInput {
+// Disabled sets the element's "disabled" attribute
+func (e *HTMLInput) Disabled(v bool) *HTMLInput {
 	if v {
 		e.a["disabled"] = ""
 	} else {
@@ -77,22 +90,26 @@ func (e *htmlInput) Disabled(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) FormAction(v string) *htmlInput {
+// FormAction sets the element's "formaction" attribute
+func (e *HTMLInput) FormAction(v string) *HTMLInput {
 	e.a["formaction"] = v
 	return e
 }
 
-func (e *htmlInput) FormEnctype(v string) *htmlInput {
+// FormEnctype sets the element's "formenctype" attribute
+func (e *HTMLInput) FormEnctype(v string) *HTMLInput {
 	e.a["formenctype"] = v
 	return e
 }
 
-func (e *htmlInput) FormMethod(v string) *htmlInput {
+// FormMethod sets the element's "formmethod" attribute
+func (e *HTMLInput) FormMethod(v string) *HTMLInput {
 	e.a["formmethod"] = v
 	return e
 }
 
-func (e *htmlInput) FormNoValidate(v bool) *htmlInput {
+// FormNoValidate sets the element's "formnovalidate" attribute
+func (e *HTMLInput) FormNoValidate(v bool) *HTMLInput {
 	if v {
 		e.a["formnovalidate"] = ""
 	} else {
@@ -101,17 +118,20 @@ func (e *htmlInput) FormNoValidate(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) FormTarget(v string) *htmlInput {
+// FormTarget sets the element's "formtarget" attribute
+func (e *HTMLInput) FormTarget(v string) *HTMLInput {
 	e.a["formtarget"] = v
 	return e
 }
 
-func (e *htmlInput) Height(v int) *htmlInput {
+// Height sets the element's "height" attribute
+func (e *HTMLInput) Height(v int) *HTMLInput {
 	e.a["height"] = v
 	return e
 }
 
-func (e *htmlInput) Indeterminate(v bool) *htmlInput {
+// Indeterminate sets the element's "indeterminate" attribute
+func (e *HTMLInput) Indeterminate(v bool) *HTMLInput {
 	if v {
 		e.a["indeterminate"] = ""
 	} else {
@@ -120,32 +140,38 @@ func (e *htmlInput) Indeterminate(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) InputMode(v string) *htmlInput {
+// InputMode sets the element's "inputmode" attribute
+func (e *HTMLInput) InputMode(v string) *HTMLInput {
 	e.a["inputmode"] = v
 	return e
 }
 
-func (e *htmlInput) Max(v string) *htmlInput {
+// Max sets the element's "max" attribute
+func (e *HTMLInput) Max(v string) *HTMLInput {
 	e.a["max"] = v
 	return e
 }
 
-func (e *htmlInput) MaxLength(v int) *htmlInput {
+// MaxLength sets the element's "maxlength" attribute
+func (e *HTMLInput) MaxLength(v int) *HTMLInput {
 	e.a["maxlength"] = v
 	return e
 }
 
-func (e *htmlInput) Min(v string) *htmlInput {
+// Min sets the element's "min" attribute
+func (e *HTMLInput) Min(v string) *HTMLInput {
 	e.a["min"] = v
 	return e
 }
 
-func (e *htmlInput) MinLength(v int) *htmlInput {
+// MinLength sets the element's "minlength" attribute
+func (e *HTMLInput) MinLength(v int) *HTMLInput {
 	e.a["minlength"] = v
 	return e
 }
 
-func (e *htmlInput) Multiple(v bool) *htmlInput {
+// Multiple sets the element's "multiple" attribute
+func (e *HTMLInput) Multiple(v bool) *HTMLInput {
 	if v {
 		e.a["multiple"] = ""
 	} else {
@@ -154,22 +180,26 @@ func (e *htmlInput) Multiple(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) Name(v string) *htmlInput {
+// Name sets the element's "name" attribute
+func (e *HTMLInput) Name(v string) *HTMLInput {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlInput) Pattern(v string) *htmlInput {
+// Pattern sets the element's "pattern" attribute
+func (e *HTMLInput) Pattern(v string) *HTMLInput {
 	e.a["pattern"] = v
 	return e
 }
 
-func (e *htmlInput) Placeholder(v string) *htmlInput {
+// Placeholder sets the element's "placeholder" attribute
+func (e *HTMLInput) Placeholder(v string) *HTMLInput {
 	e.a["placeholder"] = v
 	return e
 }
 
-func (e *htmlInput) ReadOnly(v bool) *htmlInput {
+// ReadOnly sets the element's "readonly" attribute
+func (e *HTMLInput) ReadOnly(v bool) *HTMLInput {
 	if v {
 		e.a["readonly"] = ""
 	} else {
@@ -178,7 +208,8 @@ func (e *htmlInput) ReadOnly(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) Required(v bool) *htmlInput {
+// Required sets the element's "required" attribute
+func (e *HTMLInput) Required(v bool) *HTMLInput {
 	if v {
 		e.a["required"] = ""
 	} else {
@@ -187,42 +218,50 @@ func (e *htmlInput) Required(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) Size(v int) *htmlInput {
+// Size sets the element's "size" attribute
+func (e *HTMLInput) Size(v int) *HTMLInput {
 	e.a["size"] = v
 	return e
 }
 
-func (e *htmlInput) Src(v string) *htmlInput {
+// Src sets the element's "src" attribute
+func (e *HTMLInput) Src(v string) *HTMLInput {
 	e.a["src"] = v
 	return e
 }
 
-func (e *htmlInput) Step(v string) *htmlInput {
+// Step sets the element's "step" attribute
+func (e *HTMLInput) Step(v string) *HTMLInput {
 	e.a["step"] = v
 	return e
 }
 
-func (e *htmlInput) Type(v string) *htmlInput {
+// Type sets the element's "type" attribute
+func (e *HTMLInput) Type(v string) *HTMLInput {
 	e.a["type"] = v
 	return e
 }
 
-func (e *htmlInput) DefaultValue(v string) *htmlInput {
+// DefaultValue sets the element's "defaultvalue" attribute
+func (e *HTMLInput) DefaultValue(v string) *HTMLInput {
 	e.a["defaultvalue"] = v
 	return e
 }
 
-func (e *htmlInput) Value(v string) *htmlInput {
+// Value sets the element's "value" attribute
+func (e *HTMLInput) Value(v string) *HTMLInput {
 	e.a["value"] = v
 	return e
 }
 
-func (e *htmlInput) Width(v int) *htmlInput {
+// Width sets the element's "width" attribute
+func (e *HTMLInput) Width(v int) *HTMLInput {
 	e.a["width"] = v
 	return e
 }
 
-func (e *htmlInput) CheckValidity(v bool) *htmlInput {
+// CheckValidity sets the element's "checkvalidity" attribute
+func (e *HTMLInput) CheckValidity(v bool) *HTMLInput {
 	if v {
 		e.a["checkvalidity"] = ""
 	} else {
@@ -231,7 +270,8 @@ func (e *htmlInput) CheckValidity(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) ReportValidity(v bool) *htmlInput {
+// ReportValidity sets the element's "reportvalidity" attribute
+func (e *HTMLInput) ReportValidity(v bool) *HTMLInput {
 	if v {
 		e.a["reportvalidity"] = ""
 	} else {
@@ -240,42 +280,50 @@ func (e *htmlInput) ReportValidity(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) SelectionStart(v int) *htmlInput {
+// SelectionStart sets the element's "selectionstart" attribute
+func (e *HTMLInput) SelectionStart(v int) *HTMLInput {
 	e.a["selectionstart"] = v
 	return e
 }
 
-func (e *htmlInput) SelectionEnd(v int) *htmlInput {
+// SelectionEnd sets the element's "selectionend" attribute
+func (e *HTMLInput) SelectionEnd(v int) *HTMLInput {
 	e.a["selectionend"] = v
 	return e
 }
 
-func (e *htmlInput) SelectionDirection(v string) *htmlInput {
+// SelectionDirection sets the element's "selectiondirection" attribute
+func (e *HTMLInput) SelectionDirection(v string) *HTMLInput {
 	e.a["selectiondirection"] = v
 	return e
 }
 
-func (e *htmlInput) ID(v string) *htmlInput {
+// ID sets the element's "id" attribute
+func (e *HTMLInput) ID(v string) *HTMLInput {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlInput) Class(v string) *htmlInput {
+// Class sets the element's "class" attribute
+func (e *HTMLInput) Class(v string) *HTMLInput {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlInput) Title(v string) *htmlInput {
+// Title sets the element's "title" attribute
+func (e *HTMLInput) Title(v string) *HTMLInput {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlInput) Lang(v string) *htmlInput {
+// Lang sets the element's "lang" attribute
+func (e *HTMLInput) Lang(v string) *HTMLInput {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlInput) Translate(v bool) *htmlInput {
+// Translate sets the element's "translate" attribute
+func (e *HTMLInput) Translate(v bool) *HTMLInput {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -284,12 +332,14 @@ func (e *htmlInput) Translate(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) Dir(v string) *htmlInput {
+// Dir sets the element's "dir" attribute
+func (e *HTMLInput) Dir(v string) *HTMLInput {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlInput) Hidden(v bool) *htmlInput {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLInput) Hidden(v bool) *HTMLInput {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -298,17 +348,20 @@ func (e *htmlInput) Hidden(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) TabIndex(v int) *htmlInput {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLInput) TabIndex(v int) *HTMLInput {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlInput) AccessKey(v string) *htmlInput {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLInput) AccessKey(v string) *HTMLInput {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlInput) Draggable(v bool) *htmlInput {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLInput) Draggable(v bool) *HTMLInput {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -317,7 +370,8 @@ func (e *htmlInput) Draggable(v bool) *htmlInput {
 	return e
 }
 
-func (e *htmlInput) Spellcheck(v bool) *htmlInput {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLInput) Spellcheck(v bool) *HTMLInput {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

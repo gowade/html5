@@ -1,57 +1,69 @@
 package h
 
-type htmlMod struct {
-	htmlElement
+// HTMLMod represents HTML <mod> tag
+type HTMLMod struct {
+	HTMLElement
 }
 
-func Mod() *htmlMod {
-	e := &htmlMod{}
+// Mod creates a HTML <mod> tag
+func Mod() *HTMLMod {
+	e := &HTMLMod{}
 	e.a = make(map[string]interface{})
 	e.tagName = "mod"
 	return e
 }
 
-func (e *htmlMod) S(style StyleMap) *htmlMod {
+// S sets the element's CSS properties
+func (e *HTMLMod) S(style StyleMap) *HTMLMod {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlMod) Key(key interface{}) *htmlMod {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLMod) Key(key interface{}) *HTMLMod {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlMod) Cite(v string) *htmlMod {
+// Cite sets the element's "cite" attribute
+func (e *HTMLMod) Cite(v string) *HTMLMod {
 	e.a["cite"] = v
 	return e
 }
 
-func (e *htmlMod) DateTime(v string) *htmlMod {
+// DateTime sets the element's "datetime" attribute
+func (e *HTMLMod) DateTime(v string) *HTMLMod {
 	e.a["datetime"] = v
 	return e
 }
 
-func (e *htmlMod) ID(v string) *htmlMod {
+// ID sets the element's "id" attribute
+func (e *HTMLMod) ID(v string) *HTMLMod {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlMod) Class(v string) *htmlMod {
+// Class sets the element's "class" attribute
+func (e *HTMLMod) Class(v string) *HTMLMod {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlMod) Title(v string) *htmlMod {
+// Title sets the element's "title" attribute
+func (e *HTMLMod) Title(v string) *HTMLMod {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlMod) Lang(v string) *htmlMod {
+// Lang sets the element's "lang" attribute
+func (e *HTMLMod) Lang(v string) *HTMLMod {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlMod) Translate(v bool) *htmlMod {
+// Translate sets the element's "translate" attribute
+func (e *HTMLMod) Translate(v bool) *HTMLMod {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -60,12 +72,14 @@ func (e *htmlMod) Translate(v bool) *htmlMod {
 	return e
 }
 
-func (e *htmlMod) Dir(v string) *htmlMod {
+// Dir sets the element's "dir" attribute
+func (e *HTMLMod) Dir(v string) *HTMLMod {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlMod) Hidden(v bool) *htmlMod {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLMod) Hidden(v bool) *HTMLMod {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -74,17 +88,20 @@ func (e *htmlMod) Hidden(v bool) *htmlMod {
 	return e
 }
 
-func (e *htmlMod) TabIndex(v int) *htmlMod {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLMod) TabIndex(v int) *HTMLMod {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlMod) AccessKey(v string) *htmlMod {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLMod) AccessKey(v string) *HTMLMod {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlMod) Draggable(v bool) *htmlMod {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLMod) Draggable(v bool) *HTMLMod {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -93,7 +110,8 @@ func (e *htmlMod) Draggable(v bool) *htmlMod {
 	return e
 }
 
-func (e *htmlMod) Spellcheck(v bool) *htmlMod {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLMod) Spellcheck(v bool) *HTMLMod {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

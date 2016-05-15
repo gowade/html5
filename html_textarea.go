@@ -1,32 +1,39 @@
 package h
 
-type htmlTextArea struct {
-	htmlElement
+// HTMLTextArea represents HTML <textarea> tag
+type HTMLTextArea struct {
+	HTMLElement
 }
 
-func TextArea() *htmlTextArea {
-	e := &htmlTextArea{}
+// TextArea creates a HTML <textarea> tag
+func TextArea() *HTMLTextArea {
+	e := &HTMLTextArea{}
 	e.a = make(map[string]interface{})
 	e.tagName = "textarea"
 	return e
 }
 
-func (e *htmlTextArea) S(style StyleMap) *htmlTextArea {
+// S sets the element's CSS properties
+func (e *HTMLTextArea) S(style StyleMap) *HTMLTextArea {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlTextArea) Key(key interface{}) *htmlTextArea {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLTextArea) Key(key interface{}) *HTMLTextArea {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlTextArea) Autocomplete(v string) *htmlTextArea {
+// Autocomplete sets the element's "autocomplete" attribute
+func (e *HTMLTextArea) Autocomplete(v string) *HTMLTextArea {
 	e.a["autocomplete"] = v
 	return e
 }
 
-func (e *htmlTextArea) Autofocus(v bool) *htmlTextArea {
+// Autofocus sets the element's "autofocus" attribute
+func (e *HTMLTextArea) Autofocus(v bool) *HTMLTextArea {
 	if v {
 		e.a["autofocus"] = ""
 	} else {
@@ -35,17 +42,20 @@ func (e *htmlTextArea) Autofocus(v bool) *htmlTextArea {
 	return e
 }
 
-func (e *htmlTextArea) Cols(v int) *htmlTextArea {
+// Cols sets the element's "cols" attribute
+func (e *HTMLTextArea) Cols(v int) *HTMLTextArea {
 	e.a["cols"] = v
 	return e
 }
 
-func (e *htmlTextArea) DirName(v string) *htmlTextArea {
+// DirName sets the element's "dirname" attribute
+func (e *HTMLTextArea) DirName(v string) *HTMLTextArea {
 	e.a["dirname"] = v
 	return e
 }
 
-func (e *htmlTextArea) Disabled(v bool) *htmlTextArea {
+// Disabled sets the element's "disabled" attribute
+func (e *HTMLTextArea) Disabled(v bool) *HTMLTextArea {
 	if v {
 		e.a["disabled"] = ""
 	} else {
@@ -54,32 +64,38 @@ func (e *htmlTextArea) Disabled(v bool) *htmlTextArea {
 	return e
 }
 
-func (e *htmlTextArea) InputMode(v string) *htmlTextArea {
+// InputMode sets the element's "inputmode" attribute
+func (e *HTMLTextArea) InputMode(v string) *HTMLTextArea {
 	e.a["inputmode"] = v
 	return e
 }
 
-func (e *htmlTextArea) MaxLength(v int) *htmlTextArea {
+// MaxLength sets the element's "maxlength" attribute
+func (e *HTMLTextArea) MaxLength(v int) *HTMLTextArea {
 	e.a["maxlength"] = v
 	return e
 }
 
-func (e *htmlTextArea) MinLength(v int) *htmlTextArea {
+// MinLength sets the element's "minlength" attribute
+func (e *HTMLTextArea) MinLength(v int) *HTMLTextArea {
 	e.a["minlength"] = v
 	return e
 }
 
-func (e *htmlTextArea) Name(v string) *htmlTextArea {
+// Name sets the element's "name" attribute
+func (e *HTMLTextArea) Name(v string) *HTMLTextArea {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlTextArea) Placeholder(v string) *htmlTextArea {
+// Placeholder sets the element's "placeholder" attribute
+func (e *HTMLTextArea) Placeholder(v string) *HTMLTextArea {
 	e.a["placeholder"] = v
 	return e
 }
 
-func (e *htmlTextArea) ReadOnly(v bool) *htmlTextArea {
+// ReadOnly sets the element's "readonly" attribute
+func (e *HTMLTextArea) ReadOnly(v bool) *HTMLTextArea {
 	if v {
 		e.a["readonly"] = ""
 	} else {
@@ -88,7 +104,8 @@ func (e *htmlTextArea) ReadOnly(v bool) *htmlTextArea {
 	return e
 }
 
-func (e *htmlTextArea) Required(v bool) *htmlTextArea {
+// Required sets the element's "required" attribute
+func (e *HTMLTextArea) Required(v bool) *HTMLTextArea {
 	if v {
 		e.a["required"] = ""
 	} else {
@@ -97,27 +114,32 @@ func (e *htmlTextArea) Required(v bool) *htmlTextArea {
 	return e
 }
 
-func (e *htmlTextArea) Rows(v int) *htmlTextArea {
+// Rows sets the element's "rows" attribute
+func (e *HTMLTextArea) Rows(v int) *HTMLTextArea {
 	e.a["rows"] = v
 	return e
 }
 
-func (e *htmlTextArea) Wrap(v string) *htmlTextArea {
+// Wrap sets the element's "wrap" attribute
+func (e *HTMLTextArea) Wrap(v string) *HTMLTextArea {
 	e.a["wrap"] = v
 	return e
 }
 
-func (e *htmlTextArea) DefaultValue(v string) *htmlTextArea {
+// DefaultValue sets the element's "defaultvalue" attribute
+func (e *HTMLTextArea) DefaultValue(v string) *HTMLTextArea {
 	e.a["defaultvalue"] = v
 	return e
 }
 
-func (e *htmlTextArea) Value(v string) *htmlTextArea {
+// Value sets the element's "value" attribute
+func (e *HTMLTextArea) Value(v string) *HTMLTextArea {
 	e.a["value"] = v
 	return e
 }
 
-func (e *htmlTextArea) CheckValidity(v bool) *htmlTextArea {
+// CheckValidity sets the element's "checkvalidity" attribute
+func (e *HTMLTextArea) CheckValidity(v bool) *HTMLTextArea {
 	if v {
 		e.a["checkvalidity"] = ""
 	} else {
@@ -126,7 +148,8 @@ func (e *htmlTextArea) CheckValidity(v bool) *htmlTextArea {
 	return e
 }
 
-func (e *htmlTextArea) ReportValidity(v bool) *htmlTextArea {
+// ReportValidity sets the element's "reportvalidity" attribute
+func (e *HTMLTextArea) ReportValidity(v bool) *HTMLTextArea {
 	if v {
 		e.a["reportvalidity"] = ""
 	} else {
@@ -135,42 +158,50 @@ func (e *htmlTextArea) ReportValidity(v bool) *htmlTextArea {
 	return e
 }
 
-func (e *htmlTextArea) SelectionStart(v int) *htmlTextArea {
+// SelectionStart sets the element's "selectionstart" attribute
+func (e *HTMLTextArea) SelectionStart(v int) *HTMLTextArea {
 	e.a["selectionstart"] = v
 	return e
 }
 
-func (e *htmlTextArea) SelectionEnd(v int) *htmlTextArea {
+// SelectionEnd sets the element's "selectionend" attribute
+func (e *HTMLTextArea) SelectionEnd(v int) *HTMLTextArea {
 	e.a["selectionend"] = v
 	return e
 }
 
-func (e *htmlTextArea) SelectionDirection(v string) *htmlTextArea {
+// SelectionDirection sets the element's "selectiondirection" attribute
+func (e *HTMLTextArea) SelectionDirection(v string) *HTMLTextArea {
 	e.a["selectiondirection"] = v
 	return e
 }
 
-func (e *htmlTextArea) ID(v string) *htmlTextArea {
+// ID sets the element's "id" attribute
+func (e *HTMLTextArea) ID(v string) *HTMLTextArea {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlTextArea) Class(v string) *htmlTextArea {
+// Class sets the element's "class" attribute
+func (e *HTMLTextArea) Class(v string) *HTMLTextArea {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlTextArea) Title(v string) *htmlTextArea {
+// Title sets the element's "title" attribute
+func (e *HTMLTextArea) Title(v string) *HTMLTextArea {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlTextArea) Lang(v string) *htmlTextArea {
+// Lang sets the element's "lang" attribute
+func (e *HTMLTextArea) Lang(v string) *HTMLTextArea {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlTextArea) Translate(v bool) *htmlTextArea {
+// Translate sets the element's "translate" attribute
+func (e *HTMLTextArea) Translate(v bool) *HTMLTextArea {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -179,12 +210,14 @@ func (e *htmlTextArea) Translate(v bool) *htmlTextArea {
 	return e
 }
 
-func (e *htmlTextArea) Dir(v string) *htmlTextArea {
+// Dir sets the element's "dir" attribute
+func (e *HTMLTextArea) Dir(v string) *HTMLTextArea {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlTextArea) Hidden(v bool) *htmlTextArea {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLTextArea) Hidden(v bool) *HTMLTextArea {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -193,17 +226,20 @@ func (e *htmlTextArea) Hidden(v bool) *htmlTextArea {
 	return e
 }
 
-func (e *htmlTextArea) TabIndex(v int) *htmlTextArea {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLTextArea) TabIndex(v int) *HTMLTextArea {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlTextArea) AccessKey(v string) *htmlTextArea {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLTextArea) AccessKey(v string) *HTMLTextArea {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlTextArea) Draggable(v bool) *htmlTextArea {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLTextArea) Draggable(v bool) *HTMLTextArea {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -212,7 +248,8 @@ func (e *htmlTextArea) Draggable(v bool) *htmlTextArea {
 	return e
 }
 
-func (e *htmlTextArea) Spellcheck(v bool) *htmlTextArea {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLTextArea) Spellcheck(v bool) *HTMLTextArea {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

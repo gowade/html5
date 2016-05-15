@@ -1,47 +1,57 @@
 package h
 
-type htmlDiv struct {
-	htmlElement
+// HTMLDiv represents HTML <div> tag
+type HTMLDiv struct {
+	HTMLElement
 }
 
-func Div() *htmlDiv {
-	e := &htmlDiv{}
+// Div creates a HTML <div> tag
+func Div() *HTMLDiv {
+	e := &HTMLDiv{}
 	e.a = make(map[string]interface{})
 	e.tagName = "div"
 	return e
 }
 
-func (e *htmlDiv) S(style StyleMap) *htmlDiv {
+// S sets the element's CSS properties
+func (e *HTMLDiv) S(style StyleMap) *HTMLDiv {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlDiv) Key(key interface{}) *htmlDiv {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLDiv) Key(key interface{}) *HTMLDiv {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlDiv) ID(v string) *htmlDiv {
+// ID sets the element's "id" attribute
+func (e *HTMLDiv) ID(v string) *HTMLDiv {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlDiv) Class(v string) *htmlDiv {
+// Class sets the element's "class" attribute
+func (e *HTMLDiv) Class(v string) *HTMLDiv {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlDiv) Title(v string) *htmlDiv {
+// Title sets the element's "title" attribute
+func (e *HTMLDiv) Title(v string) *HTMLDiv {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlDiv) Lang(v string) *htmlDiv {
+// Lang sets the element's "lang" attribute
+func (e *HTMLDiv) Lang(v string) *HTMLDiv {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlDiv) Translate(v bool) *htmlDiv {
+// Translate sets the element's "translate" attribute
+func (e *HTMLDiv) Translate(v bool) *HTMLDiv {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlDiv) Translate(v bool) *htmlDiv {
 	return e
 }
 
-func (e *htmlDiv) Dir(v string) *htmlDiv {
+// Dir sets the element's "dir" attribute
+func (e *HTMLDiv) Dir(v string) *HTMLDiv {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlDiv) Hidden(v bool) *htmlDiv {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLDiv) Hidden(v bool) *HTMLDiv {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlDiv) Hidden(v bool) *htmlDiv {
 	return e
 }
 
-func (e *htmlDiv) TabIndex(v int) *htmlDiv {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLDiv) TabIndex(v int) *HTMLDiv {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlDiv) AccessKey(v string) *htmlDiv {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLDiv) AccessKey(v string) *HTMLDiv {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlDiv) Draggable(v bool) *htmlDiv {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLDiv) Draggable(v bool) *HTMLDiv {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlDiv) Draggable(v bool) *htmlDiv {
 	return e
 }
 
-func (e *htmlDiv) Spellcheck(v bool) *htmlDiv {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLDiv) Spellcheck(v bool) *HTMLDiv {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

@@ -1,72 +1,87 @@
 package h
 
-type htmlSource struct {
-	htmlElement
+// HTMLSource represents HTML <source> tag
+type HTMLSource struct {
+	HTMLElement
 }
 
-func Source() *htmlSource {
-	e := &htmlSource{}
+// Source creates a HTML <source> tag
+func Source() *HTMLSource {
+	e := &HTMLSource{}
 	e.a = make(map[string]interface{})
 	e.tagName = "source"
 	return e
 }
 
-func (e *htmlSource) S(style StyleMap) *htmlSource {
+// S sets the element's CSS properties
+func (e *HTMLSource) S(style StyleMap) *HTMLSource {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlSource) Key(key interface{}) *htmlSource {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLSource) Key(key interface{}) *HTMLSource {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlSource) Src(v string) *htmlSource {
+// Src sets the element's "src" attribute
+func (e *HTMLSource) Src(v string) *HTMLSource {
 	e.a["src"] = v
 	return e
 }
 
-func (e *htmlSource) Type(v string) *htmlSource {
+// Type sets the element's "type" attribute
+func (e *HTMLSource) Type(v string) *HTMLSource {
 	e.a["type"] = v
 	return e
 }
 
-func (e *htmlSource) Srcset(v string) *htmlSource {
+// Srcset sets the element's "srcset" attribute
+func (e *HTMLSource) Srcset(v string) *HTMLSource {
 	e.a["srcset"] = v
 	return e
 }
 
-func (e *htmlSource) Sizes(v string) *htmlSource {
+// Sizes sets the element's "sizes" attribute
+func (e *HTMLSource) Sizes(v string) *HTMLSource {
 	e.a["sizes"] = v
 	return e
 }
 
-func (e *htmlSource) Media(v string) *htmlSource {
+// Media sets the element's "media" attribute
+func (e *HTMLSource) Media(v string) *HTMLSource {
 	e.a["media"] = v
 	return e
 }
 
-func (e *htmlSource) ID(v string) *htmlSource {
+// ID sets the element's "id" attribute
+func (e *HTMLSource) ID(v string) *HTMLSource {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlSource) Class(v string) *htmlSource {
+// Class sets the element's "class" attribute
+func (e *HTMLSource) Class(v string) *HTMLSource {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlSource) Title(v string) *htmlSource {
+// Title sets the element's "title" attribute
+func (e *HTMLSource) Title(v string) *HTMLSource {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlSource) Lang(v string) *htmlSource {
+// Lang sets the element's "lang" attribute
+func (e *HTMLSource) Lang(v string) *HTMLSource {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlSource) Translate(v bool) *htmlSource {
+// Translate sets the element's "translate" attribute
+func (e *HTMLSource) Translate(v bool) *HTMLSource {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -75,12 +90,14 @@ func (e *htmlSource) Translate(v bool) *htmlSource {
 	return e
 }
 
-func (e *htmlSource) Dir(v string) *htmlSource {
+// Dir sets the element's "dir" attribute
+func (e *HTMLSource) Dir(v string) *HTMLSource {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlSource) Hidden(v bool) *htmlSource {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLSource) Hidden(v bool) *HTMLSource {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -89,17 +106,20 @@ func (e *htmlSource) Hidden(v bool) *htmlSource {
 	return e
 }
 
-func (e *htmlSource) TabIndex(v int) *htmlSource {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLSource) TabIndex(v int) *HTMLSource {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlSource) AccessKey(v string) *htmlSource {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLSource) AccessKey(v string) *HTMLSource {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlSource) Draggable(v bool) *htmlSource {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLSource) Draggable(v bool) *HTMLSource {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -108,7 +128,8 @@ func (e *htmlSource) Draggable(v bool) *htmlSource {
 	return e
 }
 
-func (e *htmlSource) Spellcheck(v bool) *htmlSource {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLSource) Spellcheck(v bool) *HTMLSource {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

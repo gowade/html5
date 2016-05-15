@@ -1,57 +1,69 @@
 package h
 
-type htmlBase struct {
-	htmlElement
+// HTMLBase represents HTML <base> tag
+type HTMLBase struct {
+	HTMLElement
 }
 
-func Base() *htmlBase {
-	e := &htmlBase{}
+// Base creates a HTML <base> tag
+func Base() *HTMLBase {
+	e := &HTMLBase{}
 	e.a = make(map[string]interface{})
 	e.tagName = "base"
 	return e
 }
 
-func (e *htmlBase) S(style StyleMap) *htmlBase {
+// S sets the element's CSS properties
+func (e *HTMLBase) S(style StyleMap) *HTMLBase {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlBase) Key(key interface{}) *htmlBase {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLBase) Key(key interface{}) *HTMLBase {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlBase) Href(v string) *htmlBase {
+// Href sets the element's "href" attribute
+func (e *HTMLBase) Href(v string) *HTMLBase {
 	e.a["href"] = v
 	return e
 }
 
-func (e *htmlBase) Target(v string) *htmlBase {
+// Target sets the element's "target" attribute
+func (e *HTMLBase) Target(v string) *HTMLBase {
 	e.a["target"] = v
 	return e
 }
 
-func (e *htmlBase) ID(v string) *htmlBase {
+// ID sets the element's "id" attribute
+func (e *HTMLBase) ID(v string) *HTMLBase {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlBase) Class(v string) *htmlBase {
+// Class sets the element's "class" attribute
+func (e *HTMLBase) Class(v string) *HTMLBase {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlBase) Title(v string) *htmlBase {
+// Title sets the element's "title" attribute
+func (e *HTMLBase) Title(v string) *HTMLBase {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlBase) Lang(v string) *htmlBase {
+// Lang sets the element's "lang" attribute
+func (e *HTMLBase) Lang(v string) *HTMLBase {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlBase) Translate(v bool) *htmlBase {
+// Translate sets the element's "translate" attribute
+func (e *HTMLBase) Translate(v bool) *HTMLBase {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -60,12 +72,14 @@ func (e *htmlBase) Translate(v bool) *htmlBase {
 	return e
 }
 
-func (e *htmlBase) Dir(v string) *htmlBase {
+// Dir sets the element's "dir" attribute
+func (e *HTMLBase) Dir(v string) *HTMLBase {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlBase) Hidden(v bool) *htmlBase {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLBase) Hidden(v bool) *HTMLBase {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -74,17 +88,20 @@ func (e *htmlBase) Hidden(v bool) *htmlBase {
 	return e
 }
 
-func (e *htmlBase) TabIndex(v int) *htmlBase {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLBase) TabIndex(v int) *HTMLBase {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlBase) AccessKey(v string) *htmlBase {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLBase) AccessKey(v string) *HTMLBase {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlBase) Draggable(v bool) *htmlBase {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLBase) Draggable(v bool) *HTMLBase {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -93,7 +110,8 @@ func (e *htmlBase) Draggable(v bool) *htmlBase {
 	return e
 }
 
-func (e *htmlBase) Spellcheck(v bool) *htmlBase {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLBase) Spellcheck(v bool) *HTMLBase {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

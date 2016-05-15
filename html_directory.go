@@ -1,27 +1,33 @@
 package h
 
-type htmlDirectory struct {
-	htmlElement
+// HTMLDirectory represents HTML <directory> tag
+type HTMLDirectory struct {
+	HTMLElement
 }
 
-func Directory() *htmlDirectory {
-	e := &htmlDirectory{}
+// Directory creates a HTML <directory> tag
+func Directory() *HTMLDirectory {
+	e := &HTMLDirectory{}
 	e.a = make(map[string]interface{})
 	e.tagName = "directory"
 	return e
 }
 
-func (e *htmlDirectory) S(style StyleMap) *htmlDirectory {
+// S sets the element's CSS properties
+func (e *HTMLDirectory) S(style StyleMap) *HTMLDirectory {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlDirectory) Key(key interface{}) *htmlDirectory {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLDirectory) Key(key interface{}) *HTMLDirectory {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlDirectory) Compact(v bool) *htmlDirectory {
+// Compact sets the element's "compact" attribute
+func (e *HTMLDirectory) Compact(v bool) *HTMLDirectory {
 	if v {
 		e.a["compact"] = ""
 	} else {
@@ -30,27 +36,32 @@ func (e *htmlDirectory) Compact(v bool) *htmlDirectory {
 	return e
 }
 
-func (e *htmlDirectory) ID(v string) *htmlDirectory {
+// ID sets the element's "id" attribute
+func (e *HTMLDirectory) ID(v string) *HTMLDirectory {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlDirectory) Class(v string) *htmlDirectory {
+// Class sets the element's "class" attribute
+func (e *HTMLDirectory) Class(v string) *HTMLDirectory {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlDirectory) Title(v string) *htmlDirectory {
+// Title sets the element's "title" attribute
+func (e *HTMLDirectory) Title(v string) *HTMLDirectory {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlDirectory) Lang(v string) *htmlDirectory {
+// Lang sets the element's "lang" attribute
+func (e *HTMLDirectory) Lang(v string) *HTMLDirectory {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlDirectory) Translate(v bool) *htmlDirectory {
+// Translate sets the element's "translate" attribute
+func (e *HTMLDirectory) Translate(v bool) *HTMLDirectory {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -59,12 +70,14 @@ func (e *htmlDirectory) Translate(v bool) *htmlDirectory {
 	return e
 }
 
-func (e *htmlDirectory) Dir(v string) *htmlDirectory {
+// Dir sets the element's "dir" attribute
+func (e *HTMLDirectory) Dir(v string) *HTMLDirectory {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlDirectory) Hidden(v bool) *htmlDirectory {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLDirectory) Hidden(v bool) *HTMLDirectory {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -73,17 +86,20 @@ func (e *htmlDirectory) Hidden(v bool) *htmlDirectory {
 	return e
 }
 
-func (e *htmlDirectory) TabIndex(v int) *htmlDirectory {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLDirectory) TabIndex(v int) *HTMLDirectory {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlDirectory) AccessKey(v string) *htmlDirectory {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLDirectory) AccessKey(v string) *HTMLDirectory {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlDirectory) Draggable(v bool) *htmlDirectory {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLDirectory) Draggable(v bool) *HTMLDirectory {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -92,7 +108,8 @@ func (e *htmlDirectory) Draggable(v bool) *htmlDirectory {
 	return e
 }
 
-func (e *htmlDirectory) Spellcheck(v bool) *htmlDirectory {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLDirectory) Spellcheck(v bool) *HTMLDirectory {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

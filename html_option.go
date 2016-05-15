@@ -1,27 +1,33 @@
 package h
 
-type htmlOption struct {
-	htmlElement
+// HTMLOption represents HTML <option> tag
+type HTMLOption struct {
+	HTMLElement
 }
 
-func Option() *htmlOption {
-	e := &htmlOption{}
+// Option creates a HTML <option> tag
+func Option() *HTMLOption {
+	e := &HTMLOption{}
 	e.a = make(map[string]interface{})
 	e.tagName = "option"
 	return e
 }
 
-func (e *htmlOption) S(style StyleMap) *htmlOption {
+// S sets the element's CSS properties
+func (e *HTMLOption) S(style StyleMap) *HTMLOption {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlOption) Key(key interface{}) *htmlOption {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLOption) Key(key interface{}) *HTMLOption {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlOption) Disabled(v bool) *htmlOption {
+// Disabled sets the element's "disabled" attribute
+func (e *HTMLOption) Disabled(v bool) *HTMLOption {
 	if v {
 		e.a["disabled"] = ""
 	} else {
@@ -30,12 +36,14 @@ func (e *htmlOption) Disabled(v bool) *htmlOption {
 	return e
 }
 
-func (e *htmlOption) Label(v string) *htmlOption {
+// Label sets the element's "label" attribute
+func (e *HTMLOption) Label(v string) *HTMLOption {
 	e.a["label"] = v
 	return e
 }
 
-func (e *htmlOption) DefaultSelected(v bool) *htmlOption {
+// DefaultSelected sets the element's "defaultselected" attribute
+func (e *HTMLOption) DefaultSelected(v bool) *HTMLOption {
 	if v {
 		e.a["defaultselected"] = ""
 	} else {
@@ -44,7 +52,8 @@ func (e *htmlOption) DefaultSelected(v bool) *htmlOption {
 	return e
 }
 
-func (e *htmlOption) Selected(v bool) *htmlOption {
+// Selected sets the element's "selected" attribute
+func (e *HTMLOption) Selected(v bool) *HTMLOption {
 	if v {
 		e.a["selected"] = ""
 	} else {
@@ -53,37 +62,44 @@ func (e *htmlOption) Selected(v bool) *htmlOption {
 	return e
 }
 
-func (e *htmlOption) Value(v string) *htmlOption {
+// Value sets the element's "value" attribute
+func (e *HTMLOption) Value(v string) *HTMLOption {
 	e.a["value"] = v
 	return e
 }
 
-func (e *htmlOption) Text(v string) *htmlOption {
+// Text sets the element's "text" attribute
+func (e *HTMLOption) Text(v string) *HTMLOption {
 	e.a["text"] = v
 	return e
 }
 
-func (e *htmlOption) ID(v string) *htmlOption {
+// ID sets the element's "id" attribute
+func (e *HTMLOption) ID(v string) *HTMLOption {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlOption) Class(v string) *htmlOption {
+// Class sets the element's "class" attribute
+func (e *HTMLOption) Class(v string) *HTMLOption {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlOption) Title(v string) *htmlOption {
+// Title sets the element's "title" attribute
+func (e *HTMLOption) Title(v string) *HTMLOption {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlOption) Lang(v string) *htmlOption {
+// Lang sets the element's "lang" attribute
+func (e *HTMLOption) Lang(v string) *HTMLOption {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlOption) Translate(v bool) *htmlOption {
+// Translate sets the element's "translate" attribute
+func (e *HTMLOption) Translate(v bool) *HTMLOption {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -92,12 +108,14 @@ func (e *htmlOption) Translate(v bool) *htmlOption {
 	return e
 }
 
-func (e *htmlOption) Dir(v string) *htmlOption {
+// Dir sets the element's "dir" attribute
+func (e *HTMLOption) Dir(v string) *HTMLOption {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlOption) Hidden(v bool) *htmlOption {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLOption) Hidden(v bool) *HTMLOption {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -106,17 +124,20 @@ func (e *htmlOption) Hidden(v bool) *htmlOption {
 	return e
 }
 
-func (e *htmlOption) TabIndex(v int) *htmlOption {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLOption) TabIndex(v int) *HTMLOption {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlOption) AccessKey(v string) *htmlOption {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLOption) AccessKey(v string) *HTMLOption {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlOption) Draggable(v bool) *htmlOption {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLOption) Draggable(v bool) *HTMLOption {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -125,7 +146,8 @@ func (e *htmlOption) Draggable(v bool) *htmlOption {
 	return e
 }
 
-func (e *htmlOption) Spellcheck(v bool) *htmlOption {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLOption) Spellcheck(v bool) *HTMLOption {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

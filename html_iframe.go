@@ -1,42 +1,51 @@
 package h
 
-type htmlIFrame struct {
-	htmlElement
+// HTMLIFrame represents HTML <iframe> tag
+type HTMLIFrame struct {
+	HTMLElement
 }
 
-func IFrame() *htmlIFrame {
-	e := &htmlIFrame{}
+// IFrame creates a HTML <iframe> tag
+func IFrame() *HTMLIFrame {
+	e := &HTMLIFrame{}
 	e.a = make(map[string]interface{})
 	e.tagName = "iframe"
 	return e
 }
 
-func (e *htmlIFrame) S(style StyleMap) *htmlIFrame {
+// S sets the element's CSS properties
+func (e *HTMLIFrame) S(style StyleMap) *HTMLIFrame {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlIFrame) Key(key interface{}) *htmlIFrame {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLIFrame) Key(key interface{}) *HTMLIFrame {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlIFrame) Src(v string) *htmlIFrame {
+// Src sets the element's "src" attribute
+func (e *HTMLIFrame) Src(v string) *HTMLIFrame {
 	e.a["src"] = v
 	return e
 }
 
-func (e *htmlIFrame) Srcdoc(v string) *htmlIFrame {
+// Srcdoc sets the element's "srcdoc" attribute
+func (e *HTMLIFrame) Srcdoc(v string) *HTMLIFrame {
 	e.a["srcdoc"] = v
 	return e
 }
 
-func (e *htmlIFrame) Name(v string) *htmlIFrame {
+// Name sets the element's "name" attribute
+func (e *HTMLIFrame) Name(v string) *HTMLIFrame {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlIFrame) AllowFullscreen(v bool) *htmlIFrame {
+// AllowFullscreen sets the element's "allowfullscreen" attribute
+func (e *HTMLIFrame) AllowFullscreen(v bool) *HTMLIFrame {
 	if v {
 		e.a["allowfullscreen"] = ""
 	} else {
@@ -45,42 +54,50 @@ func (e *htmlIFrame) AllowFullscreen(v bool) *htmlIFrame {
 	return e
 }
 
-func (e *htmlIFrame) Width(v string) *htmlIFrame {
+// Width sets the element's "width" attribute
+func (e *HTMLIFrame) Width(v string) *HTMLIFrame {
 	e.a["width"] = v
 	return e
 }
 
-func (e *htmlIFrame) Height(v string) *htmlIFrame {
+// Height sets the element's "height" attribute
+func (e *HTMLIFrame) Height(v string) *HTMLIFrame {
 	e.a["height"] = v
 	return e
 }
 
-func (e *htmlIFrame) ReferrerPolicy(v string) *htmlIFrame {
+// ReferrerPolicy sets the element's "referrerpolicy" attribute
+func (e *HTMLIFrame) ReferrerPolicy(v string) *HTMLIFrame {
 	e.a["referrerpolicy"] = v
 	return e
 }
 
-func (e *htmlIFrame) ID(v string) *htmlIFrame {
+// ID sets the element's "id" attribute
+func (e *HTMLIFrame) ID(v string) *HTMLIFrame {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlIFrame) Class(v string) *htmlIFrame {
+// Class sets the element's "class" attribute
+func (e *HTMLIFrame) Class(v string) *HTMLIFrame {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlIFrame) Title(v string) *htmlIFrame {
+// Title sets the element's "title" attribute
+func (e *HTMLIFrame) Title(v string) *HTMLIFrame {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlIFrame) Lang(v string) *htmlIFrame {
+// Lang sets the element's "lang" attribute
+func (e *HTMLIFrame) Lang(v string) *HTMLIFrame {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlIFrame) Translate(v bool) *htmlIFrame {
+// Translate sets the element's "translate" attribute
+func (e *HTMLIFrame) Translate(v bool) *HTMLIFrame {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -89,12 +106,14 @@ func (e *htmlIFrame) Translate(v bool) *htmlIFrame {
 	return e
 }
 
-func (e *htmlIFrame) Dir(v string) *htmlIFrame {
+// Dir sets the element's "dir" attribute
+func (e *HTMLIFrame) Dir(v string) *HTMLIFrame {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlIFrame) Hidden(v bool) *htmlIFrame {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLIFrame) Hidden(v bool) *HTMLIFrame {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -103,17 +122,20 @@ func (e *htmlIFrame) Hidden(v bool) *htmlIFrame {
 	return e
 }
 
-func (e *htmlIFrame) TabIndex(v int) *htmlIFrame {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLIFrame) TabIndex(v int) *HTMLIFrame {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlIFrame) AccessKey(v string) *htmlIFrame {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLIFrame) AccessKey(v string) *HTMLIFrame {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlIFrame) Draggable(v bool) *htmlIFrame {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLIFrame) Draggable(v bool) *HTMLIFrame {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -122,7 +144,8 @@ func (e *htmlIFrame) Draggable(v bool) *htmlIFrame {
 	return e
 }
 
-func (e *htmlIFrame) Spellcheck(v bool) *htmlIFrame {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLIFrame) Spellcheck(v bool) *HTMLIFrame {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

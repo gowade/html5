@@ -1,47 +1,57 @@
 package h
 
-type htmlTableCaption struct {
-	htmlElement
+// HTMLTableCaption represents HTML <tablecaption> tag
+type HTMLTableCaption struct {
+	HTMLElement
 }
 
-func TableCaption() *htmlTableCaption {
-	e := &htmlTableCaption{}
+// TableCaption creates a HTML <tablecaption> tag
+func TableCaption() *HTMLTableCaption {
+	e := &HTMLTableCaption{}
 	e.a = make(map[string]interface{})
 	e.tagName = "tablecaption"
 	return e
 }
 
-func (e *htmlTableCaption) S(style StyleMap) *htmlTableCaption {
+// S sets the element's CSS properties
+func (e *HTMLTableCaption) S(style StyleMap) *HTMLTableCaption {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlTableCaption) Key(key interface{}) *htmlTableCaption {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLTableCaption) Key(key interface{}) *HTMLTableCaption {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlTableCaption) ID(v string) *htmlTableCaption {
+// ID sets the element's "id" attribute
+func (e *HTMLTableCaption) ID(v string) *HTMLTableCaption {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlTableCaption) Class(v string) *htmlTableCaption {
+// Class sets the element's "class" attribute
+func (e *HTMLTableCaption) Class(v string) *HTMLTableCaption {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlTableCaption) Title(v string) *htmlTableCaption {
+// Title sets the element's "title" attribute
+func (e *HTMLTableCaption) Title(v string) *HTMLTableCaption {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlTableCaption) Lang(v string) *htmlTableCaption {
+// Lang sets the element's "lang" attribute
+func (e *HTMLTableCaption) Lang(v string) *HTMLTableCaption {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlTableCaption) Translate(v bool) *htmlTableCaption {
+// Translate sets the element's "translate" attribute
+func (e *HTMLTableCaption) Translate(v bool) *HTMLTableCaption {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlTableCaption) Translate(v bool) *htmlTableCaption {
 	return e
 }
 
-func (e *htmlTableCaption) Dir(v string) *htmlTableCaption {
+// Dir sets the element's "dir" attribute
+func (e *HTMLTableCaption) Dir(v string) *HTMLTableCaption {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlTableCaption) Hidden(v bool) *htmlTableCaption {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLTableCaption) Hidden(v bool) *HTMLTableCaption {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlTableCaption) Hidden(v bool) *htmlTableCaption {
 	return e
 }
 
-func (e *htmlTableCaption) TabIndex(v int) *htmlTableCaption {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLTableCaption) TabIndex(v int) *HTMLTableCaption {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlTableCaption) AccessKey(v string) *htmlTableCaption {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLTableCaption) AccessKey(v string) *HTMLTableCaption {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlTableCaption) Draggable(v bool) *htmlTableCaption {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLTableCaption) Draggable(v bool) *HTMLTableCaption {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlTableCaption) Draggable(v bool) *htmlTableCaption {
 	return e
 }
 
-func (e *htmlTableCaption) Spellcheck(v bool) *htmlTableCaption {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLTableCaption) Spellcheck(v bool) *HTMLTableCaption {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

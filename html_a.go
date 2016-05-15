@@ -1,82 +1,99 @@
 package h
 
-type htmlA struct {
-	htmlElement
+// HTMLA represents HTML <a> tag
+type HTMLA struct {
+	HTMLElement
 }
 
-func A() *htmlA {
-	e := &htmlA{}
+// A creates a HTML <a> tag
+func A() *HTMLA {
+	e := &HTMLA{}
 	e.a = make(map[string]interface{})
 	e.tagName = "a"
 	return e
 }
 
-func (e *htmlA) S(style StyleMap) *htmlA {
+// S sets the element's CSS properties
+func (e *HTMLA) S(style StyleMap) *HTMLA {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlA) Key(key interface{}) *htmlA {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLA) Key(key interface{}) *HTMLA {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlA) Target(v string) *htmlA {
+// Target sets the element's "target" attribute
+func (e *HTMLA) Target(v string) *HTMLA {
 	e.a["target"] = v
 	return e
 }
 
-func (e *htmlA) Download(v string) *htmlA {
+// Download sets the element's "download" attribute
+func (e *HTMLA) Download(v string) *HTMLA {
 	e.a["download"] = v
 	return e
 }
 
-func (e *htmlA) Rel(v string) *htmlA {
+// Rel sets the element's "rel" attribute
+func (e *HTMLA) Rel(v string) *HTMLA {
 	e.a["rel"] = v
 	return e
 }
 
-func (e *htmlA) Hreflang(v string) *htmlA {
+// Hreflang sets the element's "hreflang" attribute
+func (e *HTMLA) Hreflang(v string) *HTMLA {
 	e.a["hreflang"] = v
 	return e
 }
 
-func (e *htmlA) Type(v string) *htmlA {
+// Type sets the element's "type" attribute
+func (e *HTMLA) Type(v string) *HTMLA {
 	e.a["type"] = v
 	return e
 }
 
-func (e *htmlA) Text(v string) *htmlA {
+// Text sets the element's "text" attribute
+func (e *HTMLA) Text(v string) *HTMLA {
 	e.a["text"] = v
 	return e
 }
 
-func (e *htmlA) ReferrerPolicy(v string) *htmlA {
+// ReferrerPolicy sets the element's "referrerpolicy" attribute
+func (e *HTMLA) ReferrerPolicy(v string) *HTMLA {
 	e.a["referrerpolicy"] = v
 	return e
 }
 
-func (e *htmlA) ID(v string) *htmlA {
+// ID sets the element's "id" attribute
+func (e *HTMLA) ID(v string) *HTMLA {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlA) Class(v string) *htmlA {
+// Class sets the element's "class" attribute
+func (e *HTMLA) Class(v string) *HTMLA {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlA) Title(v string) *htmlA {
+// Title sets the element's "title" attribute
+func (e *HTMLA) Title(v string) *HTMLA {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlA) Lang(v string) *htmlA {
+// Lang sets the element's "lang" attribute
+func (e *HTMLA) Lang(v string) *HTMLA {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlA) Translate(v bool) *htmlA {
+// Translate sets the element's "translate" attribute
+func (e *HTMLA) Translate(v bool) *HTMLA {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -85,12 +102,14 @@ func (e *htmlA) Translate(v bool) *htmlA {
 	return e
 }
 
-func (e *htmlA) Dir(v string) *htmlA {
+// Dir sets the element's "dir" attribute
+func (e *HTMLA) Dir(v string) *HTMLA {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlA) Hidden(v bool) *htmlA {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLA) Hidden(v bool) *HTMLA {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -99,17 +118,20 @@ func (e *htmlA) Hidden(v bool) *htmlA {
 	return e
 }
 
-func (e *htmlA) TabIndex(v int) *htmlA {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLA) TabIndex(v int) *HTMLA {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlA) AccessKey(v string) *htmlA {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLA) AccessKey(v string) *HTMLA {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlA) Draggable(v bool) *htmlA {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLA) Draggable(v bool) *HTMLA {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -118,7 +140,8 @@ func (e *htmlA) Draggable(v bool) *htmlA {
 	return e
 }
 
-func (e *htmlA) Spellcheck(v bool) *htmlA {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLA) Spellcheck(v bool) *HTMLA {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

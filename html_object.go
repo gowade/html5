@@ -1,37 +1,45 @@
 package h
 
-type htmlObject struct {
-	htmlElement
+// HTMLObject represents HTML <object> tag
+type HTMLObject struct {
+	HTMLElement
 }
 
-func Object() *htmlObject {
-	e := &htmlObject{}
+// Object creates a HTML <object> tag
+func Object() *HTMLObject {
+	e := &HTMLObject{}
 	e.a = make(map[string]interface{})
 	e.tagName = "object"
 	return e
 }
 
-func (e *htmlObject) S(style StyleMap) *htmlObject {
+// S sets the element's CSS properties
+func (e *HTMLObject) S(style StyleMap) *HTMLObject {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlObject) Key(key interface{}) *htmlObject {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLObject) Key(key interface{}) *HTMLObject {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlObject) Data(v string) *htmlObject {
+// Data sets the element's "data" attribute
+func (e *HTMLObject) Data(v string) *HTMLObject {
 	e.a["data"] = v
 	return e
 }
 
-func (e *htmlObject) Type(v string) *htmlObject {
+// Type sets the element's "type" attribute
+func (e *HTMLObject) Type(v string) *HTMLObject {
 	e.a["type"] = v
 	return e
 }
 
-func (e *htmlObject) TypeMustMatch(v bool) *htmlObject {
+// TypeMustMatch sets the element's "typemustmatch" attribute
+func (e *HTMLObject) TypeMustMatch(v bool) *HTMLObject {
 	if v {
 		e.a["typemustmatch"] = ""
 	} else {
@@ -40,27 +48,32 @@ func (e *htmlObject) TypeMustMatch(v bool) *htmlObject {
 	return e
 }
 
-func (e *htmlObject) Name(v string) *htmlObject {
+// Name sets the element's "name" attribute
+func (e *HTMLObject) Name(v string) *HTMLObject {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlObject) UseMap(v string) *htmlObject {
+// UseMap sets the element's "usemap" attribute
+func (e *HTMLObject) UseMap(v string) *HTMLObject {
 	e.a["usemap"] = v
 	return e
 }
 
-func (e *htmlObject) Width(v string) *htmlObject {
+// Width sets the element's "width" attribute
+func (e *HTMLObject) Width(v string) *HTMLObject {
 	e.a["width"] = v
 	return e
 }
 
-func (e *htmlObject) Height(v string) *htmlObject {
+// Height sets the element's "height" attribute
+func (e *HTMLObject) Height(v string) *HTMLObject {
 	e.a["height"] = v
 	return e
 }
 
-func (e *htmlObject) CheckValidity(v bool) *htmlObject {
+// CheckValidity sets the element's "checkvalidity" attribute
+func (e *HTMLObject) CheckValidity(v bool) *HTMLObject {
 	if v {
 		e.a["checkvalidity"] = ""
 	} else {
@@ -69,7 +82,8 @@ func (e *htmlObject) CheckValidity(v bool) *htmlObject {
 	return e
 }
 
-func (e *htmlObject) ReportValidity(v bool) *htmlObject {
+// ReportValidity sets the element's "reportvalidity" attribute
+func (e *HTMLObject) ReportValidity(v bool) *HTMLObject {
 	if v {
 		e.a["reportvalidity"] = ""
 	} else {
@@ -78,27 +92,32 @@ func (e *htmlObject) ReportValidity(v bool) *htmlObject {
 	return e
 }
 
-func (e *htmlObject) ID(v string) *htmlObject {
+// ID sets the element's "id" attribute
+func (e *HTMLObject) ID(v string) *HTMLObject {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlObject) Class(v string) *htmlObject {
+// Class sets the element's "class" attribute
+func (e *HTMLObject) Class(v string) *HTMLObject {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlObject) Title(v string) *htmlObject {
+// Title sets the element's "title" attribute
+func (e *HTMLObject) Title(v string) *HTMLObject {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlObject) Lang(v string) *htmlObject {
+// Lang sets the element's "lang" attribute
+func (e *HTMLObject) Lang(v string) *HTMLObject {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlObject) Translate(v bool) *htmlObject {
+// Translate sets the element's "translate" attribute
+func (e *HTMLObject) Translate(v bool) *HTMLObject {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -107,12 +126,14 @@ func (e *htmlObject) Translate(v bool) *htmlObject {
 	return e
 }
 
-func (e *htmlObject) Dir(v string) *htmlObject {
+// Dir sets the element's "dir" attribute
+func (e *HTMLObject) Dir(v string) *HTMLObject {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlObject) Hidden(v bool) *htmlObject {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLObject) Hidden(v bool) *HTMLObject {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -121,17 +142,20 @@ func (e *htmlObject) Hidden(v bool) *htmlObject {
 	return e
 }
 
-func (e *htmlObject) TabIndex(v int) *htmlObject {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLObject) TabIndex(v int) *HTMLObject {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlObject) AccessKey(v string) *htmlObject {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLObject) AccessKey(v string) *HTMLObject {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlObject) Draggable(v bool) *htmlObject {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLObject) Draggable(v bool) *HTMLObject {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -140,7 +164,8 @@ func (e *htmlObject) Draggable(v bool) *htmlObject {
 	return e
 }
 
-func (e *htmlObject) Spellcheck(v bool) *htmlObject {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLObject) Spellcheck(v bool) *HTMLObject {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

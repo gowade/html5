@@ -1,52 +1,63 @@
 package h
 
-type htmlFrame struct {
-	htmlElement
+// HTMLFrame represents HTML <frame> tag
+type HTMLFrame struct {
+	HTMLElement
 }
 
-func Frame() *htmlFrame {
-	e := &htmlFrame{}
+// Frame creates a HTML <frame> tag
+func Frame() *HTMLFrame {
+	e := &HTMLFrame{}
 	e.a = make(map[string]interface{})
 	e.tagName = "frame"
 	return e
 }
 
-func (e *htmlFrame) S(style StyleMap) *htmlFrame {
+// S sets the element's CSS properties
+func (e *HTMLFrame) S(style StyleMap) *HTMLFrame {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlFrame) Key(key interface{}) *htmlFrame {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLFrame) Key(key interface{}) *HTMLFrame {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlFrame) Name(v string) *htmlFrame {
+// Name sets the element's "name" attribute
+func (e *HTMLFrame) Name(v string) *HTMLFrame {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlFrame) Scrolling(v string) *htmlFrame {
+// Scrolling sets the element's "scrolling" attribute
+func (e *HTMLFrame) Scrolling(v string) *HTMLFrame {
 	e.a["scrolling"] = v
 	return e
 }
 
-func (e *htmlFrame) Src(v string) *htmlFrame {
+// Src sets the element's "src" attribute
+func (e *HTMLFrame) Src(v string) *HTMLFrame {
 	e.a["src"] = v
 	return e
 }
 
-func (e *htmlFrame) FrameBorder(v string) *htmlFrame {
+// FrameBorder sets the element's "frameborder" attribute
+func (e *HTMLFrame) FrameBorder(v string) *HTMLFrame {
 	e.a["frameborder"] = v
 	return e
 }
 
-func (e *htmlFrame) LongDesc(v string) *htmlFrame {
+// LongDesc sets the element's "longdesc" attribute
+func (e *HTMLFrame) LongDesc(v string) *HTMLFrame {
 	e.a["longdesc"] = v
 	return e
 }
 
-func (e *htmlFrame) NoResize(v bool) *htmlFrame {
+// NoResize sets the element's "noresize" attribute
+func (e *HTMLFrame) NoResize(v bool) *HTMLFrame {
 	if v {
 		e.a["noresize"] = ""
 	} else {
@@ -55,37 +66,44 @@ func (e *htmlFrame) NoResize(v bool) *htmlFrame {
 	return e
 }
 
-func (e *htmlFrame) MarginHeight(v string) *htmlFrame {
+// MarginHeight sets the element's "marginheight" attribute
+func (e *HTMLFrame) MarginHeight(v string) *HTMLFrame {
 	e.a["marginheight"] = v
 	return e
 }
 
-func (e *htmlFrame) MarginWidth(v string) *htmlFrame {
+// MarginWidth sets the element's "marginwidth" attribute
+func (e *HTMLFrame) MarginWidth(v string) *HTMLFrame {
 	e.a["marginwidth"] = v
 	return e
 }
 
-func (e *htmlFrame) ID(v string) *htmlFrame {
+// ID sets the element's "id" attribute
+func (e *HTMLFrame) ID(v string) *HTMLFrame {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlFrame) Class(v string) *htmlFrame {
+// Class sets the element's "class" attribute
+func (e *HTMLFrame) Class(v string) *HTMLFrame {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlFrame) Title(v string) *htmlFrame {
+// Title sets the element's "title" attribute
+func (e *HTMLFrame) Title(v string) *HTMLFrame {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlFrame) Lang(v string) *htmlFrame {
+// Lang sets the element's "lang" attribute
+func (e *HTMLFrame) Lang(v string) *HTMLFrame {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlFrame) Translate(v bool) *htmlFrame {
+// Translate sets the element's "translate" attribute
+func (e *HTMLFrame) Translate(v bool) *HTMLFrame {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -94,12 +112,14 @@ func (e *htmlFrame) Translate(v bool) *htmlFrame {
 	return e
 }
 
-func (e *htmlFrame) Dir(v string) *htmlFrame {
+// Dir sets the element's "dir" attribute
+func (e *HTMLFrame) Dir(v string) *HTMLFrame {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlFrame) Hidden(v bool) *htmlFrame {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLFrame) Hidden(v bool) *HTMLFrame {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -108,17 +128,20 @@ func (e *htmlFrame) Hidden(v bool) *htmlFrame {
 	return e
 }
 
-func (e *htmlFrame) TabIndex(v int) *htmlFrame {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLFrame) TabIndex(v int) *HTMLFrame {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlFrame) AccessKey(v string) *htmlFrame {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLFrame) AccessKey(v string) *HTMLFrame {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlFrame) Draggable(v bool) *htmlFrame {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLFrame) Draggable(v bool) *HTMLFrame {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -127,7 +150,8 @@ func (e *htmlFrame) Draggable(v bool) *htmlFrame {
 	return e
 }
 
-func (e *htmlFrame) Spellcheck(v bool) *htmlFrame {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLFrame) Spellcheck(v bool) *HTMLFrame {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

@@ -1,62 +1,75 @@
 package h
 
-type htmlForm struct {
-	htmlElement
+// HTMLForm represents HTML <form> tag
+type HTMLForm struct {
+	HTMLElement
 }
 
-func Form() *htmlForm {
-	e := &htmlForm{}
+// Form creates a HTML <form> tag
+func Form() *HTMLForm {
+	e := &HTMLForm{}
 	e.a = make(map[string]interface{})
 	e.tagName = "form"
 	return e
 }
 
-func (e *htmlForm) S(style StyleMap) *htmlForm {
+// S sets the element's CSS properties
+func (e *HTMLForm) S(style StyleMap) *HTMLForm {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlForm) Key(key interface{}) *htmlForm {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLForm) Key(key interface{}) *HTMLForm {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlForm) AcceptCharset(v string) *htmlForm {
+// AcceptCharset sets the element's "acceptcharset" attribute
+func (e *HTMLForm) AcceptCharset(v string) *HTMLForm {
 	e.a["acceptcharset"] = v
 	return e
 }
 
-func (e *htmlForm) Action(v string) *htmlForm {
+// Action sets the element's "action" attribute
+func (e *HTMLForm) Action(v string) *HTMLForm {
 	e.a["action"] = v
 	return e
 }
 
-func (e *htmlForm) Autocomplete(v string) *htmlForm {
+// Autocomplete sets the element's "autocomplete" attribute
+func (e *HTMLForm) Autocomplete(v string) *HTMLForm {
 	e.a["autocomplete"] = v
 	return e
 }
 
-func (e *htmlForm) Enctype(v string) *htmlForm {
+// Enctype sets the element's "enctype" attribute
+func (e *HTMLForm) Enctype(v string) *HTMLForm {
 	e.a["enctype"] = v
 	return e
 }
 
-func (e *htmlForm) Encoding(v string) *htmlForm {
+// Encoding sets the element's "encoding" attribute
+func (e *HTMLForm) Encoding(v string) *HTMLForm {
 	e.a["encoding"] = v
 	return e
 }
 
-func (e *htmlForm) Method(v string) *htmlForm {
+// Method sets the element's "method" attribute
+func (e *HTMLForm) Method(v string) *HTMLForm {
 	e.a["method"] = v
 	return e
 }
 
-func (e *htmlForm) Name(v string) *htmlForm {
+// Name sets the element's "name" attribute
+func (e *HTMLForm) Name(v string) *HTMLForm {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlForm) NoValidate(v bool) *htmlForm {
+// NoValidate sets the element's "novalidate" attribute
+func (e *HTMLForm) NoValidate(v bool) *HTMLForm {
 	if v {
 		e.a["novalidate"] = ""
 	} else {
@@ -65,12 +78,14 @@ func (e *htmlForm) NoValidate(v bool) *htmlForm {
 	return e
 }
 
-func (e *htmlForm) Target(v string) *htmlForm {
+// Target sets the element's "target" attribute
+func (e *HTMLForm) Target(v string) *HTMLForm {
 	e.a["target"] = v
 	return e
 }
 
-func (e *htmlForm) CheckValidity(v bool) *htmlForm {
+// CheckValidity sets the element's "checkvalidity" attribute
+func (e *HTMLForm) CheckValidity(v bool) *HTMLForm {
 	if v {
 		e.a["checkvalidity"] = ""
 	} else {
@@ -79,7 +94,8 @@ func (e *htmlForm) CheckValidity(v bool) *htmlForm {
 	return e
 }
 
-func (e *htmlForm) ReportValidity(v bool) *htmlForm {
+// ReportValidity sets the element's "reportvalidity" attribute
+func (e *HTMLForm) ReportValidity(v bool) *HTMLForm {
 	if v {
 		e.a["reportvalidity"] = ""
 	} else {
@@ -88,27 +104,32 @@ func (e *htmlForm) ReportValidity(v bool) *htmlForm {
 	return e
 }
 
-func (e *htmlForm) ID(v string) *htmlForm {
+// ID sets the element's "id" attribute
+func (e *HTMLForm) ID(v string) *HTMLForm {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlForm) Class(v string) *htmlForm {
+// Class sets the element's "class" attribute
+func (e *HTMLForm) Class(v string) *HTMLForm {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlForm) Title(v string) *htmlForm {
+// Title sets the element's "title" attribute
+func (e *HTMLForm) Title(v string) *HTMLForm {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlForm) Lang(v string) *htmlForm {
+// Lang sets the element's "lang" attribute
+func (e *HTMLForm) Lang(v string) *HTMLForm {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlForm) Translate(v bool) *htmlForm {
+// Translate sets the element's "translate" attribute
+func (e *HTMLForm) Translate(v bool) *HTMLForm {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -117,12 +138,14 @@ func (e *htmlForm) Translate(v bool) *htmlForm {
 	return e
 }
 
-func (e *htmlForm) Dir(v string) *htmlForm {
+// Dir sets the element's "dir" attribute
+func (e *HTMLForm) Dir(v string) *HTMLForm {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlForm) Hidden(v bool) *htmlForm {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLForm) Hidden(v bool) *HTMLForm {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -131,17 +154,20 @@ func (e *htmlForm) Hidden(v bool) *htmlForm {
 	return e
 }
 
-func (e *htmlForm) TabIndex(v int) *htmlForm {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLForm) TabIndex(v int) *HTMLForm {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlForm) AccessKey(v string) *htmlForm {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLForm) AccessKey(v string) *HTMLForm {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlForm) Draggable(v bool) *htmlForm {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLForm) Draggable(v bool) *HTMLForm {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -150,7 +176,8 @@ func (e *htmlForm) Draggable(v bool) *htmlForm {
 	return e
 }
 
-func (e *htmlForm) Spellcheck(v bool) *htmlForm {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLForm) Spellcheck(v bool) *HTMLForm {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

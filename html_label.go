@@ -1,52 +1,63 @@
 package h
 
-type htmlLabel struct {
-	htmlElement
+// HTMLLabel represents HTML <label> tag
+type HTMLLabel struct {
+	HTMLElement
 }
 
-func Label() *htmlLabel {
-	e := &htmlLabel{}
+// Label creates a HTML <label> tag
+func Label() *HTMLLabel {
+	e := &HTMLLabel{}
 	e.a = make(map[string]interface{})
 	e.tagName = "label"
 	return e
 }
 
-func (e *htmlLabel) S(style StyleMap) *htmlLabel {
+// S sets the element's CSS properties
+func (e *HTMLLabel) S(style StyleMap) *HTMLLabel {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlLabel) Key(key interface{}) *htmlLabel {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLLabel) Key(key interface{}) *HTMLLabel {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlLabel) For(v string) *htmlLabel {
+// For sets the element's "htmlfor" attribute
+func (e *HTMLLabel) For(v string) *HTMLLabel {
 	e.a["htmlfor"] = v
 	return e
 }
 
-func (e *htmlLabel) ID(v string) *htmlLabel {
+// ID sets the element's "id" attribute
+func (e *HTMLLabel) ID(v string) *HTMLLabel {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlLabel) Class(v string) *htmlLabel {
+// Class sets the element's "class" attribute
+func (e *HTMLLabel) Class(v string) *HTMLLabel {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlLabel) Title(v string) *htmlLabel {
+// Title sets the element's "title" attribute
+func (e *HTMLLabel) Title(v string) *HTMLLabel {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlLabel) Lang(v string) *htmlLabel {
+// Lang sets the element's "lang" attribute
+func (e *HTMLLabel) Lang(v string) *HTMLLabel {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlLabel) Translate(v bool) *htmlLabel {
+// Translate sets the element's "translate" attribute
+func (e *HTMLLabel) Translate(v bool) *HTMLLabel {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -55,12 +66,14 @@ func (e *htmlLabel) Translate(v bool) *htmlLabel {
 	return e
 }
 
-func (e *htmlLabel) Dir(v string) *htmlLabel {
+// Dir sets the element's "dir" attribute
+func (e *HTMLLabel) Dir(v string) *HTMLLabel {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlLabel) Hidden(v bool) *htmlLabel {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLLabel) Hidden(v bool) *HTMLLabel {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -69,17 +82,20 @@ func (e *htmlLabel) Hidden(v bool) *htmlLabel {
 	return e
 }
 
-func (e *htmlLabel) TabIndex(v int) *htmlLabel {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLLabel) TabIndex(v int) *HTMLLabel {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlLabel) AccessKey(v string) *htmlLabel {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLLabel) AccessKey(v string) *HTMLLabel {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlLabel) Draggable(v bool) *htmlLabel {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLLabel) Draggable(v bool) *HTMLLabel {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -88,7 +104,8 @@ func (e *htmlLabel) Draggable(v bool) *htmlLabel {
 	return e
 }
 
-func (e *htmlLabel) Spellcheck(v bool) *htmlLabel {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLLabel) Spellcheck(v bool) *HTMLLabel {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

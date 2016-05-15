@@ -1,27 +1,33 @@
 package h
 
-type htmlDialog struct {
-	htmlElement
+// HTMLDialog represents HTML <dialog> tag
+type HTMLDialog struct {
+	HTMLElement
 }
 
-func Dialog() *htmlDialog {
-	e := &htmlDialog{}
+// Dialog creates a HTML <dialog> tag
+func Dialog() *HTMLDialog {
+	e := &HTMLDialog{}
 	e.a = make(map[string]interface{})
 	e.tagName = "dialog"
 	return e
 }
 
-func (e *htmlDialog) S(style StyleMap) *htmlDialog {
+// S sets the element's CSS properties
+func (e *HTMLDialog) S(style StyleMap) *HTMLDialog {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlDialog) Key(key interface{}) *htmlDialog {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLDialog) Key(key interface{}) *HTMLDialog {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlDialog) Open(v bool) *htmlDialog {
+// Open sets the element's "open" attribute
+func (e *HTMLDialog) Open(v bool) *HTMLDialog {
 	if v {
 		e.a["open"] = ""
 	} else {
@@ -30,32 +36,38 @@ func (e *htmlDialog) Open(v bool) *htmlDialog {
 	return e
 }
 
-func (e *htmlDialog) ReturnValue(v string) *htmlDialog {
+// ReturnValue sets the element's "returnvalue" attribute
+func (e *HTMLDialog) ReturnValue(v string) *HTMLDialog {
 	e.a["returnvalue"] = v
 	return e
 }
 
-func (e *htmlDialog) ID(v string) *htmlDialog {
+// ID sets the element's "id" attribute
+func (e *HTMLDialog) ID(v string) *HTMLDialog {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlDialog) Class(v string) *htmlDialog {
+// Class sets the element's "class" attribute
+func (e *HTMLDialog) Class(v string) *HTMLDialog {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlDialog) Title(v string) *htmlDialog {
+// Title sets the element's "title" attribute
+func (e *HTMLDialog) Title(v string) *HTMLDialog {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlDialog) Lang(v string) *htmlDialog {
+// Lang sets the element's "lang" attribute
+func (e *HTMLDialog) Lang(v string) *HTMLDialog {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlDialog) Translate(v bool) *htmlDialog {
+// Translate sets the element's "translate" attribute
+func (e *HTMLDialog) Translate(v bool) *HTMLDialog {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -64,12 +76,14 @@ func (e *htmlDialog) Translate(v bool) *htmlDialog {
 	return e
 }
 
-func (e *htmlDialog) Dir(v string) *htmlDialog {
+// Dir sets the element's "dir" attribute
+func (e *HTMLDialog) Dir(v string) *HTMLDialog {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlDialog) Hidden(v bool) *htmlDialog {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLDialog) Hidden(v bool) *HTMLDialog {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -78,17 +92,20 @@ func (e *htmlDialog) Hidden(v bool) *htmlDialog {
 	return e
 }
 
-func (e *htmlDialog) TabIndex(v int) *htmlDialog {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLDialog) TabIndex(v int) *HTMLDialog {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlDialog) AccessKey(v string) *htmlDialog {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLDialog) AccessKey(v string) *HTMLDialog {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlDialog) Draggable(v bool) *htmlDialog {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLDialog) Draggable(v bool) *HTMLDialog {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -97,7 +114,8 @@ func (e *htmlDialog) Draggable(v bool) *htmlDialog {
 	return e
 }
 
-func (e *htmlDialog) Spellcheck(v bool) *htmlDialog {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLDialog) Spellcheck(v bool) *HTMLDialog {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

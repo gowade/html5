@@ -1,32 +1,39 @@
 package h
 
-type htmlSelect struct {
-	htmlElement
+// HTMLSelect represents HTML <select> tag
+type HTMLSelect struct {
+	HTMLElement
 }
 
-func Select() *htmlSelect {
-	e := &htmlSelect{}
+// Select creates a HTML <select> tag
+func Select() *HTMLSelect {
+	e := &HTMLSelect{}
 	e.a = make(map[string]interface{})
 	e.tagName = "select"
 	return e
 }
 
-func (e *htmlSelect) S(style StyleMap) *htmlSelect {
+// S sets the element's CSS properties
+func (e *HTMLSelect) S(style StyleMap) *HTMLSelect {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlSelect) Key(key interface{}) *htmlSelect {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLSelect) Key(key interface{}) *HTMLSelect {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlSelect) Autocomplete(v string) *htmlSelect {
+// Autocomplete sets the element's "autocomplete" attribute
+func (e *HTMLSelect) Autocomplete(v string) *HTMLSelect {
 	e.a["autocomplete"] = v
 	return e
 }
 
-func (e *htmlSelect) Autofocus(v bool) *htmlSelect {
+// Autofocus sets the element's "autofocus" attribute
+func (e *HTMLSelect) Autofocus(v bool) *HTMLSelect {
 	if v {
 		e.a["autofocus"] = ""
 	} else {
@@ -35,7 +42,8 @@ func (e *htmlSelect) Autofocus(v bool) *htmlSelect {
 	return e
 }
 
-func (e *htmlSelect) Disabled(v bool) *htmlSelect {
+// Disabled sets the element's "disabled" attribute
+func (e *HTMLSelect) Disabled(v bool) *HTMLSelect {
 	if v {
 		e.a["disabled"] = ""
 	} else {
@@ -44,7 +52,8 @@ func (e *htmlSelect) Disabled(v bool) *htmlSelect {
 	return e
 }
 
-func (e *htmlSelect) Multiple(v bool) *htmlSelect {
+// Multiple sets the element's "multiple" attribute
+func (e *HTMLSelect) Multiple(v bool) *HTMLSelect {
 	if v {
 		e.a["multiple"] = ""
 	} else {
@@ -53,12 +62,14 @@ func (e *htmlSelect) Multiple(v bool) *htmlSelect {
 	return e
 }
 
-func (e *htmlSelect) Name(v string) *htmlSelect {
+// Name sets the element's "name" attribute
+func (e *HTMLSelect) Name(v string) *HTMLSelect {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlSelect) Required(v bool) *htmlSelect {
+// Required sets the element's "required" attribute
+func (e *HTMLSelect) Required(v bool) *HTMLSelect {
 	if v {
 		e.a["required"] = ""
 	} else {
@@ -67,27 +78,32 @@ func (e *htmlSelect) Required(v bool) *htmlSelect {
 	return e
 }
 
-func (e *htmlSelect) Size(v int) *htmlSelect {
+// Size sets the element's "size" attribute
+func (e *HTMLSelect) Size(v int) *HTMLSelect {
 	e.a["size"] = v
 	return e
 }
 
-func (e *htmlSelect) Length(v int) *htmlSelect {
+// Length sets the element's "length" attribute
+func (e *HTMLSelect) Length(v int) *HTMLSelect {
 	e.a["length"] = v
 	return e
 }
 
-func (e *htmlSelect) SelectedIndex(v int) *htmlSelect {
+// SelectedIndex sets the element's "selectedindex" attribute
+func (e *HTMLSelect) SelectedIndex(v int) *HTMLSelect {
 	e.a["selectedindex"] = v
 	return e
 }
 
-func (e *htmlSelect) Value(v string) *htmlSelect {
+// Value sets the element's "value" attribute
+func (e *HTMLSelect) Value(v string) *HTMLSelect {
 	e.a["value"] = v
 	return e
 }
 
-func (e *htmlSelect) CheckValidity(v bool) *htmlSelect {
+// CheckValidity sets the element's "checkvalidity" attribute
+func (e *HTMLSelect) CheckValidity(v bool) *HTMLSelect {
 	if v {
 		e.a["checkvalidity"] = ""
 	} else {
@@ -96,7 +112,8 @@ func (e *htmlSelect) CheckValidity(v bool) *htmlSelect {
 	return e
 }
 
-func (e *htmlSelect) ReportValidity(v bool) *htmlSelect {
+// ReportValidity sets the element's "reportvalidity" attribute
+func (e *HTMLSelect) ReportValidity(v bool) *HTMLSelect {
 	if v {
 		e.a["reportvalidity"] = ""
 	} else {
@@ -105,27 +122,32 @@ func (e *htmlSelect) ReportValidity(v bool) *htmlSelect {
 	return e
 }
 
-func (e *htmlSelect) ID(v string) *htmlSelect {
+// ID sets the element's "id" attribute
+func (e *HTMLSelect) ID(v string) *HTMLSelect {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlSelect) Class(v string) *htmlSelect {
+// Class sets the element's "class" attribute
+func (e *HTMLSelect) Class(v string) *HTMLSelect {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlSelect) Title(v string) *htmlSelect {
+// Title sets the element's "title" attribute
+func (e *HTMLSelect) Title(v string) *HTMLSelect {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlSelect) Lang(v string) *htmlSelect {
+// Lang sets the element's "lang" attribute
+func (e *HTMLSelect) Lang(v string) *HTMLSelect {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlSelect) Translate(v bool) *htmlSelect {
+// Translate sets the element's "translate" attribute
+func (e *HTMLSelect) Translate(v bool) *HTMLSelect {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -134,12 +156,14 @@ func (e *htmlSelect) Translate(v bool) *htmlSelect {
 	return e
 }
 
-func (e *htmlSelect) Dir(v string) *htmlSelect {
+// Dir sets the element's "dir" attribute
+func (e *HTMLSelect) Dir(v string) *HTMLSelect {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlSelect) Hidden(v bool) *htmlSelect {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLSelect) Hidden(v bool) *HTMLSelect {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -148,17 +172,20 @@ func (e *htmlSelect) Hidden(v bool) *htmlSelect {
 	return e
 }
 
-func (e *htmlSelect) TabIndex(v int) *htmlSelect {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLSelect) TabIndex(v int) *HTMLSelect {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlSelect) AccessKey(v string) *htmlSelect {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLSelect) AccessKey(v string) *HTMLSelect {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlSelect) Draggable(v bool) *htmlSelect {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLSelect) Draggable(v bool) *HTMLSelect {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -167,7 +194,8 @@ func (e *htmlSelect) Draggable(v bool) *htmlSelect {
 	return e
 }
 
-func (e *htmlSelect) Spellcheck(v bool) *htmlSelect {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLSelect) Spellcheck(v bool) *HTMLSelect {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

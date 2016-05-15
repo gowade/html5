@@ -1,57 +1,69 @@
 package h
 
-type htmlVideo struct {
-	htmlMedia
+// HTMLVideo represents HTML <video> tag
+type HTMLVideo struct {
+	HTMLMedia
 }
 
-func Video() *htmlVideo {
-	e := &htmlVideo{}
+// Video creates a HTML <video> tag
+func Video() *HTMLVideo {
+	e := &HTMLVideo{}
 	e.a = make(map[string]interface{})
 	e.tagName = "video"
 	return e
 }
 
-func (e *htmlVideo) S(style StyleMap) *htmlVideo {
+// S sets the element's CSS properties
+func (e *HTMLVideo) S(style StyleMap) *HTMLVideo {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlVideo) Key(key interface{}) *htmlVideo {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLVideo) Key(key interface{}) *HTMLVideo {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlVideo) Width(v int) *htmlVideo {
+// Width sets the element's "width" attribute
+func (e *HTMLVideo) Width(v int) *HTMLVideo {
 	e.a["width"] = v
 	return e
 }
 
-func (e *htmlVideo) Height(v int) *htmlVideo {
+// Height sets the element's "height" attribute
+func (e *HTMLVideo) Height(v int) *HTMLVideo {
 	e.a["height"] = v
 	return e
 }
 
-func (e *htmlVideo) Poster(v string) *htmlVideo {
+// Poster sets the element's "poster" attribute
+func (e *HTMLVideo) Poster(v string) *HTMLVideo {
 	e.a["poster"] = v
 	return e
 }
 
-func (e *htmlVideo) Src(v string) *htmlVideo {
+// Src sets the element's "src" attribute
+func (e *HTMLVideo) Src(v string) *HTMLVideo {
 	e.a["src"] = v
 	return e
 }
 
-func (e *htmlVideo) CrossOrigin(v string) *htmlVideo {
+// CrossOrigin sets the element's "crossorigin" attribute
+func (e *HTMLVideo) CrossOrigin(v string) *HTMLVideo {
 	e.a["crossorigin"] = v
 	return e
 }
 
-func (e *htmlVideo) Preload(v string) *htmlVideo {
+// Preload sets the element's "preload" attribute
+func (e *HTMLVideo) Preload(v string) *HTMLVideo {
 	e.a["preload"] = v
 	return e
 }
 
-func (e *htmlVideo) Autoplay(v bool) *htmlVideo {
+// Autoplay sets the element's "autoplay" attribute
+func (e *HTMLVideo) Autoplay(v bool) *HTMLVideo {
 	if v {
 		e.a["autoplay"] = ""
 	} else {
@@ -60,7 +72,8 @@ func (e *htmlVideo) Autoplay(v bool) *htmlVideo {
 	return e
 }
 
-func (e *htmlVideo) Loop(v bool) *htmlVideo {
+// Loop sets the element's "loop" attribute
+func (e *HTMLVideo) Loop(v bool) *HTMLVideo {
 	if v {
 		e.a["loop"] = ""
 	} else {
@@ -69,7 +82,8 @@ func (e *htmlVideo) Loop(v bool) *htmlVideo {
 	return e
 }
 
-func (e *htmlVideo) Controls(v bool) *htmlVideo {
+// Controls sets the element's "controls" attribute
+func (e *HTMLVideo) Controls(v bool) *HTMLVideo {
 	if v {
 		e.a["controls"] = ""
 	} else {
@@ -78,7 +92,8 @@ func (e *htmlVideo) Controls(v bool) *htmlVideo {
 	return e
 }
 
-func (e *htmlVideo) Muted(v bool) *htmlVideo {
+// Muted sets the element's "muted" attribute
+func (e *HTMLVideo) Muted(v bool) *HTMLVideo {
 	if v {
 		e.a["muted"] = ""
 	} else {
@@ -87,7 +102,8 @@ func (e *htmlVideo) Muted(v bool) *htmlVideo {
 	return e
 }
 
-func (e *htmlVideo) DefaultMuted(v bool) *htmlVideo {
+// DefaultMuted sets the element's "defaultmuted" attribute
+func (e *HTMLVideo) DefaultMuted(v bool) *HTMLVideo {
 	if v {
 		e.a["defaultmuted"] = ""
 	} else {
@@ -96,27 +112,32 @@ func (e *htmlVideo) DefaultMuted(v bool) *htmlVideo {
 	return e
 }
 
-func (e *htmlVideo) ID(v string) *htmlVideo {
+// ID sets the element's "id" attribute
+func (e *HTMLVideo) ID(v string) *HTMLVideo {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlVideo) Class(v string) *htmlVideo {
+// Class sets the element's "class" attribute
+func (e *HTMLVideo) Class(v string) *HTMLVideo {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlVideo) Title(v string) *htmlVideo {
+// Title sets the element's "title" attribute
+func (e *HTMLVideo) Title(v string) *HTMLVideo {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlVideo) Lang(v string) *htmlVideo {
+// Lang sets the element's "lang" attribute
+func (e *HTMLVideo) Lang(v string) *HTMLVideo {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlVideo) Translate(v bool) *htmlVideo {
+// Translate sets the element's "translate" attribute
+func (e *HTMLVideo) Translate(v bool) *HTMLVideo {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -125,12 +146,14 @@ func (e *htmlVideo) Translate(v bool) *htmlVideo {
 	return e
 }
 
-func (e *htmlVideo) Dir(v string) *htmlVideo {
+// Dir sets the element's "dir" attribute
+func (e *HTMLVideo) Dir(v string) *HTMLVideo {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlVideo) Hidden(v bool) *htmlVideo {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLVideo) Hidden(v bool) *HTMLVideo {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -139,17 +162,20 @@ func (e *htmlVideo) Hidden(v bool) *htmlVideo {
 	return e
 }
 
-func (e *htmlVideo) TabIndex(v int) *htmlVideo {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLVideo) TabIndex(v int) *HTMLVideo {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlVideo) AccessKey(v string) *htmlVideo {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLVideo) AccessKey(v string) *HTMLVideo {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlVideo) Draggable(v bool) *htmlVideo {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLVideo) Draggable(v bool) *HTMLVideo {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -158,7 +184,8 @@ func (e *htmlVideo) Draggable(v bool) *htmlVideo {
 	return e
 }
 
-func (e *htmlVideo) Spellcheck(v bool) *htmlVideo {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLVideo) Spellcheck(v bool) *HTMLVideo {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

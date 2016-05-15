@@ -1,42 +1,51 @@
 package h
 
-type htmlMedia struct {
-	htmlElement
+// HTMLMedia represents HTML <media> tag
+type HTMLMedia struct {
+	HTMLElement
 }
 
-func Media() *htmlMedia {
-	e := &htmlMedia{}
+// Media creates a HTML <media> tag
+func Media() *HTMLMedia {
+	e := &HTMLMedia{}
 	e.a = make(map[string]interface{})
 	e.tagName = "media"
 	return e
 }
 
-func (e *htmlMedia) S(style StyleMap) *htmlMedia {
+// S sets the element's CSS properties
+func (e *HTMLMedia) S(style StyleMap) *HTMLMedia {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlMedia) Key(key interface{}) *htmlMedia {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLMedia) Key(key interface{}) *HTMLMedia {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlMedia) Src(v string) *htmlMedia {
+// Src sets the element's "src" attribute
+func (e *HTMLMedia) Src(v string) *HTMLMedia {
 	e.a["src"] = v
 	return e
 }
 
-func (e *htmlMedia) CrossOrigin(v string) *htmlMedia {
+// CrossOrigin sets the element's "crossorigin" attribute
+func (e *HTMLMedia) CrossOrigin(v string) *HTMLMedia {
 	e.a["crossorigin"] = v
 	return e
 }
 
-func (e *htmlMedia) Preload(v string) *htmlMedia {
+// Preload sets the element's "preload" attribute
+func (e *HTMLMedia) Preload(v string) *HTMLMedia {
 	e.a["preload"] = v
 	return e
 }
 
-func (e *htmlMedia) Autoplay(v bool) *htmlMedia {
+// Autoplay sets the element's "autoplay" attribute
+func (e *HTMLMedia) Autoplay(v bool) *HTMLMedia {
 	if v {
 		e.a["autoplay"] = ""
 	} else {
@@ -45,7 +54,8 @@ func (e *htmlMedia) Autoplay(v bool) *htmlMedia {
 	return e
 }
 
-func (e *htmlMedia) Loop(v bool) *htmlMedia {
+// Loop sets the element's "loop" attribute
+func (e *HTMLMedia) Loop(v bool) *HTMLMedia {
 	if v {
 		e.a["loop"] = ""
 	} else {
@@ -54,7 +64,8 @@ func (e *htmlMedia) Loop(v bool) *htmlMedia {
 	return e
 }
 
-func (e *htmlMedia) Controls(v bool) *htmlMedia {
+// Controls sets the element's "controls" attribute
+func (e *HTMLMedia) Controls(v bool) *HTMLMedia {
 	if v {
 		e.a["controls"] = ""
 	} else {
@@ -63,7 +74,8 @@ func (e *htmlMedia) Controls(v bool) *htmlMedia {
 	return e
 }
 
-func (e *htmlMedia) Muted(v bool) *htmlMedia {
+// Muted sets the element's "muted" attribute
+func (e *HTMLMedia) Muted(v bool) *HTMLMedia {
 	if v {
 		e.a["muted"] = ""
 	} else {
@@ -72,7 +84,8 @@ func (e *htmlMedia) Muted(v bool) *htmlMedia {
 	return e
 }
 
-func (e *htmlMedia) DefaultMuted(v bool) *htmlMedia {
+// DefaultMuted sets the element's "defaultmuted" attribute
+func (e *HTMLMedia) DefaultMuted(v bool) *HTMLMedia {
 	if v {
 		e.a["defaultmuted"] = ""
 	} else {
@@ -81,27 +94,32 @@ func (e *htmlMedia) DefaultMuted(v bool) *htmlMedia {
 	return e
 }
 
-func (e *htmlMedia) ID(v string) *htmlMedia {
+// ID sets the element's "id" attribute
+func (e *HTMLMedia) ID(v string) *HTMLMedia {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlMedia) Class(v string) *htmlMedia {
+// Class sets the element's "class" attribute
+func (e *HTMLMedia) Class(v string) *HTMLMedia {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlMedia) Title(v string) *htmlMedia {
+// Title sets the element's "title" attribute
+func (e *HTMLMedia) Title(v string) *HTMLMedia {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlMedia) Lang(v string) *htmlMedia {
+// Lang sets the element's "lang" attribute
+func (e *HTMLMedia) Lang(v string) *HTMLMedia {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlMedia) Translate(v bool) *htmlMedia {
+// Translate sets the element's "translate" attribute
+func (e *HTMLMedia) Translate(v bool) *HTMLMedia {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -110,12 +128,14 @@ func (e *htmlMedia) Translate(v bool) *htmlMedia {
 	return e
 }
 
-func (e *htmlMedia) Dir(v string) *htmlMedia {
+// Dir sets the element's "dir" attribute
+func (e *HTMLMedia) Dir(v string) *HTMLMedia {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlMedia) Hidden(v bool) *htmlMedia {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLMedia) Hidden(v bool) *HTMLMedia {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -124,17 +144,20 @@ func (e *htmlMedia) Hidden(v bool) *htmlMedia {
 	return e
 }
 
-func (e *htmlMedia) TabIndex(v int) *htmlMedia {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLMedia) TabIndex(v int) *HTMLMedia {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlMedia) AccessKey(v string) *htmlMedia {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLMedia) AccessKey(v string) *HTMLMedia {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlMedia) Draggable(v bool) *htmlMedia {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLMedia) Draggable(v bool) *HTMLMedia {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -143,7 +166,8 @@ func (e *htmlMedia) Draggable(v bool) *htmlMedia {
 	return e
 }
 
-func (e *htmlMedia) Spellcheck(v bool) *htmlMedia {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLMedia) Spellcheck(v bool) *HTMLMedia {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

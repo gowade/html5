@@ -1,57 +1,69 @@
 package h
 
-type htmlFrameSet struct {
-	htmlElement
+// HTMLFrameSet represents HTML <frameset> tag
+type HTMLFrameSet struct {
+	HTMLElement
 }
 
-func FrameSet() *htmlFrameSet {
-	e := &htmlFrameSet{}
+// FrameSet creates a HTML <frameset> tag
+func FrameSet() *HTMLFrameSet {
+	e := &HTMLFrameSet{}
 	e.a = make(map[string]interface{})
 	e.tagName = "frameset"
 	return e
 }
 
-func (e *htmlFrameSet) S(style StyleMap) *htmlFrameSet {
+// S sets the element's CSS properties
+func (e *HTMLFrameSet) S(style StyleMap) *HTMLFrameSet {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlFrameSet) Key(key interface{}) *htmlFrameSet {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLFrameSet) Key(key interface{}) *HTMLFrameSet {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlFrameSet) Cols(v string) *htmlFrameSet {
+// Cols sets the element's "cols" attribute
+func (e *HTMLFrameSet) Cols(v string) *HTMLFrameSet {
 	e.a["cols"] = v
 	return e
 }
 
-func (e *htmlFrameSet) Rows(v string) *htmlFrameSet {
+// Rows sets the element's "rows" attribute
+func (e *HTMLFrameSet) Rows(v string) *HTMLFrameSet {
 	e.a["rows"] = v
 	return e
 }
 
-func (e *htmlFrameSet) ID(v string) *htmlFrameSet {
+// ID sets the element's "id" attribute
+func (e *HTMLFrameSet) ID(v string) *HTMLFrameSet {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlFrameSet) Class(v string) *htmlFrameSet {
+// Class sets the element's "class" attribute
+func (e *HTMLFrameSet) Class(v string) *HTMLFrameSet {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlFrameSet) Title(v string) *htmlFrameSet {
+// Title sets the element's "title" attribute
+func (e *HTMLFrameSet) Title(v string) *HTMLFrameSet {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlFrameSet) Lang(v string) *htmlFrameSet {
+// Lang sets the element's "lang" attribute
+func (e *HTMLFrameSet) Lang(v string) *HTMLFrameSet {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlFrameSet) Translate(v bool) *htmlFrameSet {
+// Translate sets the element's "translate" attribute
+func (e *HTMLFrameSet) Translate(v bool) *HTMLFrameSet {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -60,12 +72,14 @@ func (e *htmlFrameSet) Translate(v bool) *htmlFrameSet {
 	return e
 }
 
-func (e *htmlFrameSet) Dir(v string) *htmlFrameSet {
+// Dir sets the element's "dir" attribute
+func (e *HTMLFrameSet) Dir(v string) *HTMLFrameSet {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlFrameSet) Hidden(v bool) *htmlFrameSet {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLFrameSet) Hidden(v bool) *HTMLFrameSet {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -74,17 +88,20 @@ func (e *htmlFrameSet) Hidden(v bool) *htmlFrameSet {
 	return e
 }
 
-func (e *htmlFrameSet) TabIndex(v int) *htmlFrameSet {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLFrameSet) TabIndex(v int) *HTMLFrameSet {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlFrameSet) AccessKey(v string) *htmlFrameSet {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLFrameSet) AccessKey(v string) *HTMLFrameSet {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlFrameSet) Draggable(v bool) *htmlFrameSet {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLFrameSet) Draggable(v bool) *HTMLFrameSet {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -93,7 +110,8 @@ func (e *htmlFrameSet) Draggable(v bool) *htmlFrameSet {
 	return e
 }
 
-func (e *htmlFrameSet) Spellcheck(v bool) *htmlFrameSet {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLFrameSet) Spellcheck(v bool) *HTMLFrameSet {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

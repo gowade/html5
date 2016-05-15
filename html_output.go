@@ -1,42 +1,51 @@
 package h
 
-type htmlOutput struct {
-	htmlElement
+// HTMLOutput represents HTML <output> tag
+type HTMLOutput struct {
+	HTMLElement
 }
 
-func Output() *htmlOutput {
-	e := &htmlOutput{}
+// Output creates a HTML <output> tag
+func Output() *HTMLOutput {
+	e := &HTMLOutput{}
 	e.a = make(map[string]interface{})
 	e.tagName = "output"
 	return e
 }
 
-func (e *htmlOutput) S(style StyleMap) *htmlOutput {
+// S sets the element's CSS properties
+func (e *HTMLOutput) S(style StyleMap) *HTMLOutput {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlOutput) Key(key interface{}) *htmlOutput {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLOutput) Key(key interface{}) *HTMLOutput {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlOutput) Name(v string) *htmlOutput {
+// Name sets the element's "name" attribute
+func (e *HTMLOutput) Name(v string) *HTMLOutput {
 	e.a["name"] = v
 	return e
 }
 
-func (e *htmlOutput) DefaultValue(v string) *htmlOutput {
+// DefaultValue sets the element's "defaultvalue" attribute
+func (e *HTMLOutput) DefaultValue(v string) *HTMLOutput {
 	e.a["defaultvalue"] = v
 	return e
 }
 
-func (e *htmlOutput) Value(v string) *htmlOutput {
+// Value sets the element's "value" attribute
+func (e *HTMLOutput) Value(v string) *HTMLOutput {
 	e.a["value"] = v
 	return e
 }
 
-func (e *htmlOutput) CheckValidity(v bool) *htmlOutput {
+// CheckValidity sets the element's "checkvalidity" attribute
+func (e *HTMLOutput) CheckValidity(v bool) *HTMLOutput {
 	if v {
 		e.a["checkvalidity"] = ""
 	} else {
@@ -45,7 +54,8 @@ func (e *htmlOutput) CheckValidity(v bool) *htmlOutput {
 	return e
 }
 
-func (e *htmlOutput) ReportValidity(v bool) *htmlOutput {
+// ReportValidity sets the element's "reportvalidity" attribute
+func (e *HTMLOutput) ReportValidity(v bool) *HTMLOutput {
 	if v {
 		e.a["reportvalidity"] = ""
 	} else {
@@ -54,27 +64,32 @@ func (e *htmlOutput) ReportValidity(v bool) *htmlOutput {
 	return e
 }
 
-func (e *htmlOutput) ID(v string) *htmlOutput {
+// ID sets the element's "id" attribute
+func (e *HTMLOutput) ID(v string) *HTMLOutput {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlOutput) Class(v string) *htmlOutput {
+// Class sets the element's "class" attribute
+func (e *HTMLOutput) Class(v string) *HTMLOutput {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlOutput) Title(v string) *htmlOutput {
+// Title sets the element's "title" attribute
+func (e *HTMLOutput) Title(v string) *HTMLOutput {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlOutput) Lang(v string) *htmlOutput {
+// Lang sets the element's "lang" attribute
+func (e *HTMLOutput) Lang(v string) *HTMLOutput {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlOutput) Translate(v bool) *htmlOutput {
+// Translate sets the element's "translate" attribute
+func (e *HTMLOutput) Translate(v bool) *HTMLOutput {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -83,12 +98,14 @@ func (e *htmlOutput) Translate(v bool) *htmlOutput {
 	return e
 }
 
-func (e *htmlOutput) Dir(v string) *htmlOutput {
+// Dir sets the element's "dir" attribute
+func (e *HTMLOutput) Dir(v string) *HTMLOutput {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlOutput) Hidden(v bool) *htmlOutput {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLOutput) Hidden(v bool) *HTMLOutput {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -97,17 +114,20 @@ func (e *htmlOutput) Hidden(v bool) *htmlOutput {
 	return e
 }
 
-func (e *htmlOutput) TabIndex(v int) *htmlOutput {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLOutput) TabIndex(v int) *HTMLOutput {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlOutput) AccessKey(v string) *htmlOutput {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLOutput) AccessKey(v string) *HTMLOutput {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlOutput) Draggable(v bool) *htmlOutput {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLOutput) Draggable(v bool) *HTMLOutput {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -116,7 +136,8 @@ func (e *htmlOutput) Draggable(v bool) *htmlOutput {
 	return e
 }
 
-func (e *htmlOutput) Spellcheck(v bool) *htmlOutput {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLOutput) Spellcheck(v bool) *HTMLOutput {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

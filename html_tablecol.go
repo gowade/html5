@@ -1,52 +1,63 @@
 package h
 
-type htmlTableCol struct {
-	htmlElement
+// HTMLTableCol represents HTML <tablecol> tag
+type HTMLTableCol struct {
+	HTMLElement
 }
 
-func TableCol() *htmlTableCol {
-	e := &htmlTableCol{}
+// TableCol creates a HTML <tablecol> tag
+func TableCol() *HTMLTableCol {
+	e := &HTMLTableCol{}
 	e.a = make(map[string]interface{})
 	e.tagName = "tablecol"
 	return e
 }
 
-func (e *htmlTableCol) S(style StyleMap) *htmlTableCol {
+// S sets the element's CSS properties
+func (e *HTMLTableCol) S(style StyleMap) *HTMLTableCol {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlTableCol) Key(key interface{}) *htmlTableCol {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLTableCol) Key(key interface{}) *HTMLTableCol {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlTableCol) Span(v int) *htmlTableCol {
+// Span sets the element's "span" attribute
+func (e *HTMLTableCol) Span(v int) *HTMLTableCol {
 	e.a["span"] = v
 	return e
 }
 
-func (e *htmlTableCol) ID(v string) *htmlTableCol {
+// ID sets the element's "id" attribute
+func (e *HTMLTableCol) ID(v string) *HTMLTableCol {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlTableCol) Class(v string) *htmlTableCol {
+// Class sets the element's "class" attribute
+func (e *HTMLTableCol) Class(v string) *HTMLTableCol {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlTableCol) Title(v string) *htmlTableCol {
+// Title sets the element's "title" attribute
+func (e *HTMLTableCol) Title(v string) *HTMLTableCol {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlTableCol) Lang(v string) *htmlTableCol {
+// Lang sets the element's "lang" attribute
+func (e *HTMLTableCol) Lang(v string) *HTMLTableCol {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlTableCol) Translate(v bool) *htmlTableCol {
+// Translate sets the element's "translate" attribute
+func (e *HTMLTableCol) Translate(v bool) *HTMLTableCol {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -55,12 +66,14 @@ func (e *htmlTableCol) Translate(v bool) *htmlTableCol {
 	return e
 }
 
-func (e *htmlTableCol) Dir(v string) *htmlTableCol {
+// Dir sets the element's "dir" attribute
+func (e *HTMLTableCol) Dir(v string) *HTMLTableCol {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlTableCol) Hidden(v bool) *htmlTableCol {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLTableCol) Hidden(v bool) *HTMLTableCol {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -69,17 +82,20 @@ func (e *htmlTableCol) Hidden(v bool) *htmlTableCol {
 	return e
 }
 
-func (e *htmlTableCol) TabIndex(v int) *htmlTableCol {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLTableCol) TabIndex(v int) *HTMLTableCol {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlTableCol) AccessKey(v string) *htmlTableCol {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLTableCol) AccessKey(v string) *HTMLTableCol {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlTableCol) Draggable(v bool) *htmlTableCol {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLTableCol) Draggable(v bool) *HTMLTableCol {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -88,7 +104,8 @@ func (e *htmlTableCol) Draggable(v bool) *htmlTableCol {
 	return e
 }
 
-func (e *htmlTableCol) Spellcheck(v bool) *htmlTableCol {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLTableCol) Spellcheck(v bool) *HTMLTableCol {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

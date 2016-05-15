@@ -1,47 +1,57 @@
 package h
 
-type htmlTableSection struct {
-	htmlElement
+// HTMLTableSection represents HTML <tablesection> tag
+type HTMLTableSection struct {
+	HTMLElement
 }
 
-func TableSection() *htmlTableSection {
-	e := &htmlTableSection{}
+// TableSection creates a HTML <tablesection> tag
+func TableSection() *HTMLTableSection {
+	e := &HTMLTableSection{}
 	e.a = make(map[string]interface{})
 	e.tagName = "tablesection"
 	return e
 }
 
-func (e *htmlTableSection) S(style StyleMap) *htmlTableSection {
+// S sets the element's CSS properties
+func (e *HTMLTableSection) S(style StyleMap) *HTMLTableSection {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlTableSection) Key(key interface{}) *htmlTableSection {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLTableSection) Key(key interface{}) *HTMLTableSection {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlTableSection) ID(v string) *htmlTableSection {
+// ID sets the element's "id" attribute
+func (e *HTMLTableSection) ID(v string) *HTMLTableSection {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlTableSection) Class(v string) *htmlTableSection {
+// Class sets the element's "class" attribute
+func (e *HTMLTableSection) Class(v string) *HTMLTableSection {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlTableSection) Title(v string) *htmlTableSection {
+// Title sets the element's "title" attribute
+func (e *HTMLTableSection) Title(v string) *HTMLTableSection {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlTableSection) Lang(v string) *htmlTableSection {
+// Lang sets the element's "lang" attribute
+func (e *HTMLTableSection) Lang(v string) *HTMLTableSection {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlTableSection) Translate(v bool) *htmlTableSection {
+// Translate sets the element's "translate" attribute
+func (e *HTMLTableSection) Translate(v bool) *HTMLTableSection {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlTableSection) Translate(v bool) *htmlTableSection {
 	return e
 }
 
-func (e *htmlTableSection) Dir(v string) *htmlTableSection {
+// Dir sets the element's "dir" attribute
+func (e *HTMLTableSection) Dir(v string) *HTMLTableSection {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlTableSection) Hidden(v bool) *htmlTableSection {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLTableSection) Hidden(v bool) *HTMLTableSection {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlTableSection) Hidden(v bool) *htmlTableSection {
 	return e
 }
 
-func (e *htmlTableSection) TabIndex(v int) *htmlTableSection {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLTableSection) TabIndex(v int) *HTMLTableSection {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlTableSection) AccessKey(v string) *htmlTableSection {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLTableSection) AccessKey(v string) *HTMLTableSection {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlTableSection) Draggable(v bool) *htmlTableSection {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLTableSection) Draggable(v bool) *HTMLTableSection {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlTableSection) Draggable(v bool) *htmlTableSection {
 	return e
 }
 
-func (e *htmlTableSection) Spellcheck(v bool) *htmlTableSection {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLTableSection) Spellcheck(v bool) *HTMLTableSection {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

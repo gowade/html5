@@ -1,67 +1,81 @@
 package h
 
-type htmlEmbed struct {
-	htmlElement
+// HTMLEmbed represents HTML <embed> tag
+type HTMLEmbed struct {
+	HTMLElement
 }
 
-func Embed() *htmlEmbed {
-	e := &htmlEmbed{}
+// Embed creates a HTML <embed> tag
+func Embed() *HTMLEmbed {
+	e := &HTMLEmbed{}
 	e.a = make(map[string]interface{})
 	e.tagName = "embed"
 	return e
 }
 
-func (e *htmlEmbed) S(style StyleMap) *htmlEmbed {
+// S sets the element's CSS properties
+func (e *HTMLEmbed) S(style StyleMap) *HTMLEmbed {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlEmbed) Key(key interface{}) *htmlEmbed {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLEmbed) Key(key interface{}) *HTMLEmbed {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlEmbed) Src(v string) *htmlEmbed {
+// Src sets the element's "src" attribute
+func (e *HTMLEmbed) Src(v string) *HTMLEmbed {
 	e.a["src"] = v
 	return e
 }
 
-func (e *htmlEmbed) Type(v string) *htmlEmbed {
+// Type sets the element's "type" attribute
+func (e *HTMLEmbed) Type(v string) *HTMLEmbed {
 	e.a["type"] = v
 	return e
 }
 
-func (e *htmlEmbed) Width(v string) *htmlEmbed {
+// Width sets the element's "width" attribute
+func (e *HTMLEmbed) Width(v string) *HTMLEmbed {
 	e.a["width"] = v
 	return e
 }
 
-func (e *htmlEmbed) Height(v string) *htmlEmbed {
+// Height sets the element's "height" attribute
+func (e *HTMLEmbed) Height(v string) *HTMLEmbed {
 	e.a["height"] = v
 	return e
 }
 
-func (e *htmlEmbed) ID(v string) *htmlEmbed {
+// ID sets the element's "id" attribute
+func (e *HTMLEmbed) ID(v string) *HTMLEmbed {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlEmbed) Class(v string) *htmlEmbed {
+// Class sets the element's "class" attribute
+func (e *HTMLEmbed) Class(v string) *HTMLEmbed {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlEmbed) Title(v string) *htmlEmbed {
+// Title sets the element's "title" attribute
+func (e *HTMLEmbed) Title(v string) *HTMLEmbed {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlEmbed) Lang(v string) *htmlEmbed {
+// Lang sets the element's "lang" attribute
+func (e *HTMLEmbed) Lang(v string) *HTMLEmbed {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlEmbed) Translate(v bool) *htmlEmbed {
+// Translate sets the element's "translate" attribute
+func (e *HTMLEmbed) Translate(v bool) *HTMLEmbed {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -70,12 +84,14 @@ func (e *htmlEmbed) Translate(v bool) *htmlEmbed {
 	return e
 }
 
-func (e *htmlEmbed) Dir(v string) *htmlEmbed {
+// Dir sets the element's "dir" attribute
+func (e *HTMLEmbed) Dir(v string) *HTMLEmbed {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlEmbed) Hidden(v bool) *htmlEmbed {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLEmbed) Hidden(v bool) *HTMLEmbed {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -84,17 +100,20 @@ func (e *htmlEmbed) Hidden(v bool) *htmlEmbed {
 	return e
 }
 
-func (e *htmlEmbed) TabIndex(v int) *htmlEmbed {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLEmbed) TabIndex(v int) *HTMLEmbed {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlEmbed) AccessKey(v string) *htmlEmbed {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLEmbed) AccessKey(v string) *HTMLEmbed {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlEmbed) Draggable(v bool) *htmlEmbed {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLEmbed) Draggable(v bool) *HTMLEmbed {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -103,7 +122,8 @@ func (e *htmlEmbed) Draggable(v bool) *htmlEmbed {
 	return e
 }
 
-func (e *htmlEmbed) Spellcheck(v bool) *htmlEmbed {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLEmbed) Spellcheck(v bool) *HTMLEmbed {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

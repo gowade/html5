@@ -1,67 +1,81 @@
 package h
 
-type htmlMarquee struct {
-	htmlElement
+// HTMLMarquee represents HTML <marquee> tag
+type HTMLMarquee struct {
+	HTMLElement
 }
 
-func Marquee() *htmlMarquee {
-	e := &htmlMarquee{}
+// Marquee creates a HTML <marquee> tag
+func Marquee() *HTMLMarquee {
+	e := &HTMLMarquee{}
 	e.a = make(map[string]interface{})
 	e.tagName = "marquee"
 	return e
 }
 
-func (e *htmlMarquee) S(style StyleMap) *htmlMarquee {
+// S sets the element's CSS properties
+func (e *HTMLMarquee) S(style StyleMap) *HTMLMarquee {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlMarquee) Key(key interface{}) *htmlMarquee {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLMarquee) Key(key interface{}) *HTMLMarquee {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlMarquee) Behavior(v string) *htmlMarquee {
+// Behavior sets the element's "behavior" attribute
+func (e *HTMLMarquee) Behavior(v string) *HTMLMarquee {
 	e.a["behavior"] = v
 	return e
 }
 
-func (e *htmlMarquee) BgColor(v string) *htmlMarquee {
+// BgColor sets the element's "bgcolor" attribute
+func (e *HTMLMarquee) BgColor(v string) *HTMLMarquee {
 	e.a["bgcolor"] = v
 	return e
 }
 
-func (e *htmlMarquee) Direction(v string) *htmlMarquee {
+// Direction sets the element's "direction" attribute
+func (e *HTMLMarquee) Direction(v string) *HTMLMarquee {
 	e.a["direction"] = v
 	return e
 }
 
-func (e *htmlMarquee) Height(v string) *htmlMarquee {
+// Height sets the element's "height" attribute
+func (e *HTMLMarquee) Height(v string) *HTMLMarquee {
 	e.a["height"] = v
 	return e
 }
 
-func (e *htmlMarquee) Hspace(v int) *htmlMarquee {
+// Hspace sets the element's "hspace" attribute
+func (e *HTMLMarquee) Hspace(v int) *HTMLMarquee {
 	e.a["hspace"] = v
 	return e
 }
 
-func (e *htmlMarquee) Loop(v int) *htmlMarquee {
+// Loop sets the element's "loop" attribute
+func (e *HTMLMarquee) Loop(v int) *HTMLMarquee {
 	e.a["loop"] = v
 	return e
 }
 
-func (e *htmlMarquee) ScrollAmount(v int) *htmlMarquee {
+// ScrollAmount sets the element's "scrollamount" attribute
+func (e *HTMLMarquee) ScrollAmount(v int) *HTMLMarquee {
 	e.a["scrollamount"] = v
 	return e
 }
 
-func (e *htmlMarquee) ScrollDelay(v int) *htmlMarquee {
+// ScrollDelay sets the element's "scrolldelay" attribute
+func (e *HTMLMarquee) ScrollDelay(v int) *HTMLMarquee {
 	e.a["scrolldelay"] = v
 	return e
 }
 
-func (e *htmlMarquee) TrueSpeed(v bool) *htmlMarquee {
+// TrueSpeed sets the element's "truespeed" attribute
+func (e *HTMLMarquee) TrueSpeed(v bool) *HTMLMarquee {
 	if v {
 		e.a["truespeed"] = ""
 	} else {
@@ -70,37 +84,44 @@ func (e *htmlMarquee) TrueSpeed(v bool) *htmlMarquee {
 	return e
 }
 
-func (e *htmlMarquee) Vspace(v int) *htmlMarquee {
+// Vspace sets the element's "vspace" attribute
+func (e *HTMLMarquee) Vspace(v int) *HTMLMarquee {
 	e.a["vspace"] = v
 	return e
 }
 
-func (e *htmlMarquee) Width(v string) *htmlMarquee {
+// Width sets the element's "width" attribute
+func (e *HTMLMarquee) Width(v string) *HTMLMarquee {
 	e.a["width"] = v
 	return e
 }
 
-func (e *htmlMarquee) ID(v string) *htmlMarquee {
+// ID sets the element's "id" attribute
+func (e *HTMLMarquee) ID(v string) *HTMLMarquee {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlMarquee) Class(v string) *htmlMarquee {
+// Class sets the element's "class" attribute
+func (e *HTMLMarquee) Class(v string) *HTMLMarquee {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlMarquee) Title(v string) *htmlMarquee {
+// Title sets the element's "title" attribute
+func (e *HTMLMarquee) Title(v string) *HTMLMarquee {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlMarquee) Lang(v string) *htmlMarquee {
+// Lang sets the element's "lang" attribute
+func (e *HTMLMarquee) Lang(v string) *HTMLMarquee {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlMarquee) Translate(v bool) *htmlMarquee {
+// Translate sets the element's "translate" attribute
+func (e *HTMLMarquee) Translate(v bool) *HTMLMarquee {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -109,12 +130,14 @@ func (e *htmlMarquee) Translate(v bool) *htmlMarquee {
 	return e
 }
 
-func (e *htmlMarquee) Dir(v string) *htmlMarquee {
+// Dir sets the element's "dir" attribute
+func (e *HTMLMarquee) Dir(v string) *HTMLMarquee {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlMarquee) Hidden(v bool) *htmlMarquee {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLMarquee) Hidden(v bool) *HTMLMarquee {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -123,17 +146,20 @@ func (e *htmlMarquee) Hidden(v bool) *htmlMarquee {
 	return e
 }
 
-func (e *htmlMarquee) TabIndex(v int) *htmlMarquee {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLMarquee) TabIndex(v int) *HTMLMarquee {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlMarquee) AccessKey(v string) *htmlMarquee {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLMarquee) AccessKey(v string) *HTMLMarquee {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlMarquee) Draggable(v bool) *htmlMarquee {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLMarquee) Draggable(v bool) *HTMLMarquee {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -142,7 +168,8 @@ func (e *htmlMarquee) Draggable(v bool) *htmlMarquee {
 	return e
 }
 
-func (e *htmlMarquee) Spellcheck(v bool) *htmlMarquee {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLMarquee) Spellcheck(v bool) *HTMLMarquee {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {

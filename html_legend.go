@@ -1,47 +1,57 @@
 package h
 
-type htmlLegend struct {
-	htmlElement
+// HTMLLegend represents HTML <legend> tag
+type HTMLLegend struct {
+	HTMLElement
 }
 
-func Legend() *htmlLegend {
-	e := &htmlLegend{}
+// Legend creates a HTML <legend> tag
+func Legend() *HTMLLegend {
+	e := &HTMLLegend{}
 	e.a = make(map[string]interface{})
 	e.tagName = "legend"
 	return e
 }
 
-func (e *htmlLegend) S(style StyleMap) *htmlLegend {
+// S sets the element's CSS properties
+func (e *HTMLLegend) S(style StyleMap) *HTMLLegend {
 	e.htmlElement.S(style)
-	return e
+	return
 }
 
-func (e *htmlLegend) Key(key interface{}) *htmlLegend {
+// Key sets virtual dom's special property to instruct the diffing mechanism
+// to reorder the node instead of replacing it
+func (e *HTMLLegend) Key(key interface{}) *HTMLLegend {
 	e.key = F(key)
 	return e
 }
 
-func (e *htmlLegend) ID(v string) *htmlLegend {
+// ID sets the element's "id" attribute
+func (e *HTMLLegend) ID(v string) *HTMLLegend {
 	e.a["id"] = v
 	return e
 }
 
-func (e *htmlLegend) Class(v string) *htmlLegend {
+// Class sets the element's "class" attribute
+func (e *HTMLLegend) Class(v string) *HTMLLegend {
 	e.a["class"] = v
 	return e
 }
 
-func (e *htmlLegend) Title(v string) *htmlLegend {
+// Title sets the element's "title" attribute
+func (e *HTMLLegend) Title(v string) *HTMLLegend {
 	e.a["title"] = v
 	return e
 }
 
-func (e *htmlLegend) Lang(v string) *htmlLegend {
+// Lang sets the element's "lang" attribute
+func (e *HTMLLegend) Lang(v string) *HTMLLegend {
 	e.a["lang"] = v
 	return e
 }
 
-func (e *htmlLegend) Translate(v bool) *htmlLegend {
+// Translate sets the element's "translate" attribute
+func (e *HTMLLegend) Translate(v bool) *HTMLLegend {
 	if v {
 		e.a["translate"] = ""
 	} else {
@@ -50,12 +60,14 @@ func (e *htmlLegend) Translate(v bool) *htmlLegend {
 	return e
 }
 
-func (e *htmlLegend) Dir(v string) *htmlLegend {
+// Dir sets the element's "dir" attribute
+func (e *HTMLLegend) Dir(v string) *HTMLLegend {
 	e.a["dir"] = v
 	return e
 }
 
-func (e *htmlLegend) Hidden(v bool) *htmlLegend {
+// Hidden sets the element's "hidden" attribute
+func (e *HTMLLegend) Hidden(v bool) *HTMLLegend {
 	if v {
 		e.a["hidden"] = ""
 	} else {
@@ -64,17 +76,20 @@ func (e *htmlLegend) Hidden(v bool) *htmlLegend {
 	return e
 }
 
-func (e *htmlLegend) TabIndex(v int) *htmlLegend {
+// TabIndex sets the element's "tabindex" attribute
+func (e *HTMLLegend) TabIndex(v int) *HTMLLegend {
 	e.a["tabindex"] = v
 	return e
 }
 
-func (e *htmlLegend) AccessKey(v string) *htmlLegend {
+// AccessKey sets the element's "accesskey" attribute
+func (e *HTMLLegend) AccessKey(v string) *HTMLLegend {
 	e.a["accesskey"] = v
 	return e
 }
 
-func (e *htmlLegend) Draggable(v bool) *htmlLegend {
+// Draggable sets the element's "draggable" attribute
+func (e *HTMLLegend) Draggable(v bool) *HTMLLegend {
 	if v {
 		e.a["draggable"] = ""
 	} else {
@@ -83,7 +98,8 @@ func (e *htmlLegend) Draggable(v bool) *htmlLegend {
 	return e
 }
 
-func (e *htmlLegend) Spellcheck(v bool) *htmlLegend {
+// Spellcheck sets the element's "spellcheck" attribute
+func (e *HTMLLegend) Spellcheck(v bool) *HTMLLegend {
 	if v {
 		e.a["spellcheck"] = ""
 	} else {
