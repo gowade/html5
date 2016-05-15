@@ -5,7 +5,7 @@ type HTMLTextArea struct {
 	HTMLElement
 }
 
-// TextArea creates a HTML <textarea> tag
+// TextArea creates an HTML <textarea> tag element
 func TextArea() *HTMLTextArea {
 	e := &HTMLTextArea{}
 	e.a = make(map[string]interface{})

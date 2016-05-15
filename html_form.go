@@ -5,7 +5,7 @@ type HTMLForm struct {
 	HTMLElement
 }
 
-// Form creates a HTML <form> tag
+// Form creates an HTML <form> tag element
 func Form() *HTMLForm {
 	e := &HTMLForm{}
 	e.a = make(map[string]interface{})

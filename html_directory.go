@@ -5,7 +5,7 @@ type HTMLDirectory struct {
 	HTMLElement
 }
 
-// Directory creates a HTML <directory> tag
+// Directory creates an HTML <directory> tag element
 func Directory() *HTMLDirectory {
 	e := &HTMLDirectory{}
 	e.a = make(map[string]interface{})

@@ -5,7 +5,7 @@ type HTMLButton struct {
 	HTMLElement
 }
 
-// Button creates a HTML <button> tag
+// Button creates an HTML <button> tag element
 func Button() *HTMLButton {
 	e := &HTMLButton{}
 	e.a = make(map[string]interface{})

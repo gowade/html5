@@ -5,7 +5,7 @@ type HTMLOutput struct {
 	HTMLElement
 }
 
-// Output creates a HTML <output> tag
+// Output creates an HTML <output> tag element
 func Output() *HTMLOutput {
 	e := &HTMLOutput{}
 	e.a = make(map[string]interface{})

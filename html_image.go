@@ -5,7 +5,7 @@ type HTMLImage struct {
 	HTMLElement
 }
 
-// Image creates a HTML <image> tag
+// Image creates an HTML <image> tag element
 func Image() *HTMLImage {
 	e := &HTMLImage{}
 	e.a = make(map[string]interface{})

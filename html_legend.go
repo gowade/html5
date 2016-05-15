@@ -5,7 +5,7 @@ type HTMLLegend struct {
 	HTMLElement
 }
 
-// Legend creates a HTML <legend> tag
+// Legend creates an HTML <legend> tag element
 func Legend() *HTMLLegend {
 	e := &HTMLLegend{}
 	e.a = make(map[string]interface{})

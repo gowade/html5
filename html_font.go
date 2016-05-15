@@ -5,7 +5,7 @@ type HTMLFont struct {
 	HTMLElement
 }
 
-// Font creates a HTML <font> tag
+// Font creates an HTML <font> tag element
 func Font() *HTMLFont {
 	e := &HTMLFont{}
 	e.a = make(map[string]interface{})

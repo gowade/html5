@@ -5,7 +5,7 @@ type HTMLTitle struct {
 	HTMLElement
 }
 
-// Title creates a HTML <title> tag
+// Title creates an HTML <title> tag element
 func Title() *HTMLTitle {
 	e := &HTMLTitle{}
 	e.a = make(map[string]interface{})

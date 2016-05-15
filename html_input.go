@@ -5,7 +5,7 @@ type HTMLInput struct {
 	HTMLElement
 }
 
-// Input creates a HTML <input> tag
+// Input creates an HTML <input> tag element
 func Input() *HTMLInput {
 	e := &HTMLInput{}
 	e.a = make(map[string]interface{})

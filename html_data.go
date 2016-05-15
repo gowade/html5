@@ -5,7 +5,7 @@ type HTMLData struct {
 	HTMLElement
 }
 
-// Data creates a HTML <data> tag
+// Data creates an HTML <data> tag element
 func Data() *HTMLData {
 	e := &HTMLData{}
 	e.a = make(map[string]interface{})

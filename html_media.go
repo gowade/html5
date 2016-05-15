@@ -5,7 +5,7 @@ type HTMLMedia struct {
 	HTMLElement
 }
 
-// Media creates a HTML <media> tag
+// Media creates an HTML <media> tag element
 func Media() *HTMLMedia {
 	e := &HTMLMedia{}
 	e.a = make(map[string]interface{})

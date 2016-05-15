@@ -5,7 +5,7 @@ type HTMLSlot struct {
 	HTMLElement
 }
 
-// Slot creates a HTML <slot> tag
+// Slot creates an HTML <slot> tag element
 func Slot() *HTMLSlot {
 	e := &HTMLSlot{}
 	e.a = make(map[string]interface{})

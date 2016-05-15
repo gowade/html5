@@ -5,7 +5,7 @@ type HTMLVideo struct {
 	HTMLMedia
 }
 
-// Video creates a HTML <video> tag
+// Video creates an HTML <video> tag element
 func Video() *HTMLVideo {
 	e := &HTMLVideo{}
 	e.a = make(map[string]interface{})

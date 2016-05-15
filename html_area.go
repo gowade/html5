@@ -5,7 +5,7 @@ type HTMLArea struct {
 	HTMLElement
 }
 
-// Area creates a HTML <area> tag
+// Area creates an HTML <area> tag element
 func Area() *HTMLArea {
 	e := &HTMLArea{}
 	e.a = make(map[string]interface{})

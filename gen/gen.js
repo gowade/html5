@@ -3,8 +3,8 @@ var fs = require("fs")
 var WebIDL2 = require("webidl2");
 var ejs = require('ejs');
 
-var tree = WebIDL2.parse(fs.readFileSync("gen/idl/html5.idl", {encoding: "utf8"}));
 var template = fs.readFileSync("gen/template.go.in", {encoding: "utf8"})
+var emptyTagsTemp = fs.readFileSync("gen/emptytags.go.in", {encoding: "utf8"})
 
 var tagMap = {
     "UList": "UL",
@@ -20,8 +20,6 @@ var goTypeMap = {
     "boolean": "bool",
 }
 
-var ifaces = {};
-
 function mapTag(name) {
     var match = name.match(/^HTML(.*)Element$/);
     if (!match) {
@@ -29,72 +27,103 @@ function mapTag(name) {
     }
 
     var mtag = match[1];
-    if (mtag == "Unknown" || mtag == "Html") {
+    if (mtag == "Unknown") {
         return null;
     }
 
     return tagMap[mtag] ? tagMap[mtag] : mtag;
 }
 
-_.map(tree, function(iface) {
-    if (iface.type != "interface") {
-        return;
-    }
+function parse(file) {
+    var tree = WebIDL2.parse(fs.readFileSync(file, {encoding: "utf8"}));
+    var ifaces = {};
+    var emptyTags = [];
 
-    if (iface.partial) {
-        if (ifaces[iface.name]) {
-            ifaces[iface.name].members.concat(iface.members);
+    _.map(tree, function(iface) {
+        if (iface.type != "interface") {
+            return;
         }
 
-        return;
+        if (iface.partial) {
+            if (ifaces[iface.name]) {
+                ifaces[iface.name].members.concat(iface.members);
+            }
+
+            return;
+        }
+
+        iface.tagType = mapTag(iface.name);
+        if (!iface.tagType) {
+            return;
+        }
+
+        iface.htmlTag = iface.tagType.toLowerCase();
+        iface.privType = "HTML" + iface.tagType;
+        ifaces[iface.name] = iface
+    })
+
+    function parentRecursive(iface, fn, pp=".") {
+        fn(iface, pp);
+        if (iface.parentIface) {
+            parentRecursive(iface.parentIface, fn, pp + "p.");      
+        }
     }
 
-    iface.tagType = mapTag(iface.name);
-    if (!iface.tagType) {
-        return;
-    }
+    _.forOwn(ifaces, function(iface) {
+        iface.parentIface = null;
+        if (iface.inheritance) {
+            iface.parentIface = ifaces[iface.inheritance];
+        }
+    })
 
-    iface.htmlTag = iface.tagType.toLowerCase();
-    iface.privType = "HTML" + iface.tagType;
-    ifaces[iface.name] = iface
-})
+    _.forOwn(ifaces, function(iface) {
+        if (iface.parentIface &&
+                iface.parentIface.tagType == "Element" && iface.members.length == 0) {
 
-function parentRecursive(iface, fn, pp=".") {
-    fn(iface, pp);
-    if (iface.parentIface) {
-        parentRecursive(iface.parentIface, fn, pp + "p.");      
-    }
+            emptyTags.push(iface);
+            return;
+        }
+
+        iface._ = _;
+        iface.goTypeMap = goTypeMap;
+        iface.parentRecursive = parentRecursive;
+        iface.toGoMethodName = function(name) {
+            switch (name) {
+            case "id":
+                return "ID"
+            break;
+            case "htmlFor":
+                return "For"
+            }
+            return _.upperFirst(name);
+        }
+
+        var output = ejs.render(template, iface);
+        var fileName = "html_" + iface.tagType.toLowerCase() + ".go";
+        fs.writeFile(fileName, output, function(err) {
+            if(err) {
+                return console.log(err);
+            }
+        });
+    })
+
+    return emptyTags;
 }
 
-_.forOwn(ifaces, function(iface) {
-    iface.parentIface = null;
-    if (iface.inheritance) {
-        iface.parentIface = ifaces[iface.inheritance];
-    }
-})
+var emptyTags = parse("gen/idl/html5.idl");
 
-_.forOwn(ifaces, function(iface) {
-    iface._ = _;
-    iface.goTypeMap = goTypeMap;
-    iface.parentRecursive = parentRecursive;
-    iface.toGoMethodName = function(name) {
-        switch (name) {
-        case "id":
-            return "ID"
-        break;
-        case "htmlFor":
-            return "For"
-        }
-        return _.upperFirst(name);
-    }
+(function() {
+    var output = ejs.render(emptyTagsTemp, {
+        tags: emptyTags,
+        _: _,
+    });
 
-    var output = ejs.render(template, iface);
-    var fileName = "html_" + iface.tagType.toLowerCase() + ".go";
+    var fileName = "html_emptytags.go";
     fs.writeFile(fileName, output, function(err) {
         if(err) {
             return console.log(err);
         }
     });
-})
+})();
 
 console.log("code generation complete.")

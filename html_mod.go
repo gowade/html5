@@ -5,7 +5,7 @@ type HTMLMod struct {
 	HTMLElement
 }
 
-// Mod creates a HTML <mod> tag
+// Mod creates an HTML <mod> tag element
 func Mod() *HTMLMod {
 	e := &HTMLMod{}
 	e.a = make(map[string]interface{})

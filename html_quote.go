@@ -5,7 +5,7 @@ type HTMLQuote struct {
 	HTMLElement
 }
 
-// Quote creates a HTML <quote> tag
+// Quote creates an HTML <quote> tag element
 func Quote() *HTMLQuote {
 	e := &HTMLQuote{}
 	e.a = make(map[string]interface{})

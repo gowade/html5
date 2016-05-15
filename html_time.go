@@ -5,7 +5,7 @@ type HTMLTime struct {
 	HTMLElement
 }
 
-// Time creates a HTML <time> tag
+// Time creates an HTML <time> tag element
 func Time() *HTMLTime {
 	e := &HTMLTime{}
 	e.a = make(map[string]interface{})

@@ -5,7 +5,7 @@ type HTMLMeter struct {
 	HTMLElement
 }
 
-// Meter creates a HTML <meter> tag
+// Meter creates an HTML <meter> tag element
 func Meter() *HTMLMeter {
 	e := &HTMLMeter{}
 	e.a = make(map[string]interface{})

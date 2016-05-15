@@ -5,7 +5,7 @@ type HTMLTableSection struct {
 	HTMLElement
 }
 
-// TableSection creates a HTML <tablesection> tag
+// TableSection creates an HTML <tablesection> tag element
 func TableSection() *HTMLTableSection {
 	e := &HTMLTableSection{}
 	e.a = make(map[string]interface{})

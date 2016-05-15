@@ -5,7 +5,7 @@ type HTMLParam struct {
 	HTMLElement
 }
 
-// Param creates a HTML <param> tag
+// Param creates an HTML <param> tag element
 func Param() *HTMLParam {
 	e := &HTMLParam{}
 	e.a = make(map[string]interface{})

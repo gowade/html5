@@ -5,7 +5,7 @@ type HTMLDetails struct {
 	HTMLElement
 }
 
-// Details creates a HTML <details> tag
+// Details creates an HTML <details> tag element
 func Details() *HTMLDetails {
 	e := &HTMLDetails{}
 	e.a = make(map[string]interface{})

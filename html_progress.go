@@ -5,7 +5,7 @@ type HTMLProgress struct {
 	HTMLElement
 }
 
-// Progress creates a HTML <progress> tag
+// Progress creates an HTML <progress> tag element
 func Progress() *HTMLProgress {
 	e := &HTMLProgress{}
 	e.a = make(map[string]interface{})

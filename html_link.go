@@ -5,7 +5,7 @@ type HTMLLink struct {
 	HTMLElement
 }
 
-// Link creates a HTML <link> tag
+// Link creates an HTML <link> tag element
 func Link() *HTMLLink {
 	e := &HTMLLink{}
 	e.a = make(map[string]interface{})

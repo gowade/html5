@@ -5,7 +5,7 @@ type HTMLStyle struct {
 	HTMLElement
 }
 
-// Style creates a HTML <style> tag
+// Style creates an HTML <style> tag element
 func Style() *HTMLStyle {
 	e := &HTMLStyle{}
 	e.a = make(map[string]interface{})

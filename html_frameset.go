@@ -5,7 +5,7 @@ type HTMLFrameSet struct {
 	HTMLElement
 }
 
-// FrameSet creates a HTML <frameset> tag
+// FrameSet creates an HTML <frameset> tag element
 func FrameSet() *HTMLFrameSet {
 	e := &HTMLFrameSet{}
 	e.a = make(map[string]interface{})

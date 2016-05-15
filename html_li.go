@@ -5,7 +5,7 @@ type HTMLLI struct {
 	HTMLElement
 }
 
-// LI creates a HTML <li> tag
+// LI creates an HTML <li> tag element
 func LI() *HTMLLI {
 	e := &HTMLLI{}
 	e.a = make(map[string]interface{})

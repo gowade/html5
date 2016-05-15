@@ -5,7 +5,7 @@ type HTMLBase struct {
 	HTMLElement
 }
 
-// Base creates a HTML <base> tag
+// Base creates an HTML <base> tag element
 func Base() *HTMLBase {
 	e := &HTMLBase{}
 	e.a = make(map[string]interface{})

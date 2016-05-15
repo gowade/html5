@@ -5,7 +5,7 @@ type HTMLApplet struct {
 	HTMLElement
 }
 
-// Applet creates a HTML <applet> tag
+// Applet creates an HTML <applet> tag element
 func Applet() *HTMLApplet {
 	e := &HTMLApplet{}
 	e.a = make(map[string]interface{})

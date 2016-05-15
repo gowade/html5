@@ -5,7 +5,7 @@ type HTMLCanvas struct {
 	HTMLElement
 }
 
-// Canvas creates a HTML <canvas> tag
+// Canvas creates an HTML <canvas> tag element
 func Canvas() *HTMLCanvas {
 	e := &HTMLCanvas{}
 	e.a = make(map[string]interface{})

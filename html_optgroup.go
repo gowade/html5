@@ -5,7 +5,7 @@ type HTMLOptGroup struct {
 	HTMLElement
 }
 
-// OptGroup creates a HTML <optgroup> tag
+// OptGroup creates an HTML <optgroup> tag element
 func OptGroup() *HTMLOptGroup {
 	e := &HTMLOptGroup{}
 	e.a = make(map[string]interface{})

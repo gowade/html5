@@ -5,7 +5,7 @@ type HTMLOL struct {
 	HTMLElement
 }
 
-// OL creates a HTML <ol> tag
+// OL creates an HTML <ol> tag element
 func OL() *HTMLOL {
 	e := &HTMLOL{}
 	e.a = make(map[string]interface{})

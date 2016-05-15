@@ -8,7 +8,7 @@ type <%= privType %> struct {
 <% } -%>
 }
 
-// <%= tagType %> creates a HTML <<%= htmlTag %>> tag
+// <%= tagType %> creates an HTML <<%= htmlTag %>> tag element
 func <%= tagType %>() *<%= privType %> {
 	e := &<%= privType %>{}
 	e.a = make(map[string]interface{})

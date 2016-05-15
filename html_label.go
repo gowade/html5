@@ -5,7 +5,7 @@ type HTMLLabel struct {
 	HTMLElement
 }
 
-// Label creates a HTML <label> tag
+// Label creates an HTML <label> tag element
 func Label() *HTMLLabel {
 	e := &HTMLLabel{}
 	e.a = make(map[string]interface{})

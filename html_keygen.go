@@ -5,7 +5,7 @@ type HTMLKeygen struct {
 	HTMLElement
 }
 
-// Keygen creates a HTML <keygen> tag
+// Keygen creates an HTML <keygen> tag element
 func Keygen() *HTMLKeygen {
 	e := &HTMLKeygen{}
 	e.a = make(map[string]interface{})

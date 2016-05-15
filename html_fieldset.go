@@ -5,7 +5,7 @@ type HTMLFieldSet struct {
 	HTMLElement
 }
 
-// FieldSet creates a HTML <fieldset> tag
+// FieldSet creates an HTML <fieldset> tag element
 func FieldSet() *HTMLFieldSet {
 	e := &HTMLFieldSet{}
 	e.a = make(map[string]interface{})

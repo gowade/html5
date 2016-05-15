@@ -5,7 +5,7 @@ type HTMLSource struct {
 	HTMLElement
 }
 
-// Source creates a HTML <source> tag
+// Source creates an HTML <source> tag element
 func Source() *HTMLSource {
 	e := &HTMLSource{}
 	e.a = make(map[string]interface{})

@@ -5,7 +5,7 @@ type HTMLScript struct {
 	HTMLElement
 }
 
-// Script creates a HTML <script> tag
+// Script creates an HTML <script> tag element
 func Script() *HTMLScript {
 	e := &HTMLScript{}
 	e.a = make(map[string]interface{})

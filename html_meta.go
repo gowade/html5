@@ -5,7 +5,7 @@ type HTMLMeta struct {
 	HTMLElement
 }
 
-// Meta creates a HTML <meta> tag
+// Meta creates an HTML <meta> tag element
 func Meta() *HTMLMeta {
 	e := &HTMLMeta{}
 	e.a = make(map[string]interface{})

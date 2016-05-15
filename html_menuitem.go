@@ -5,7 +5,7 @@ type HTMLMenuItem struct {
 	HTMLElement
 }
 
-// MenuItem creates a HTML <menuitem> tag
+// MenuItem creates an HTML <menuitem> tag element
 func MenuItem() *HTMLMenuItem {
 	e := &HTMLMenuItem{}
 	e.a = make(map[string]interface{})

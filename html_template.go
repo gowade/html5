@@ -5,7 +5,7 @@ type HTMLTemplate struct {
 	HTMLElement
 }
 
-// Template creates a HTML <template> tag
+// Template creates an HTML <template> tag element
 func Template() *HTMLTemplate {
 	e := &HTMLTemplate{}
 	e.a = make(map[string]interface{})

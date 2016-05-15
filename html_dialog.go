@@ -5,7 +5,7 @@ type HTMLDialog struct {
 	HTMLElement
 }
 
-// Dialog creates a HTML <dialog> tag
+// Dialog creates an HTML <dialog> tag element
 func Dialog() *HTMLDialog {
 	e := &HTMLDialog{}
 	e.a = make(map[string]interface{})

@@ -5,7 +5,7 @@ type HTMLOption struct {
 	HTMLElement
 }
 
-// Option creates a HTML <option> tag
+// Option creates an HTML <option> tag element
 func Option() *HTMLOption {
 	e := &HTMLOption{}
 	e.a = make(map[string]interface{})

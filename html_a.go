@@ -5,7 +5,7 @@ type HTMLA struct {
 	HTMLElement
 }
 
-// A creates a HTML <a> tag
+// A creates an HTML <a> tag element
 func A() *HTMLA {
 	e := &HTMLA{}
 	e.a = make(map[string]interface{})

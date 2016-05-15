@@ -5,7 +5,7 @@ type HTMLFrame struct {
 	HTMLElement
 }
 
-// Frame creates a HTML <frame> tag
+// Frame creates an HTML <frame> tag element
 func Frame() *HTMLFrame {
 	e := &HTMLFrame{}
 	e.a = make(map[string]interface{})

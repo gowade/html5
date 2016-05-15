@@ -5,7 +5,7 @@ type HTMLAudio struct {
 	HTMLMedia
 }
 
-// Audio creates a HTML <audio> tag
+// Audio creates an HTML <audio> tag element
 func Audio() *HTMLAudio {
 	e := &HTMLAudio{}
 	e.a = make(map[string]interface{})

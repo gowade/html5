@@ -5,7 +5,7 @@ type HTMLDataList struct {
 	HTMLElement
 }
 
-// DataList creates a HTML <datalist> tag
+// DataList creates an HTML <datalist> tag element
 func DataList() *HTMLDataList {
 	e := &HTMLDataList{}
 	e.a = make(map[string]interface{})

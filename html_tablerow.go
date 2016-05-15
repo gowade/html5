@@ -5,7 +5,7 @@ type HTMLTableRow struct {
 	HTMLElement
 }
 
-// TableRow creates a HTML <tablerow> tag
+// TableRow creates an HTML <tablerow> tag element
 func TableRow() *HTMLTableRow {
 	e := &HTMLTableRow{}
 	e.a = make(map[string]interface{})

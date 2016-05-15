@@ -5,7 +5,7 @@ type HTMLMap struct {
 	HTMLElement
 }
 
-// Map creates a HTML <map> tag
+// Map creates an HTML <map> tag element
 func Map() *HTMLMap {
 	e := &HTMLMap{}
 	e.a = make(map[string]interface{})

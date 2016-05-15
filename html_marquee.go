@@ -5,7 +5,7 @@ type HTMLMarquee struct {
 	HTMLElement
 }
 
-// Marquee creates a HTML <marquee> tag
+// Marquee creates an HTML <marquee> tag element
 func Marquee() *HTMLMarquee {
 	e := &HTMLMarquee{}
 	e.a = make(map[string]interface{})

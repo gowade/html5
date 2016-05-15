@@ -5,7 +5,7 @@ type HTMLIFrame struct {
 	HTMLElement
 }
 
-// IFrame creates a HTML <iframe> tag
+// IFrame creates an HTML <iframe> tag element
 func IFrame() *HTMLIFrame {
 	e := &HTMLIFrame{}
 	e.a = make(map[string]interface{})

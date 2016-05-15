@@ -5,7 +5,7 @@ type HTMLTrack struct {
 	HTMLElement
 }
 
-// Track creates a HTML <track> tag
+// Track creates an HTML <track> tag element
 func Track() *HTMLTrack {
 	e := &HTMLTrack{}
 	e.a = make(map[string]interface{})

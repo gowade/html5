@@ -5,7 +5,7 @@ type HTMLSelect struct {
 	HTMLElement
 }
 
-// Select creates a HTML <select> tag
+// Select creates an HTML <select> tag element
 func Select() *HTMLSelect {
 	e := &HTMLSelect{}
 	e.a = make(map[string]interface{})

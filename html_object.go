@@ -5,7 +5,7 @@ type HTMLObject struct {
 	HTMLElement
 }
 
-// Object creates a HTML <object> tag
+// Object creates an HTML <object> tag element
 func Object() *HTMLObject {
 	e := &HTMLObject{}
 	e.a = make(map[string]interface{})

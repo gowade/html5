@@ -5,7 +5,7 @@ type HTMLTableCol struct {
 	HTMLElement
 }
 
-// TableCol creates a HTML <tablecol> tag
+// TableCol creates an HTML <tablecol> tag element
 func TableCol() *HTMLTableCol {
 	e := &HTMLTableCol{}
 	e.a = make(map[string]interface{})

@@ -5,7 +5,7 @@ type HTMLEmbed struct {
 	HTMLElement
 }
 
-// Embed creates a HTML <embed> tag
+// Embed creates an HTML <embed> tag element
 func Embed() *HTMLEmbed {
 	e := &HTMLEmbed{}
 	e.a = make(map[string]interface{})
