@@ -101,6 +101,14 @@ func (l *L) Add(nodes ...Node) {
 	*l = append(*l, nodes...)
 }
 
+// LI is a convenience method that creates a new <li> tag, add it to the list and return it
+// so that we can write l.LI().C( instead of l.Add(h.LI().C(
+func (l *L) LI() *HTMLLI {
+	item := LI()
+	l.Add(item)
+	return item
+}
+
 type DOMElement interface{}
 
 type HTMLElement struct {
