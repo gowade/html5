@@ -6,6 +6,8 @@ var ejs = require('ejs');
 var template = fs.readFileSync("gen/template.go.in", {encoding: "utf8"})
 var emptyTagsTemp = fs.readFileSync("gen/emptytags.go.in", {encoding: "utf8"})
 
+var generatedTags = {};
+
 var tagMap = {
     "UList": "UL",
     "OList": "OL",
@@ -45,7 +47,7 @@ function mapTag(name) {
 function parse(file) {
     var tree = WebIDL2.parse(fs.readFileSync(file, {encoding: "utf8"}));
     var ifaces = {};
-    var emptyTags = [];
+    var emptyTags = {};
 
     _.each(tree, function(item) {
         if (item.type == "implements") {
@@ -119,7 +121,7 @@ function parse(file) {
         if (iface.parentIface &&
                 iface.parentIface.tagType == "Element" && iface.members.length == 0) {
 
-            emptyTags.push(iface);
+            emptyTags[iface.htmlTag] = iface;
             return;
         }
 
@@ -143,16 +145,47 @@ function parse(file) {
                 return console.log(err);
             }
         });
+
+        generatedTags[iface.htmlTag] = true;
     })
 
     return emptyTags;
 }
 
-var emptyTags = parse("gen/idl/html5.idl");
+var emptyTags = parse("gen/spec/html5.idl");
+var tagTypeMap = {
+    "hgroup": "HGroup",
+    "figcaption": "FigCaption",
+    "colgroup": "ColGroup",
+    "blockquote": "BlockQuote",
+    "thead": "THead",
+    "tbody": "TBody",
+    "tfoot": "TFoot",
+    "noscript": "NoScript",
+};
 
 (function() {
+    var catalogJSON = fs.readFileSync("gen/spec/catalog.json", {encoding: "utf8"});
+    var catalogTags = JSON.parse(catalogJSON);
+
+    function toTagType(tag) {
+        if (tagTypeMap[tag]) {
+            return tagTypeMap[tag];
+        }
+        return tag.length <= 2 ? tag.toUpperCase() : _.capitalize(tag);
+    }
+
+    _.each(catalogTags, function(tag) {
+        if (!generatedTags[tag] && !emptyTags[tag]) {
+            emptyTags[tag] = {
+                tagType: toTagType(tag),
+                htmlTag: tag,
+            }
+        }
+    });
+
     var output = ejs.render(emptyTagsTemp, {
-        tags: emptyTags,
+        tags: _.values(emptyTags),
         _: _,
     });
 

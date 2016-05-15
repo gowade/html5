@@ -5,3 +5,6 @@ generate: gen/node_modules
 
 gen/node_modules:
 	cd gen; npm install
+
+catalog: gen/spec/catalog_src.html
+	node gen/spec/gen_catalog.js
