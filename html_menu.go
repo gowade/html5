@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLMenu represents HTML <menu> tag
 type HTMLMenu struct {
@@ -15,14 +15,21 @@ func Menu() *HTMLMenu {
 
 // S sets the element's CSS properties
 func (e *HTMLMenu) S(style StyleMap) *HTMLMenu {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLMenu) Key(key interface{}) *HTMLMenu {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLMenu) Ref(dest *DOMElement) *HTMLMenu {
+	e.ref = dest
 	return e
 }
 

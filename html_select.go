@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLSelect represents HTML <select> tag
 type HTMLSelect struct {
@@ -15,14 +15,21 @@ func Select() *HTMLSelect {
 
 // S sets the element's CSS properties
 func (e *HTMLSelect) S(style StyleMap) *HTMLSelect {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLSelect) Key(key interface{}) *HTMLSelect {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLSelect) Ref(dest *DOMElement) *HTMLSelect {
+	e.ref = dest
 	return e
 }
 

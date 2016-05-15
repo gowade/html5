@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLInput represents HTML <input> tag
 type HTMLInput struct {
@@ -15,14 +15,21 @@ func Input() *HTMLInput {
 
 // S sets the element's CSS properties
 func (e *HTMLInput) S(style StyleMap) *HTMLInput {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLInput) Key(key interface{}) *HTMLInput {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLInput) Ref(dest *DOMElement) *HTMLInput {
+	e.ref = dest
 	return e
 }
 

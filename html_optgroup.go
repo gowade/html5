@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLOptGroup represents HTML <optgroup> tag
 type HTMLOptGroup struct {
@@ -15,14 +15,21 @@ func OptGroup() *HTMLOptGroup {
 
 // S sets the element's CSS properties
 func (e *HTMLOptGroup) S(style StyleMap) *HTMLOptGroup {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLOptGroup) Key(key interface{}) *HTMLOptGroup {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLOptGroup) Ref(dest *DOMElement) *HTMLOptGroup {
+	e.ref = dest
 	return e
 }
 

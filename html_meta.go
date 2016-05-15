@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLMeta represents HTML <meta> tag
 type HTMLMeta struct {
@@ -15,14 +15,21 @@ func Meta() *HTMLMeta {
 
 // S sets the element's CSS properties
 func (e *HTMLMeta) S(style StyleMap) *HTMLMeta {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLMeta) Key(key interface{}) *HTMLMeta {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLMeta) Ref(dest *DOMElement) *HTMLMeta {
+	e.ref = dest
 	return e
 }
 

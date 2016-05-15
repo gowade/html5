@@ -1,4 +1,4 @@
-package h
+package html5
 
 <% if (tagType != "Element") { %>
 // <%= privType %> represents HTML <<%= htmlTag %>> tag
@@ -18,8 +18,8 @@ func <%= tagType %>() *<%= privType %> {
 
 // S sets the element's CSS properties
 func (e *<%= privType %>) S(style StyleMap) *<%= privType %> {
-	e.htmlElement.S(style)
-	return 
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
@@ -28,14 +28,21 @@ func (e *<%= privType %>) Key(key interface{}) *<%= privType %> {
 	e.key = F(key)
 	return e
 }
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *<%= privType %>) Ref(dest *DOMElement) *<%= privType %> {
+	e.ref = dest
+	return e
+}
 <% } %>
 
-<% _.forEach(members, function(member) {
+<% _.forEach(allMembers, function(member) {
 	if (member.readonly || member.idlType.generic) {
 		return;
 	}
 
-	var mGoType = goTypeMap[member.idlType.idlType];
+	var mGoType = toGoType(member.idlType.idlType);
 	if (!mGoType) {
 		return;
 	}
@@ -55,33 +62,3 @@ func (e *<%= privType %>) <%= mMethodName %>(v <%= mGoType %>) *<%= privType %> 
 	return e
 }
 <% }) %>
-
-<% if (parentIface) { %>
-<% parentRecursive(parentIface, function(p, pp) { -%>
-<% _.forEach(p.members, function(member) {
-	if (member.readonly || member.idlType.generic) {
-		return;
-	}
-
-	var mGoType = goTypeMap[member.idlType.idlType];
-	if (!mGoType) {
-		return;
-	}
-
-	var mMethodName = toGoMethodName(member.name);
-	var mAttr = member.name.toLowerCase();
-%>
-// <%= mMethodName %> sets the element's "<%= mAttr %>" attribute
-func (e *<%= privType %>) <%= mMethodName %>(v <%= mGoType %>) *<%= privType %> {
-	<% switch (mGoType) {
-	case "bool": -%>
-		if v { e.a["<%= mAttr %>"] = "" } else { delete(e.a, "<%= mAttr %>") }
-	<% break;
-	default: -%>
-		e.a["<%= mAttr %>"] = v
-	<% } -%>
-	return e
-}
-<% }) %>
-<% }) -%>
-<% } %>

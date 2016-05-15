@@ -1,11 +1,8 @@
-package h
+package html5
 
 <% _.forEach(tags, function(t) { %>
-// <%= t.privType %> represents HTML <<%= t.htmlTag %>> tag
-type <%= t.privType %> struct { HTMLElement }
-
 // <%= t.tagType %> creates an HTML <<%= t.htmlTag %>> tag element
-func <%= t.tagType %>() *<%= t.privType %> {
+func <%= t.tagType %>() *HTMLElement {
 	return Element("<%= t.htmlTag %>")
 }
 <% }) %>

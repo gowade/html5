@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLMedia represents HTML <media> tag
 type HTMLMedia struct {
@@ -15,14 +15,21 @@ func Media() *HTMLMedia {
 
 // S sets the element's CSS properties
 func (e *HTMLMedia) S(style StyleMap) *HTMLMedia {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLMedia) Key(key interface{}) *HTMLMedia {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLMedia) Ref(dest *DOMElement) *HTMLMedia {
+	e.ref = dest
 	return e
 }
 

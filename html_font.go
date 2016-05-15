@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLFont represents HTML <font> tag
 type HTMLFont struct {
@@ -15,14 +15,21 @@ func Font() *HTMLFont {
 
 // S sets the element's CSS properties
 func (e *HTMLFont) S(style StyleMap) *HTMLFont {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLFont) Key(key interface{}) *HTMLFont {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLFont) Ref(dest *DOMElement) *HTMLFont {
+	e.ref = dest
 	return e
 }
 

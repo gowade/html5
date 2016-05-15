@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLData represents HTML <data> tag
 type HTMLData struct {
@@ -15,14 +15,21 @@ func Data() *HTMLData {
 
 // S sets the element's CSS properties
 func (e *HTMLData) S(style StyleMap) *HTMLData {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLData) Key(key interface{}) *HTMLData {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLData) Ref(dest *DOMElement) *HTMLData {
+	e.ref = dest
 	return e
 }
 

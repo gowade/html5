@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLTableSection represents HTML <tablesection> tag
 type HTMLTableSection struct {
@@ -15,14 +15,21 @@ func TableSection() *HTMLTableSection {
 
 // S sets the element's CSS properties
 func (e *HTMLTableSection) S(style StyleMap) *HTMLTableSection {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLTableSection) Key(key interface{}) *HTMLTableSection {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLTableSection) Ref(dest *DOMElement) *HTMLTableSection {
+	e.ref = dest
 	return e
 }
 

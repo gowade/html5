@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLDialog represents HTML <dialog> tag
 type HTMLDialog struct {
@@ -15,14 +15,21 @@ func Dialog() *HTMLDialog {
 
 // S sets the element's CSS properties
 func (e *HTMLDialog) S(style StyleMap) *HTMLDialog {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLDialog) Key(key interface{}) *HTMLDialog {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLDialog) Ref(dest *DOMElement) *HTMLDialog {
+	e.ref = dest
 	return e
 }
 

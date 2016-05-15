@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLMeter represents HTML <meter> tag
 type HTMLMeter struct {
@@ -15,14 +15,21 @@ func Meter() *HTMLMeter {
 
 // S sets the element's CSS properties
 func (e *HTMLMeter) S(style StyleMap) *HTMLMeter {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLMeter) Key(key interface{}) *HTMLMeter {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLMeter) Ref(dest *DOMElement) *HTMLMeter {
+	e.ref = dest
 	return e
 }
 

@@ -1,37 +1,74 @@
-package h
+package html5
 
 import (
 	"fmt"
-
-	"github.com/gowade/vdom"
 )
+
+type Event interface{}
+
+type Action interface{}
+
+// HoldEvent implements the EventHolder interface,
+// embed this into your action struct if you want to get the javascript event object
+type HoldEvent struct {
+	evt Event
+}
+
+func (e *HoldEvent) Event() Event {
+	return e.evt
+}
+
+func (e *HoldEvent) SetEvent(evt Event) {
+	e.evt = evt
+}
+
+type EventHolder interface {
+	Event() Event
+	SetEvent(evt Event)
+}
 
 type StyleMap map[string]interface{}
 
+type HTMLNodeData interface{}
+
+type HTMLElementData struct {
+	TagName    string
+	Namespace  string
+	Key        string
+	Ref        *DOMElement
+	Attributes map[string]interface{}
+	Children   []Node
+}
+
 type Node interface {
-	ToVNode() vdom.VNode
+	GetTextNodeData() (text string, ok bool)
+	GetElementNodeData() HTMLElementData
 }
 
-type TextNode string
+type HTMLTextNode string
 
-func (t TextNode) ToVNode() vdom.VNode {
-	return vdom.VText(t)
+func (t HTMLTextNode) GetTextNodeData() (string, bool) {
+	return string(t), true
 }
 
-func (e *HTMLElement) ToVNode() vdom.VNode {
-	ve := vdom.VElement{
-		TagName:   e.tagName,
-		Namespace: e.namespace,
-		Key:       e.key,
-		Props:     e.a,
-		Children:  make([]vdom.VNode, len(e.c)),
-	}
+func (t HTMLTextNode) GetElementNodeData() (r HTMLElementData) {
+	panic("ElementNodeData() cannot be called on text node")
+	return
+}
 
-	for i := range e.c {
-		ve.Children[i] = e.c[i].ToVNode()
-	}
+func (t HTMLElement) GetTextNodeData() (string, bool) {
+	return "", false
+}
 
-	return ve
+func (e *HTMLElement) GetElementNodeData() HTMLElementData {
+	return HTMLElementData{
+		TagName:    e.tagName,
+		Namespace:  e.namespace,
+		Key:        e.key,
+		Attributes: e.a,
+		Ref:        e.ref,
+		Children:   e.c,
+	}
 }
 
 // F is a helper method to make string,
@@ -52,17 +89,19 @@ func F(formatOrValue interface{}, args ...interface{}) string {
 }
 
 // T is a helper method to make text node,
-// it works like F() but returns TextNode instead of just string
-func T(formatOrValue interface{}, args ...interface{}) TextNode {
-	return TextNode(F(formatOrValue, args...))
+// it works like F() but returns text node instead of just string
+func T(formatOrValue interface{}, args ...interface{}) HTMLTextNode {
+	return HTMLTextNode(F(formatOrValue, args...))
 }
 
 type L []Node
 
 // Add adds new nodes into the list
 func (l *L) Add(nodes ...Node) {
-	*l = append(*l, node...)
+	*l = append(*l, nodes...)
 }
+
+type DOMElement interface{}
 
 type HTMLElement struct {
 	a         map[string]interface{}
@@ -71,6 +110,7 @@ type HTMLElement struct {
 	tagName   string
 	namespace string
 	key       string
+	ref       *DOMElement
 }
 
 // C is a helper method to declare the element's children

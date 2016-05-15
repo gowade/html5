@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLStyle represents HTML <style> tag
 type HTMLStyle struct {
@@ -15,14 +15,21 @@ func Style() *HTMLStyle {
 
 // S sets the element's CSS properties
 func (e *HTMLStyle) S(style StyleMap) *HTMLStyle {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLStyle) Key(key interface{}) *HTMLStyle {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLStyle) Ref(dest *DOMElement) *HTMLStyle {
+	e.ref = dest
 	return e
 }
 

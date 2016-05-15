@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLOutput represents HTML <output> tag
 type HTMLOutput struct {
@@ -15,14 +15,21 @@ func Output() *HTMLOutput {
 
 // S sets the element's CSS properties
 func (e *HTMLOutput) S(style StyleMap) *HTMLOutput {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLOutput) Key(key interface{}) *HTMLOutput {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLOutput) Ref(dest *DOMElement) *HTMLOutput {
+	e.ref = dest
 	return e
 }
 

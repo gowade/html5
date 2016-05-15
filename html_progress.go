@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLProgress represents HTML <progress> tag
 type HTMLProgress struct {
@@ -15,14 +15,21 @@ func Progress() *HTMLProgress {
 
 // S sets the element's CSS properties
 func (e *HTMLProgress) S(style StyleMap) *HTMLProgress {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLProgress) Key(key interface{}) *HTMLProgress {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLProgress) Ref(dest *DOMElement) *HTMLProgress {
+	e.ref = dest
 	return e
 }
 

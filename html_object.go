@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLObject represents HTML <object> tag
 type HTMLObject struct {
@@ -15,14 +15,21 @@ func Object() *HTMLObject {
 
 // S sets the element's CSS properties
 func (e *HTMLObject) S(style StyleMap) *HTMLObject {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLObject) Key(key interface{}) *HTMLObject {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLObject) Ref(dest *DOMElement) *HTMLObject {
+	e.ref = dest
 	return e
 }
 

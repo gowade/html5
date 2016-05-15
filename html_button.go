@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLButton represents HTML <button> tag
 type HTMLButton struct {
@@ -15,14 +15,21 @@ func Button() *HTMLButton {
 
 // S sets the element's CSS properties
 func (e *HTMLButton) S(style StyleMap) *HTMLButton {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLButton) Key(key interface{}) *HTMLButton {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLButton) Ref(dest *DOMElement) *HTMLButton {
+	e.ref = dest
 	return e
 }
 

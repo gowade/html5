@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLTemplate represents HTML <template> tag
 type HTMLTemplate struct {
@@ -15,14 +15,21 @@ func Template() *HTMLTemplate {
 
 // S sets the element's CSS properties
 func (e *HTMLTemplate) S(style StyleMap) *HTMLTemplate {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLTemplate) Key(key interface{}) *HTMLTemplate {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLTemplate) Ref(dest *DOMElement) *HTMLTemplate {
+	e.ref = dest
 	return e
 }
 

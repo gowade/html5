@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLScript represents HTML <script> tag
 type HTMLScript struct {
@@ -15,14 +15,21 @@ func Script() *HTMLScript {
 
 // S sets the element's CSS properties
 func (e *HTMLScript) S(style StyleMap) *HTMLScript {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLScript) Key(key interface{}) *HTMLScript {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLScript) Ref(dest *DOMElement) *HTMLScript {
+	e.ref = dest
 	return e
 }
 

@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLDataList represents HTML <datalist> tag
 type HTMLDataList struct {
@@ -15,14 +15,21 @@ func DataList() *HTMLDataList {
 
 // S sets the element's CSS properties
 func (e *HTMLDataList) S(style StyleMap) *HTMLDataList {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLDataList) Key(key interface{}) *HTMLDataList {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLDataList) Ref(dest *DOMElement) *HTMLDataList {
+	e.ref = dest
 	return e
 }
 

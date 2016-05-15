@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLMod represents HTML <mod> tag
 type HTMLMod struct {
@@ -15,14 +15,21 @@ func Mod() *HTMLMod {
 
 // S sets the element's CSS properties
 func (e *HTMLMod) S(style StyleMap) *HTMLMod {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLMod) Key(key interface{}) *HTMLMod {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLMod) Ref(dest *DOMElement) *HTMLMod {
+	e.ref = dest
 	return e
 }
 

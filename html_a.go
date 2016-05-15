@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLA represents HTML <a> tag
 type HTMLA struct {
@@ -15,14 +15,21 @@ func A() *HTMLA {
 
 // S sets the element's CSS properties
 func (e *HTMLA) S(style StyleMap) *HTMLA {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLA) Key(key interface{}) *HTMLA {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLA) Ref(dest *DOMElement) *HTMLA {
+	e.ref = dest
 	return e
 }
 
@@ -147,5 +154,65 @@ func (e *HTMLA) Spellcheck(v bool) *HTMLA {
 	} else {
 		delete(e.a, "spellcheck")
 	}
+	return e
+}
+
+// Href sets the element's "href" attribute
+func (e *HTMLA) Href(v string) *HTMLA {
+	e.a["href"] = v
+	return e
+}
+
+// Protocol sets the element's "protocol" attribute
+func (e *HTMLA) Protocol(v string) *HTMLA {
+	e.a["protocol"] = v
+	return e
+}
+
+// Username sets the element's "username" attribute
+func (e *HTMLA) Username(v string) *HTMLA {
+	e.a["username"] = v
+	return e
+}
+
+// Password sets the element's "password" attribute
+func (e *HTMLA) Password(v string) *HTMLA {
+	e.a["password"] = v
+	return e
+}
+
+// Host sets the element's "host" attribute
+func (e *HTMLA) Host(v string) *HTMLA {
+	e.a["host"] = v
+	return e
+}
+
+// Hostname sets the element's "hostname" attribute
+func (e *HTMLA) Hostname(v string) *HTMLA {
+	e.a["hostname"] = v
+	return e
+}
+
+// Port sets the element's "port" attribute
+func (e *HTMLA) Port(v string) *HTMLA {
+	e.a["port"] = v
+	return e
+}
+
+// Pathname sets the element's "pathname" attribute
+func (e *HTMLA) Pathname(v string) *HTMLA {
+	e.a["pathname"] = v
+	return e
+}
+
+// Search sets the element's "search" attribute
+func (e *HTMLA) Search(v string) *HTMLA {
+	e.a["search"] = v
+	return e
+}
+
+// Hash sets the element's "hash" attribute
+func (e *HTMLA) Hash(v string) *HTMLA {
+	e.a["hash"] = v
 	return e
 }

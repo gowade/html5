@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLForm represents HTML <form> tag
 type HTMLForm struct {
@@ -15,14 +15,21 @@ func Form() *HTMLForm {
 
 // S sets the element's CSS properties
 func (e *HTMLForm) S(style StyleMap) *HTMLForm {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLForm) Key(key interface{}) *HTMLForm {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLForm) Ref(dest *DOMElement) *HTMLForm {
+	e.ref = dest
 	return e
 }
 

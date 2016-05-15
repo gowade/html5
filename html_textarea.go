@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLTextArea represents HTML <textarea> tag
 type HTMLTextArea struct {
@@ -15,14 +15,21 @@ func TextArea() *HTMLTextArea {
 
 // S sets the element's CSS properties
 func (e *HTMLTextArea) S(style StyleMap) *HTMLTextArea {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLTextArea) Key(key interface{}) *HTMLTextArea {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLTextArea) Ref(dest *DOMElement) *HTMLTextArea {
+	e.ref = dest
 	return e
 }
 

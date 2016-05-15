@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLMarquee represents HTML <marquee> tag
 type HTMLMarquee struct {
@@ -15,14 +15,21 @@ func Marquee() *HTMLMarquee {
 
 // S sets the element's CSS properties
 func (e *HTMLMarquee) S(style StyleMap) *HTMLMarquee {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLMarquee) Key(key interface{}) *HTMLMarquee {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLMarquee) Ref(dest *DOMElement) *HTMLMarquee {
+	e.ref = dest
 	return e
 }
 
@@ -93,6 +100,24 @@ func (e *HTMLMarquee) Vspace(v int) *HTMLMarquee {
 // Width sets the element's "width" attribute
 func (e *HTMLMarquee) Width(v string) *HTMLMarquee {
 	e.a["width"] = v
+	return e
+}
+
+// Onbounce sets the element's "onbounce" attribute
+func (e *HTMLMarquee) Onbounce(v Action) *HTMLMarquee {
+	e.a["onbounce"] = v
+	return e
+}
+
+// Onfinish sets the element's "onfinish" attribute
+func (e *HTMLMarquee) Onfinish(v Action) *HTMLMarquee {
+	e.a["onfinish"] = v
+	return e
+}
+
+// Onstart sets the element's "onstart" attribute
+func (e *HTMLMarquee) Onstart(v Action) *HTMLMarquee {
+	e.a["onstart"] = v
 	return e
 }
 

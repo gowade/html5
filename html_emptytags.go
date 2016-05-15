@@ -1,113 +1,71 @@
-package h
-
-// HTMLHtml represents HTML <html> tag
-type HTMLHtml struct{ HTMLElement }
+package html5
 
 // Html creates an HTML <html> tag element
-func Html() *HTMLHtml {
+func Html() *HTMLElement {
 	return Element("html")
 }
 
-// HTMLHead represents HTML <head> tag
-type HTMLHead struct{ HTMLElement }
-
 // Head creates an HTML <head> tag element
-func Head() *HTMLHead {
+func Head() *HTMLElement {
 	return Element("head")
 }
 
-// HTMLBody represents HTML <body> tag
-type HTMLBody struct{ HTMLElement }
-
 // Body creates an HTML <body> tag element
-func Body() *HTMLBody {
+func Body() *HTMLElement {
 	return Element("body")
 }
 
-// HTMLHeading represents HTML <heading> tag
-type HTMLHeading struct{ HTMLElement }
-
 // Heading creates an HTML <heading> tag element
-func Heading() *HTMLHeading {
+func Heading() *HTMLElement {
 	return Element("heading")
 }
 
-// HTMLParagraph represents HTML <paragraph> tag
-type HTMLParagraph struct{ HTMLElement }
-
 // Paragraph creates an HTML <paragraph> tag element
-func Paragraph() *HTMLParagraph {
+func Paragraph() *HTMLElement {
 	return Element("paragraph")
 }
 
-// HTMLHR represents HTML <hr> tag
-type HTMLHR struct{ HTMLElement }
-
 // HR creates an HTML <hr> tag element
-func HR() *HTMLHR {
+func HR() *HTMLElement {
 	return Element("hr")
 }
 
-// HTMLPre represents HTML <pre> tag
-type HTMLPre struct{ HTMLElement }
-
 // Pre creates an HTML <pre> tag element
-func Pre() *HTMLPre {
+func Pre() *HTMLElement {
 	return Element("pre")
 }
 
-// HTMLUL represents HTML <ul> tag
-type HTMLUL struct{ HTMLElement }
-
 // UL creates an HTML <ul> tag element
-func UL() *HTMLUL {
+func UL() *HTMLElement {
 	return Element("ul")
 }
 
-// HTMLDList represents HTML <dlist> tag
-type HTMLDList struct{ HTMLElement }
-
 // DList creates an HTML <dlist> tag element
-func DList() *HTMLDList {
+func DList() *HTMLElement {
 	return Element("dlist")
 }
 
-// HTMLDiv represents HTML <div> tag
-type HTMLDiv struct{ HTMLElement }
-
 // Div creates an HTML <div> tag element
-func Div() *HTMLDiv {
+func Div() *HTMLElement {
 	return Element("div")
 }
 
-// HTMLSpan represents HTML <span> tag
-type HTMLSpan struct{ HTMLElement }
-
 // Span creates an HTML <span> tag element
-func Span() *HTMLSpan {
+func Span() *HTMLElement {
 	return Element("span")
 }
 
-// HTMLBR represents HTML <br> tag
-type HTMLBR struct{ HTMLElement }
-
 // BR creates an HTML <br> tag element
-func BR() *HTMLBR {
+func BR() *HTMLElement {
 	return Element("br")
 }
 
-// HTMLPicture represents HTML <picture> tag
-type HTMLPicture struct{ HTMLElement }
-
 // Picture creates an HTML <picture> tag element
-func Picture() *HTMLPicture {
+func Picture() *HTMLElement {
 	return Element("picture")
 }
 
-// HTMLTableCaption represents HTML <tablecaption> tag
-type HTMLTableCaption struct{ HTMLElement }
-
 // TableCaption creates an HTML <tablecaption> tag element
-func TableCaption() *HTMLTableCaption {
+func TableCaption() *HTMLElement {
 	return Element("tablecaption")
 }

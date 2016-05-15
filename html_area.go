@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLArea represents HTML <area> tag
 type HTMLArea struct {
@@ -15,14 +15,21 @@ func Area() *HTMLArea {
 
 // S sets the element's CSS properties
 func (e *HTMLArea) S(style StyleMap) *HTMLArea {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLArea) Key(key interface{}) *HTMLArea {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLArea) Ref(dest *DOMElement) *HTMLArea {
+	e.ref = dest
 	return e
 }
 
@@ -147,5 +154,65 @@ func (e *HTMLArea) Spellcheck(v bool) *HTMLArea {
 	} else {
 		delete(e.a, "spellcheck")
 	}
+	return e
+}
+
+// Href sets the element's "href" attribute
+func (e *HTMLArea) Href(v string) *HTMLArea {
+	e.a["href"] = v
+	return e
+}
+
+// Protocol sets the element's "protocol" attribute
+func (e *HTMLArea) Protocol(v string) *HTMLArea {
+	e.a["protocol"] = v
+	return e
+}
+
+// Username sets the element's "username" attribute
+func (e *HTMLArea) Username(v string) *HTMLArea {
+	e.a["username"] = v
+	return e
+}
+
+// Password sets the element's "password" attribute
+func (e *HTMLArea) Password(v string) *HTMLArea {
+	e.a["password"] = v
+	return e
+}
+
+// Host sets the element's "host" attribute
+func (e *HTMLArea) Host(v string) *HTMLArea {
+	e.a["host"] = v
+	return e
+}
+
+// Hostname sets the element's "hostname" attribute
+func (e *HTMLArea) Hostname(v string) *HTMLArea {
+	e.a["hostname"] = v
+	return e
+}
+
+// Port sets the element's "port" attribute
+func (e *HTMLArea) Port(v string) *HTMLArea {
+	e.a["port"] = v
+	return e
+}
+
+// Pathname sets the element's "pathname" attribute
+func (e *HTMLArea) Pathname(v string) *HTMLArea {
+	e.a["pathname"] = v
+	return e
+}
+
+// Search sets the element's "search" attribute
+func (e *HTMLArea) Search(v string) *HTMLArea {
+	e.a["search"] = v
+	return e
+}
+
+// Hash sets the element's "hash" attribute
+func (e *HTMLArea) Hash(v string) *HTMLArea {
+	e.a["hash"] = v
 	return e
 }

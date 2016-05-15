@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLFieldSet represents HTML <fieldset> tag
 type HTMLFieldSet struct {
@@ -15,14 +15,21 @@ func FieldSet() *HTMLFieldSet {
 
 // S sets the element's CSS properties
 func (e *HTMLFieldSet) S(style StyleMap) *HTMLFieldSet {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLFieldSet) Key(key interface{}) *HTMLFieldSet {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLFieldSet) Ref(dest *DOMElement) *HTMLFieldSet {
+	e.ref = dest
 	return e
 }
 

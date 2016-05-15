@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLKeygen represents HTML <keygen> tag
 type HTMLKeygen struct {
@@ -15,14 +15,21 @@ func Keygen() *HTMLKeygen {
 
 // S sets the element's CSS properties
 func (e *HTMLKeygen) S(style StyleMap) *HTMLKeygen {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLKeygen) Key(key interface{}) *HTMLKeygen {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLKeygen) Ref(dest *DOMElement) *HTMLKeygen {
+	e.ref = dest
 	return e
 }
 

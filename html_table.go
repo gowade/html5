@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLTable represents HTML <table> tag
 type HTMLTable struct {
@@ -15,14 +15,21 @@ func Table() *HTMLTable {
 
 // S sets the element's CSS properties
 func (e *HTMLTable) S(style StyleMap) *HTMLTable {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLTable) Key(key interface{}) *HTMLTable {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLTable) Ref(dest *DOMElement) *HTMLTable {
+	e.ref = dest
 	return e
 }
 

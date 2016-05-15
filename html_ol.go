@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLOL represents HTML <ol> tag
 type HTMLOL struct {
@@ -15,14 +15,21 @@ func OL() *HTMLOL {
 
 // S sets the element's CSS properties
 func (e *HTMLOL) S(style StyleMap) *HTMLOL {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLOL) Key(key interface{}) *HTMLOL {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLOL) Ref(dest *DOMElement) *HTMLOL {
+	e.ref = dest
 	return e
 }
 

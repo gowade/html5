@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLApplet represents HTML <applet> tag
 type HTMLApplet struct {
@@ -15,14 +15,21 @@ func Applet() *HTMLApplet {
 
 // S sets the element's CSS properties
 func (e *HTMLApplet) S(style StyleMap) *HTMLApplet {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLApplet) Key(key interface{}) *HTMLApplet {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLApplet) Ref(dest *DOMElement) *HTMLApplet {
+	e.ref = dest
 	return e
 }
 

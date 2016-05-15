@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLQuote represents HTML <quote> tag
 type HTMLQuote struct {
@@ -15,14 +15,21 @@ func Quote() *HTMLQuote {
 
 // S sets the element's CSS properties
 func (e *HTMLQuote) S(style StyleMap) *HTMLQuote {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLQuote) Key(key interface{}) *HTMLQuote {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLQuote) Ref(dest *DOMElement) *HTMLQuote {
+	e.ref = dest
 	return e
 }
 

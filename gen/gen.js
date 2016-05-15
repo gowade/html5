@@ -15,9 +15,17 @@ var tagMap = {
 
 var goTypeMap = {
     "DOMString": "string", 
+    "USVString": "string", 
     "unsigned long": "int",
     "long": "int",
     "boolean": "bool",
+}
+
+function toGoType(typeName) {
+    if (_.endsWith(typeName, "EventHandler")) {
+        return "Action";
+    }
+    return goTypeMap[typeName]
 }
 
 function mapTag(name) {
@@ -39,10 +47,22 @@ function parse(file) {
     var ifaces = {};
     var emptyTags = [];
 
-    _.map(tree, function(iface) {
-        if (iface.type != "interface") {
+    _.each(tree, function(item) {
+        if (item.type == "implements") {
+            if (ifaces[item.target]) {
+                if (!ifaces[item.target].impls) {
+                    ifaces[item.target].impls = []
+                }
+                ifaces[item.target].impls.push(item.implements);
+            }
             return;
         }
+
+        if (item.type != "interface") {
+            return;
+        }
+
+        iface = item
 
         if (iface.partial) {
             if (ifaces[iface.name]) {
@@ -53,30 +73,49 @@ function parse(file) {
         }
 
         iface.tagType = mapTag(iface.name);
+        if (iface.tagType) {
+            iface.htmlTag = iface.tagType.toLowerCase();
+            iface.privType = "HTML" + iface.tagType;
+        }
+
+        ifaces[iface.name] = iface
+    })
+
+    function memberMap(members) {
+        return _.zipObject(_.map(members, "name"), members)
+    }
+
+    _.forOwn(ifaces, function(iface) {
         if (!iface.tagType) {
             return;
         }
 
-        iface.htmlTag = iface.tagType.toLowerCase();
-        iface.privType = "HTML" + iface.tagType;
-        ifaces[iface.name] = iface
-    })
-
-    function parentRecursive(iface, fn, pp=".") {
-        fn(iface, pp);
-        if (iface.parentIface) {
-            parentRecursive(iface.parentIface, fn, pp + "p.");      
-        }
-    }
-
-    _.forOwn(ifaces, function(iface) {
+        iface.allMembers = memberMap(iface.members);
         iface.parentIface = null;
         if (iface.inheritance) {
             iface.parentIface = ifaces[iface.inheritance];
+            _.defaults(iface.allMembers, memberMap(iface.parentIface.members));
         }
+    
+        _.each(iface.impls, function(implName) {
+            var im = ifaces[implName];
+            if (!im) {
+                return;
+            }
+
+            if (_.includes(implName, "Event") && iface.tagType != "Element") {
+                return;
+            }
+
+            _.defaults(iface.allMembers, memberMap(im.members));
+        })
     })
 
     _.forOwn(ifaces, function(iface) {
+        if (!iface.tagType) {
+            return;
+        }
+
         if (iface.parentIface &&
                 iface.parentIface.tagType == "Element" && iface.members.length == 0) {
 
@@ -85,8 +124,7 @@ function parse(file) {
         }
 
         iface._ = _;
-        iface.goTypeMap = goTypeMap;
-        iface.parentRecursive = parentRecursive;
+        iface.toGoType = toGoType;
         iface.toGoMethodName = function(name) {
             switch (name) {
             case "id":

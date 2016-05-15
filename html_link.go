@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLLink represents HTML <link> tag
 type HTMLLink struct {
@@ -15,14 +15,21 @@ func Link() *HTMLLink {
 
 // S sets the element's CSS properties
 func (e *HTMLLink) S(style StyleMap) *HTMLLink {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLLink) Key(key interface{}) *HTMLLink {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLLink) Ref(dest *DOMElement) *HTMLLink {
+	e.ref = dest
 	return e
 }
 

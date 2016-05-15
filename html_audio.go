@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLAudio represents HTML <audio> tag
 type HTMLAudio struct {
@@ -15,14 +15,21 @@ func Audio() *HTMLAudio {
 
 // S sets the element's CSS properties
 func (e *HTMLAudio) S(style StyleMap) *HTMLAudio {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLAudio) Key(key interface{}) *HTMLAudio {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLAudio) Ref(dest *DOMElement) *HTMLAudio {
+	e.ref = dest
 	return e
 }
 
@@ -90,88 +97,6 @@ func (e *HTMLAudio) DefaultMuted(v bool) *HTMLAudio {
 		e.a["defaultmuted"] = ""
 	} else {
 		delete(e.a, "defaultmuted")
-	}
-	return e
-}
-
-// ID sets the element's "id" attribute
-func (e *HTMLAudio) ID(v string) *HTMLAudio {
-	e.a["id"] = v
-	return e
-}
-
-// Class sets the element's "class" attribute
-func (e *HTMLAudio) Class(v string) *HTMLAudio {
-	e.a["class"] = v
-	return e
-}
-
-// Title sets the element's "title" attribute
-func (e *HTMLAudio) Title(v string) *HTMLAudio {
-	e.a["title"] = v
-	return e
-}
-
-// Lang sets the element's "lang" attribute
-func (e *HTMLAudio) Lang(v string) *HTMLAudio {
-	e.a["lang"] = v
-	return e
-}
-
-// Translate sets the element's "translate" attribute
-func (e *HTMLAudio) Translate(v bool) *HTMLAudio {
-	if v {
-		e.a["translate"] = ""
-	} else {
-		delete(e.a, "translate")
-	}
-	return e
-}
-
-// Dir sets the element's "dir" attribute
-func (e *HTMLAudio) Dir(v string) *HTMLAudio {
-	e.a["dir"] = v
-	return e
-}
-
-// Hidden sets the element's "hidden" attribute
-func (e *HTMLAudio) Hidden(v bool) *HTMLAudio {
-	if v {
-		e.a["hidden"] = ""
-	} else {
-		delete(e.a, "hidden")
-	}
-	return e
-}
-
-// TabIndex sets the element's "tabindex" attribute
-func (e *HTMLAudio) TabIndex(v int) *HTMLAudio {
-	e.a["tabindex"] = v
-	return e
-}
-
-// AccessKey sets the element's "accesskey" attribute
-func (e *HTMLAudio) AccessKey(v string) *HTMLAudio {
-	e.a["accesskey"] = v
-	return e
-}
-
-// Draggable sets the element's "draggable" attribute
-func (e *HTMLAudio) Draggable(v bool) *HTMLAudio {
-	if v {
-		e.a["draggable"] = ""
-	} else {
-		delete(e.a, "draggable")
-	}
-	return e
-}
-
-// Spellcheck sets the element's "spellcheck" attribute
-func (e *HTMLAudio) Spellcheck(v bool) *HTMLAudio {
-	if v {
-		e.a["spellcheck"] = ""
-	} else {
-		delete(e.a, "spellcheck")
 	}
 	return e
 }

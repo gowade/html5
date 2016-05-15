@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLLegend represents HTML <legend> tag
 type HTMLLegend struct {
@@ -15,14 +15,21 @@ func Legend() *HTMLLegend {
 
 // S sets the element's CSS properties
 func (e *HTMLLegend) S(style StyleMap) *HTMLLegend {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLLegend) Key(key interface{}) *HTMLLegend {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLLegend) Ref(dest *DOMElement) *HTMLLegend {
+	e.ref = dest
 	return e
 }
 

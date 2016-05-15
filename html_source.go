@@ -1,4 +1,4 @@
-package h
+package html5
 
 // HTMLSource represents HTML <source> tag
 type HTMLSource struct {
@@ -15,14 +15,21 @@ func Source() *HTMLSource {
 
 // S sets the element's CSS properties
 func (e *HTMLSource) S(style StyleMap) *HTMLSource {
-	e.htmlElement.S(style)
-	return
+	e.HTMLElement.S(style)
+	return e
 }
 
 // Key sets virtual dom's special property to instruct the diffing mechanism
 // to reorder the node instead of replacing it
 func (e *HTMLSource) Key(key interface{}) *HTMLSource {
 	e.key = F(key)
+	return e
+}
+
+// Ref marks the dest pointer to receive the real DOM element on render.
+// Useful for getting live value of an input element, for example.
+func (e *HTMLSource) Ref(dest *DOMElement) *HTMLSource {
+	e.ref = dest
 	return e
 }
 
